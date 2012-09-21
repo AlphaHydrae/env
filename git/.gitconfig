@@ -1,0 +1,43 @@
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+[alias]
+	d = diff
+	dc = diff --cached
+	s = status
+	sta = status
+	a = add .
+	ap = add --patch
+	b = branch
+	ba = branch -a
+	c = checkout
+	m = merge --no-ff
+	dev = checkout develop
+	develop = checkout develop
+	mas = checkout master
+	master = checkout master
+
+	# miscellaneous
+	g = log --oneline --graph --decorate
+	gs = log --oneline --graph --decorate -7
+	w = rebase -i
+	war = rebase -i
+
+	# stage new, modified and removed files
+	wip = !"git add -A; git ls-files --deleted -z | xargs -0 git rm"
+
+	# set upstream to origin/<branch> or <remote>/<branch>
+	#    sup <branch>
+	#    sup <remote> <branch>
+	sup = "!f() { if [ -z $1 ]; then echo 'Branch name required.' 1>&2; return 1; fi; if [ -z $2 ]; then set origin $1; fi; git branch --set-upstream $2 $1/$2; }; f"
+
+	# create branch with upstream set to origin/<branch> or <remote>/<branch>
+	#    bru <branch>
+	#    bru <remote> <branch>
+	bru = "!f() { if [ -z $1 ]; then echo 'Branch name required.' 1>&2; return 1; fi; if [ -z $2 ]; then set origin $1; fi; git checkout -b $2 $1/$2; }; f"
+[core]
+	excludesfile = ~/.gitignore
+[include]
+	path = .gitprivate
