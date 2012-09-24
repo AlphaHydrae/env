@@ -1,3 +1,5 @@
+call pathogen#infect()
+
 set number
 set backspace=2
 set autoindent
