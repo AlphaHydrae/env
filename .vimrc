@@ -8,6 +8,10 @@ com GG NERDTree
 
 let mapleader = ","
 
+" delete and backspace
+set t_kD=
+set t_kb=
+
 " auto-completion
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType ruby,eruby set tabstop=2|set shiftwidth=2|set expandtab
@@ -21,6 +25,6 @@ set completeopt=longest,menuone
 let g:CommandTMaxHeight=10
 
 " mouse scrolling with mouseterm
-if has("mouse")
-  set mouse=a
-endif
+" if has("mouse")
+set mouse=a
+" endif
