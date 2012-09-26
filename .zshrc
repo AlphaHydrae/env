@@ -463,7 +463,7 @@ if [ ! -n "$INHERIT_ENV" ]; then
 	alias mkdir='nocorrect mkdir'
 	alias mv='nocorrect mv'
 	alias rj='nocorrect rj'
-
+	alias git='nocorrect git'
 
 	alias v=less
 	alias vs='less -S'
