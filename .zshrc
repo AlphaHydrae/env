@@ -338,7 +338,9 @@ if [ ! -n "$INHERIT_ENV" ]; then
 	compdef _functions reload
 
 	# ls
-	alias ls='command ls -Gv'
+	if [[ $( uname ) == 'Darwin' ]]; then
+		alias ls='command ls -Gv'
+	fi
 
 
 	# jeez I'm lazy ...
