@@ -8,9 +8,9 @@ com GG NERDTree
 
 let mapleader = ","
 
-" delete and backspace
-set t_kD=
-set t_kb=
+" delete key
+imap  <Del>
+nmap  x
 
 " auto-completion
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
