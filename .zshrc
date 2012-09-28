@@ -340,6 +340,8 @@ if [ ! -n "$INHERIT_ENV" ]; then
 	# ls
 	if [[ $( uname ) == 'Darwin' ]]; then
 		alias ls='command ls -Gv'
+	else
+		alias ls='command ls --color=auto'
 	fi
 
 
