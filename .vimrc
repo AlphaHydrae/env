@@ -1,3 +1,5 @@
+
+" Plugins in ~/.vim/bundle
 call pathogen#infect()
 
 set number
@@ -20,10 +22,10 @@ au BufNewFile,BufRead *.hamlc set filetype=haml
 au BufNewFile,BufRead *.god set filetype=ruby
 set completeopt=longest,menuone
 
-" command-t
+" Command-T
 let g:CommandTMaxHeight=10
 
 " mouse scrolling with mouseterm
-" if has("mouse")
-set mouse=a
-" endif
+if has("mouse")
+  set mouse=a
+endif
