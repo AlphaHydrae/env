@@ -564,15 +564,13 @@ if [ ! -n "$INHERIT_ENV" ]; then
 	  svn status|grep "\!"|sed 's/\! *//g;/^tmp/d;/^log/d'|xargs svn delete
 	}
 
-	playground () {
-	  cd "$PLAYGROUND"
-	}
-
 	# Aliases
 	alias smn="summon"
 	alias vi="vim"
 	alias less="less -R"
 	alias pg="playground"
+	alias vimtree="vim -c NERDTree"
+	alias vimt="vimtree"
 
 	# color diffs for SVN 
 	function svncdiff () {
