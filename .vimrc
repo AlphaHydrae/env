@@ -6,9 +6,12 @@ set number
 set backspace=2
 set autoindent
 syntax on
-com GG NERDTree
 
 let mapleader = ","
+
+" NERD Tree
+com GG NERDTree
+let NERDTreeShowHidden=1
 
 " delete key
 imap  <Del>
