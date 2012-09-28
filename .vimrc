@@ -10,7 +10,6 @@ let mapleader = ","
 
 " delete key
 imap  <Del>
-nmap  x
 
 " auto-completion
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
