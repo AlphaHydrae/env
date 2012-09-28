@@ -1,10 +1,10 @@
 
-install "git://github.com/tpope/vim-fugitive.git"
-install "git://github.com/tpope/vim-rails.git"
-install "git://github.com/ervandew/supertab.git"
-install "git://github.com/scrooloose/nerdtree.git"
+add "git://github.com/tpope/vim-fugitive.git"
+add "git://github.com/tpope/vim-rails.git"
+add "git://github.com/ervandew/supertab.git"
+add "git://github.com/scrooloose/nerdtree.git"
 
-install "git://github.com/wincent/Command-T.git" do
+add "git://github.com/wincent/Command-T.git" do
   Dir.chdir "ruby/command-t"
   raise "$VIM_RUBY must be set when RVM is enabled" if Which.which("rvm") and !ENV['VIM_RUBY']
   bin = ENV['VIM_RUBY'] || 'ruby'
