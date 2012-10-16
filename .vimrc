@@ -21,8 +21,10 @@ autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType ruby,eruby set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType js,javascript set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType haml,hamlc,sass set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType markdown set tabstop=2|set shiftwidth=2|set expandtab
 au BufNewFile,BufRead *.hamlc set filetype=haml
 au BufNewFile,BufRead *.god set filetype=ruby
+au BufNewFile,BufRead *.md set filetype=markdown
 set completeopt=longest,menuone
 
 " Command-T
