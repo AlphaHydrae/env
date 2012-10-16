@@ -3,6 +3,7 @@ add "git://github.com/tpope/vim-fugitive.git"
 add "git://github.com/tpope/vim-rails.git"
 add "git://github.com/ervandew/supertab.git"
 add "git://github.com/scrooloose/nerdtree.git"
+add "git://github.com/tpope/vim-markdown.git"
 
 add "git://github.com/wincent/Command-T.git" do
   Dir.chdir "ruby/command-t"
