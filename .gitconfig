@@ -41,3 +41,5 @@
 	excludesfile = ~/.gitignore
 [include]
 	path = .gitprivate
+[push]
+	default = simple
