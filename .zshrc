@@ -526,6 +526,7 @@ if [ ! -n "$INHERIT_ENV" ]; then
 
 	# Disable autocorrect
 	alias rvm='nocorrect rvm'
+	alias vim='nocorrect vim'
 
 	# Functions
 	summon () {
