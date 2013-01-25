@@ -19,9 +19,14 @@
 	mas = checkout master
 	master = checkout master
 
-	# miscellaneous
+	# commit graph (current ref)
 	g = log --oneline --graph --decorate
+	# commit graph (all refs)
+	ga = log --oneline --graph --decorate --all
+	# short commit graph
 	gs = log --oneline --graph --decorate -7
+
+	# miscellaneous
 	w = rebase -i
 	war = rebase -i
 
