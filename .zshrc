@@ -540,9 +540,14 @@ if [ ! -n "$INHERIT_ENV" ]; then
 	# GNU Screen IDE
 	scide () {
 
-	  if [[ $# -lt 1 ]]; then
-	    echo "$0 requires the name of the project as argument." 1>&2
+	  if [[ $# -lt 1 ]] && [[ ! -f ".screenrc" ]] && [[ "$( pwd )" != "$HOME" ]]; then
+	    echo "$0 requires the name of the project as argument or a .screenrc file in the current working directory." 1>&2
 	    return 1
+	  fi
+
+	  if [[ $# -lt 1 ]] && [[ -f ".screenrc" ]] && [[ "$( pwd )" != "$HOME" ]]; then
+            screen -U -c .screenrc
+	    return 0
 	  fi
 
 	  if [[ ! -f "$HOME/Projects/$1/.screenrc" ]]; then
@@ -550,7 +555,7 @@ if [ ! -n "$INHERIT_ENV" ]; then
 	    return 1
 	  fi
 
-	  cd "$HOME/Projects/$1" && screen -c .screenrc
+	  cd "$HOME/Projects/$1" && screen -U -c .screenrc
 	}
 
 	findit () {
