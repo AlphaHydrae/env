@@ -147,7 +147,7 @@ function prompt_build_rvm {
   prompt_rvm=
   prompt_rvm_width=0
 
-  if [[ ! -f .rvmrc ]] || [[ "$( pwd )" == "$HOME" ]]; then
+  if [[ ! -f .rvmrc ]] && [[ ! -f .ruby-version ]] || [[ "$( pwd )" == "$HOME" ]]; then
     return
   fi
 
