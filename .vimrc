@@ -21,6 +21,9 @@ let mapleader = ","
 " NERD Tree
 com GG NERDTree
 let NERDTreeShowHidden=1
+" Open/Close with `Shift-T o` and `Shift-T c`.
+nmap <S-T>o :NERDTree<Enter>
+nmap <S-T>c :NERDTreeClose<Enter>
 
 " delete key
 imap  <Del>
