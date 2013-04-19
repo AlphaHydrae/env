@@ -593,6 +593,9 @@ if [ ! -n "$INHERIT_ENV" ]; then
 
 	alias vcurl="curl -v -w '\n\nTotal time: %{time_total}'"
 
+  export LC_ALL="en_US.utf-8"
+  export LANG="$LC_ALL"
+
 	source ~/.zshconfig
 
 # if for rvm
