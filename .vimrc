@@ -1,6 +1,6 @@
 
 " Plugins in ~/.vim/bundle
-call pathogen#infect()
+execute pathogen#infect()
 
 set number
 set backspace=2
