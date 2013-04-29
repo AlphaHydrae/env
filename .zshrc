@@ -581,6 +581,7 @@ if [ ! -n "$INHERIT_ENV" ]; then
 	alias pg="playground"
 	alias vimtree="vim -c NERDTree"
 	alias vimt="vimtree"
+  alias git="hub"
 
 	# color diffs for SVN 
 	function svncdiff () {
