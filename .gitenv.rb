@@ -1,7 +1,8 @@
 
 repo "~/Projects/env" do
-  symlink dot_files
-  symlink('prompt_adam2_setup').to('/opt/local/share/zsh/5.0.2/functions')
+  symlink dot_files.except('.zshconfig')
+  copy('.zshconfig').once
+  copy('prompt_adam2_setup').to('/opt/local/share/zsh/5.0.2/functions')
 end
 
 from "~/Safebox/Config" do
