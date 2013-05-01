@@ -558,14 +558,6 @@ if [ ! -n "$INHERIT_ENV" ]; then
 	  cd "$HOME/Projects/$1" && screen -U -c .screenrc
 	}
 
-	findit () {
-	  if [[ $# -eq 0 ]]; then
-	    echo "$0 requires an argument"
-	    return 1
-	  fi
-	  find . \! -path "*/.svn/*" \! -path "*/.git/*" \! -path "*/tmp/*" \! -path "*/log/*" \! -path "*/doc/*" \! -path "*/.hg/*" \! -path "*/node_modules/*" \! -path "*/vendor/plugins/*" \! -name "*.zip" \! -name "*.sqlite3" \! -name "*.gif" \! -name "*.sql" \! -name "*.jpg" \! -name "*.psd" \! -name "*.png" \! -name "jquery.js" \! -name "jqueryui.js" \! -name "*.jar" \! -name "*.swp" -exec grep -n "$( echo $@ )" /dev/null {} \;
-	}
-
 	svn_add_new () {
 	  svn status|grep "?"|sed 's/\? *//g;/^tmp/d;/^log/d'|xargs svn add
 	}
