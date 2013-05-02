@@ -13,6 +13,10 @@
 	b = branch
 	ba = branch -a
 	c = checkout
+  cb = checkout -b
+  f = fetch
+  fp = fetch --prune
+  fa = fetch --all --prune
 	m = merge --no-ff
 	dev = checkout develop
 	develop = checkout develop
