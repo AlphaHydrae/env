@@ -510,27 +510,6 @@ if [ ! -n "$INHERIT_ENV" ]; then
 	  fi
 	}
 
-	# GNU Screen IDE
-	scide () {
-
-	  if [[ $# -lt 1 ]] && [[ ! -f ".screenrc" ]] && [[ "$( pwd )" != "$HOME" ]]; then
-	    echo "$0 requires the name of the project as argument or a .screenrc file in the current working directory." 1>&2
-	    return 1
-	  fi
-
-	  if [[ $# -lt 1 ]] && [[ -f ".screenrc" ]] && [[ "$( pwd )" != "$HOME" ]]; then
-            screen -U -c .screenrc
-	    return 0
-	  fi
-
-	  if [[ ! -f "$HOME/Projects/$1/.screenrc" ]]; then
-	    echo "Missing screen configuration $HOME/Projects/$1/.screenrc" 1>&2
-	    return 1
-	  fi
-
-	  cd "$HOME/Projects/$1" && screen -U -c .screenrc
-	}
-
 	svn_add_new () {
 	  svn status|grep "?"|sed 's/\? *//g;/^tmp/d;/^log/d'|xargs svn add
 	}
