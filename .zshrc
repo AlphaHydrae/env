@@ -479,44 +479,17 @@ if [ ! -n "$INHERIT_ENV" ]; then
 	alias bz=bzip2
 	alias buz=bunzip2
 
-	# Keys
-	bindkey -v # vim key bindings
-	bindkey '^d' delete-char # delete key
-	bindkey '^?' backward-delete-char # backspace key
-	#bindkey -s '^X^Z' '%-^M'
-	#bindkey -s '^[H' ' --help'
-	#bindkey '^[e' expand-cmd-path
-	#bindkey '^[^I'   reverse-menu-complete
-	#bindkey '^[[Z' reverse-menu-complete # shift-tab
-	#bindkey '^X^N'   accept-and-infer-next-history
-	#bindkey '^[p'    history-beginning-search-backward
-	#bindkey '^[n'    history-beginning-search-forward
-	#bindkey '^[P'    history-beginning-search-backward
-	#bindkey '^[N'    history-beginning-search-forward
-	#bindkey '^w'     kill-region-or-backward-word
-	#bindkey '^[^W'   kill-region-or-backward-big-word
-	#bindkey '^[T'    transpose-big-words
-	#bindkey '^I'     complete-word
-	#bindkey '^Xi'    incremental-complete-word
-	#bindkey '^F'     magic-forward-char
-	#bindkey '^[f'    magic-forward-word
-	#bindkey '^[B'    backward-to-space
-	#bindkey '^[F'    forward-to-space
-	#bindkey '^[^b'   backward-to-/
-	#bindkey '^[^f'   forward-to-/
-	#bindkey '^[^[[C' emacs-forward-word
-	#bindkey '^[^[[D' emacs-backward-word
-	#bindkey '^[D'  kill-big-word
-
-	#bindkey '^v' backward-word
-	#bindkey '^b' forward-word
-	#bindkey '^e' end-of-line
+  # Keys
+  bindkey -v # vim key bindings
+  bindkey '^d' delete-char # delete key
+  bindkey '^?' backward-delete-char # backspace key
+  bindkey "^[[3~" delete-char #delete key for iterm 2
+  bindkey "^[3;5~" delete-char #delete key for iterm 2
 
 	# No autologout in screen and such
 	if [[ "${TERM}" == ([Ex]term*|dtterm|screen*) ]]; then
 	  unset TMOUT
 	fi
-
 
 	which check_hist_size >&/dev/null && check_hist_size
 
