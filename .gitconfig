@@ -1,54 +1,54 @@
 [color]
-	diff = auto
-	status = auto
-	branch = auto
-	interactive = auto
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
 [alias]
-	d = diff
-	dc = diff --cached
-	s = status
-	sta = status
-	a = add .
-	ap = add --patch
-	b = branch
-	ba = branch -a
-	c = checkout
+  d = diff
+  dc = diff --cached
+  s = status
+  sta = status
+  a = add .
+  ap = add --patch
+  b = branch
+  ba = branch -a
+  c = checkout
   cb = checkout -b
   f = fetch
   fp = fetch --prune
   fa = fetch --all --prune
-	m = merge --no-ff
-	dev = checkout develop
-	develop = checkout develop
-	mas = checkout master
-	master = checkout master
+  m = merge --no-ff
+  dev = checkout develop
+  develop = checkout develop
+  mas = checkout master
+  master = checkout master
 
-	# commit graph (current ref)
-	g = log --oneline --graph --decorate
-	# commit graph (all refs)
-	ga = log --oneline --graph --decorate --all
-	# short commit graph
-	gs = log --oneline --graph --decorate -7
+  # commit graph (current ref)
+  g = log --oneline --graph --decorate
+  # commit graph (all refs)
+  ga = log --oneline --graph --decorate --all
+  # short commit graph
+  gs = log --oneline --graph --decorate -7
 
-	# miscellaneous
-	w = rebase -i
-	war = rebase -i
+  # miscellaneous
+  w = rebase -i
+  war = rebase -i
 
-	# stage new, modified and removed files
-	wip = !"git add -A; git ls-files --deleted -z | xargs -0 git rm"
+  # stage new, modified and removed files
+  wip = !"git add -A; git ls-files --deleted -z | xargs -0 git rm"
 
-	# set upstream to origin/<branch> or <remote>/<branch>
-	#    sup <branch>
-	#    sup <remote> <branch>
-	sup = "!f() { if [ -z $1 ]; then echo 'Branch name required.' 1>&2; return 1; fi; if [ -z $2 ]; then set origin $1; fi; git branch --set-upstream $2 $1/$2; }; f"
+  # set upstream to origin/<branch> or <remote>/<branch>
+  #    sup <branch>
+  #    sup <remote> <branch>
+  sup = "!f() { if [ -z $1 ]; then echo 'Branch name required.' 1>&2; return 1; fi; if [ -z $2 ]; then set origin $1; fi; git branch --set-upstream $2 $1/$2; }; f"
 
-	# create branch with upstream set to origin/<branch> or <remote>/<branch>
-	#    bru <branch>
-	#    bru <remote> <branch>
-	bru = "!f() { if [ -z $1 ]; then echo 'Branch name required.' 1>&2; return 1; fi; if [ -z $2 ]; then set origin $1; fi; git checkout -b $2 $1/$2; }; f"
+  # create branch with upstream set to origin/<branch> or <remote>/<branch>
+  #    bru <branch>
+  #    bru <remote> <branch>
+  bru = "!f() { if [ -z $1 ]; then echo 'Branch name required.' 1>&2; return 1; fi; if [ -z $2 ]; then set origin $1; fi; git checkout -b $2 $1/$2; }; f"
 [core]
-	excludesfile = ~/.gitignore
+  excludesfile = ~/.gitignore
 [include]
-	path = .gitprivate
+  path = .gitprivate
 [push]
-	default = simple
+  default = simple
