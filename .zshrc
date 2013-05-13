@@ -460,15 +460,6 @@ if [ ! -n "$INHERIT_ENV" ]; then
     cx
   }
 
-
-  alias man='nocorrect man'
-  #alias mysql='nocorrect mysql'
-  #alias mysqlshow='nocorrect mysqlshow'
-  alias mkdir='nocorrect mkdir'
-  alias mv='nocorrect mv'
-  alias rj='nocorrect rj'
-  alias git='nocorrect git'
-
   alias v=less
   alias vs='less -S'
 
@@ -498,6 +489,11 @@ if [ ! -n "$INHERIT_ENV" ]; then
   #
 
   # Disable autocorrect
+  alias man='nocorrect man'
+  alias mkdir='nocorrect mkdir'
+  alias mv='nocorrect mv'
+  alias rj='nocorrect rj'
+  alias git='nocorrect git'
   alias rvm='nocorrect rvm'
   alias vim='nocorrect vim'
 
