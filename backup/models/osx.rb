@@ -36,16 +36,21 @@ Backup::Model.new(:osx, 'OS X Machine Configuration') do
 
   # System config, daemons, apps
   archive :system do |a|
+
     a.use_sudo
+
+    a.root "/tmp/installation"
+    a.add "apps.txt"
+
     a.add "/etc/bashrc"
     a.add "/etc/hosts"
     a.add "/etc/profile"
     a.add "/etc/shells"
     a.add "/etc/sshd_config"
     a.add "/etc/zshenv"
+
     a.add "/Library/LaunchAgents"
     a.add "/Library/LaunchDaemons"
-    a.add "/tmp/installation/apps.txt"
   end
 
   # MacPorts
@@ -54,8 +59,11 @@ Backup::Model.new(:osx, 'OS X Machine Configuration') do
     archive :macports do |a|
 
       a.use_sudo
+
+      a.root "/tmp/installation"
+      a.add "macports.txt"
+
       a.add "/opt/local/etc"
-      a.add "/tmp/installation/macports.txt"
 
       # PostgreSQL
       if `which psql`.match /\/opt\/local/
@@ -67,18 +75,18 @@ Backup::Model.new(:osx, 'OS X Machine Configuration') do
     end
   end
 
-  # User daemons, home
+  # User backup config, daemons, home
   archive :user do |a|
-    a.add File.expand_path('~/Library/LaunchAgents')
-    a.add "/tmp/installation/home.txt"
-  end
 
-  # Backup config & state
-  archive :backup do |a|
     a.root File.expand_path("~")
-    a.add File.expand_path("~/Backup/config.rb")
-    a.add File.expand_path("~/Backup/data")
-    a.add File.expand_path("~/Backup/models")
+
+    a.add "Backup/config.rb"
+    a.add "Backup/data" if File.directory? File.expand_path("~/Backup/data")
+    a.add "Backup/models"
+
+    a.add "Library/LaunchAgents"
+
+    a.add "/tmp/installation/home.txt"
   end
 
   compress_with Gzip
