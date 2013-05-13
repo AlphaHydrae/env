@@ -81,8 +81,9 @@ Backup::Model.new(:osx, 'OS X Machine Configuration') do
     a.root File.expand_path("~")
 
     a.add "Backup/config.rb"
-    a.add "Backup/data" if File.directory? File.expand_path("~/Backup/data")
-    a.add "Backup/models"
+    %w(data models schedules).each do |name|
+      a.add "Backup/#{name}" if File.directory? File.expand_path("~/Backup/#{name}")
+    end
 
     a.add "Library/LaunchAgents"
 
