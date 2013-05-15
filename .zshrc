@@ -537,7 +537,7 @@ if [ ! -n "$INHERIT_ENV" ]; then
   export LC_ALL="en_US.utf-8"
   export LANG="$LC_ALL"
 
-  [ -f ~/.zshprivate ] && source ~/.zshprivate
+  [ -r ~/.zshprivate ] && source ~/.zshprivate
   [ -f ~/.zshconfig ] && source ~/.zshconfig
 
 # if for rvm
