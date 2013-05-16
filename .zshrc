@@ -506,6 +506,14 @@ if [ ! -n "$INHERIT_ENV" ]; then
     fi
   }
 
+  psef () {
+    if (( $# >= 1 )); then
+      ps -ef|grep "$*"
+    else
+      ps -ef
+    fi
+  }
+
   svn_add_new () {
     svn status|grep "?"|sed 's/\? *//g;/^tmp/d;/^log/d'|xargs svn add
   }
