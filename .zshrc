@@ -540,7 +540,7 @@ if [ ! -n "$INHERIT_ENV" ]; then
     fi
   }
 
-  alias vcurl="curl -v -w '\n\nTotal time: %{time_total}'"
+  alias vcurl="curl -vvv -w '\n\nTotal time: %{time_total}'"
 
   export LC_ALL="en_US.utf-8"
   export LANG="$LC_ALL"
