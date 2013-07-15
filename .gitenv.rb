@@ -7,7 +7,8 @@ repo "~/Projects/env" do
 end
 
 from "~/Safebox/Config" do
-  symlink dot_files
+  symlink dot_files.except('.env')
+  copy('.env').once
   symlink('config').from('.ssh').to('.ssh')
   symlink('settings.xml').from('.m2').to('.m2') if File.directory?(File.expand_path('~/.m2'))
 end
