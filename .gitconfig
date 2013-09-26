@@ -23,6 +23,9 @@
   mas = checkout master
   master = checkout master
 
+  cp = cherry-pick
+  cpn = cherry-pick -n
+
   # commit graph (current ref)
   g = log --oneline --graph --decorate
   # commit graph (all refs)
