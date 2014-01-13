@@ -547,6 +547,7 @@ if [ ! -n "$INHERIT_ENV" ]; then
 
   [ -r ~/.zshprivate ] && source ~/.zshprivate
   [ -f ~/.zshconfig ] && source ~/.zshconfig
+  which direnv &>/dev/null && eval "$(direnv hook zsh)"
 
 # if for rvm
 fi
