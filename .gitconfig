@@ -9,6 +9,7 @@
   s = status
   sta = status
   a = add .
+  ai = add --interactive
   ap = add --patch
   b = branch
   ba = branch -a
@@ -17,7 +18,6 @@
   f = fetch
   fp = fetch --prune
   fa = fetch --all --prune
-  m = merge --no-ff
   dev = checkout develop
   develop = checkout develop
   mas = checkout master
@@ -30,6 +30,8 @@
   g = log --oneline --graph --decorate
   # commit graph (all refs)
   ga = log --oneline --graph --decorate --all
+  # commit graph simplified by decoration
+  gas = log --oneline --graph --decorate --all --simplify-by-decoration
   # short commit graph
   gs = log --oneline --graph --decorate -7
 
