@@ -496,6 +496,8 @@ if [ ! -n "$INHERIT_ENV" ]; then
   alias git='nocorrect git'
   alias rvm='nocorrect rvm'
   alias vim='nocorrect vim'
+  alias rspec='nocorrect rspec'
+  alias bundle='nocorrect bundle'
 
   # Functions
   summon () {
