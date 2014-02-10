@@ -6,6 +6,7 @@
 [alias]
   d = diff
   dc = diff --cached
+  dn = diff --name-status
   s = status
   sta = status
   a = add .
@@ -26,14 +27,16 @@
   cp = cherry-pick
   cpn = cherry-pick -n
 
-  # commit graph (current ref)
+  lp = log --patch
+
+  # commit graph
   g = log --oneline --graph --decorate
   # commit graph (all refs)
   ga = log --oneline --graph --decorate --all
   # commit graph simplified by decoration
+  gs = log --oneline --graph --decorate --simplify-by-decoration
+  # commit graph simplified by decoration (all refs)
   gas = log --oneline --graph --decorate --all --simplify-by-decoration
-  # short commit graph
-  gs = log --oneline --graph --decorate -7
 
   # miscellaneous
   w = rebase -i
@@ -41,6 +44,9 @@
 
   # stage new, modified and removed files
   wip = !"git add -A; git ls-files --deleted -z | xargs -0 git rm"
+
+  # prune local branches that have been merged (excluding master and the current branch)
+  pl = !"git branch --merged|grep -v "\\*"|grep -v master|xargs -n 1 git branch -d"
 
   # set upstream to origin/<branch> or <remote>/<branch>
   #    sup <branch>
@@ -57,3 +63,5 @@
   path = .gitprivate
 [push]
   default = simple
+[merge]
+	conflictstyle = diff3
