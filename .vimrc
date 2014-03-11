@@ -20,6 +20,7 @@ let mapleader = ","
 
 " NERD Tree
 com GG NERDTree
+com CTF CommandTFlush
 let NERDTreeShowHidden=1
 " Open/Close with `Shift-T o` and `Shift-T c`.
 nmap <S-T>o :NERDTree<Enter>
