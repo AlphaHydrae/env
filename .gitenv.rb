@@ -1,9 +1,12 @@
 
+zsh_version = Dir.entries('/opt/local/share/zsh').select{ |e| e.match /\A\d+\.\d+\.\d+\Z/ }.sort.last
+raise "Could not detect ZSH version" unless zsh_version
+
 repo "~/Projects/env" do
   symlink dot_files.except('.zshconfig', '.bash_profile')
   copy('.zshconfig').once
   copy('.bash_profile').once
-  copy('prompt_adam2_setup').to('/opt/local/share/zsh/5.0.2/functions')
+  copy('prompt_adam2_setup').to("/opt/local/share/zsh/#{zsh_version}/functions")
 end
 
 from "~/Safebox/Config" do
