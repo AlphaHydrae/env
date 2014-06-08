@@ -9,7 +9,7 @@
   dn = diff --name-status
   s = status
   sta = status
-  a = add .
+  a = add --all .
   ai = add --interactive
   ap = add --patch
   b = branch
