@@ -15,5 +15,5 @@ export PROJECT_EDITOR="vim -c NERDTree"
 # Scide
 export SCIDE_AUTO=true
 
-# Ruby for vim plugins
-export VIM_RUBY=/opt/local/bin/ruby1.9
+# Ruby for Command-T
+export VIM_RUBY=/opt/local/bin/ruby1.8

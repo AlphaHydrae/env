@@ -15,5 +15,6 @@ add "git://github.com/wincent/Command-T.git" do
   raise "$VIM_RUBY must be set when RVM is enabled" if Which.which("rvm") and !ENV['VIM_RUBY']
   bin = ENV['VIM_RUBY'] || 'ruby'
   raise "Could not build makefile" unless system "#{bin} extconf.rb"
+  raise "Could not make clean" unless system "make clean"
   raise "Could not make" unless system "make"
 end
