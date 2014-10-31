@@ -23,6 +23,7 @@
   develop = checkout develop
   mas = checkout master
   master = checkout master
+  rh = reset HEAD
 
   cp = cherry-pick
   cpn = cherry-pick -n
