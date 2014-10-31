@@ -9,6 +9,7 @@ add "git://github.com/flazz/vim-colorschemes.git"
 add "git://github.com/godlygeek/tabular.git"
 add "git://github.com/kchmck/vim-coffee-script.git"
 add "git://github.com/wavded/vim-stylus.git"
+add "git://github.com/slim-template/vim-slim.git"
 
 add "git://github.com/wincent/Command-T.git" do
   Dir.chdir "ruby/command-t"
