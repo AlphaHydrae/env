@@ -36,6 +36,7 @@ au BufNewFile,BufRead *.god set filetype=ruby
 au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead *.god set filetype=ruby
 au BufNewFile,BufRead *.god.j2 set filetype=ruby
+au BufNewFile,BufRead *.raml set filetype=yaml
 au BufNewFile,BufRead {config.ru,Capfile,Gemfile,Guardfile,Puppetfile,Rakefile,Thorfile,Vagrantfile} set ft=ruby
 set completeopt=longest,menuone
 
