@@ -1,19 +1,18 @@
 # encoding: utf-8
 require 'dotenv'
-require 'fileutils'
 
 hostname = `hostname`.strip.sub(/\.local/, '').downcase
 Dotenv.load! File.expand_path("~/.env.d/backups.#{hostname}")
 
-##
-# Backup Generated: osx
-# Once configured, you can run the backup with the following command:
 #
-# $ backup perform -t osx [-c <path_to_configuration_file>]
+# $ backup perform -t installation [-c <path_to_configuration_file>]
 #
-Backup::Model.new(:osx, 'OS X Machine Configuration') do
+# For more information about Backup's components, see the documentation at:
+# http://meskyanichi.github.io/backup
+#
+Model.new(:installation, 'Machine configuration') do
 
-  before do |model|
+  before do
 
     FileUtils.mkdir_p "/tmp/installation"
     FileUtils.chmod 0700, "/tmp/installation"
@@ -28,16 +27,14 @@ Backup::Model.new(:osx, 'OS X Machine Configuration') do
     system "ls -la ~ > /tmp/installation/home.txt"
   end
 
-  after do |model|
+  after do
     FileUtils.remove_entry_secure "/tmp/installation"
   end
 
-  split_into_chunks_of 250
+  split_into_chunks_of 100
 
   # System config, daemons, apps
   archive :system do |a|
-
-    a.use_sudo
 
     a.root "/tmp/installation"
     a.add "apps.txt"
@@ -58,56 +55,47 @@ Backup::Model.new(:osx, 'OS X Machine Configuration') do
 
     archive :macports do |a|
 
-      a.use_sudo
-
       a.root "/tmp/installation"
       a.add "macports.txt"
 
       a.add "/opt/local/etc"
 
-      # PostgreSQL
-      if `which psql`.match /\/opt\/local/
-        dir = `echo "select setting from pg_settings where name = 'data_directory';" | psql -t -Upostgres`.strip
-        %w(pg_hba pg_ident postgresql).each do |name|
-          a.add File.join(dir, "#{name}.conf")
-        end
+      %w(DB_CONFIG.example slapd.conf.default slapd.ldif slapd.ldif.default).each do |f|
+        a.exclude File.join "/opt/local/etc/openldap", f
       end
     end
   end
 
   # User backup config, daemons, home
   archive :user do |a|
-
     a.root File.expand_path("~")
-
-    a.add "Backup/config.rb"
-    %w(data models schedules).each do |name|
-      a.add "Backup/#{name}" if File.directory? File.expand_path("~/Backup/#{name}")
-    end
-
     a.add "Library/LaunchAgents"
-
     a.add "/tmp/installation/home.txt"
   end
 
   compress_with Gzip
 
   encrypt_with GPG do |encryption|
-    encryption.mode = :symmetric
-    encryption.passphrase = ENV['BACKUP_PASSWORD'].dup
+
+    encryption.keys = [ ENV['MACHINE_BACKUP_GPG_KEY'] ].inject({}) do |memo,key|
+      memo[key] = `gpg -a --export "#{key}"`
+      memo
+    end
+
+    encryption.recipients = ENV['MACHINE_BACKUP_GPG_KEY']
   end
 
   store_with S3 do |s3|
-    s3.access_key_id     = ENV['BACKUP_S3_ACCESS_KEY_ID'].dup
-    s3.secret_access_key = ENV['BACKUP_S3_SECRET_ACCESS_KEY'].dup
-    s3.region            = ENV['BACKUP_S3_REGION'].dup
-    s3.bucket            = ENV['BACKUP_S3_BUCKET'].dup
-    s3.path              = ENV['BACKUP_S3_PATH'].dup
-    s3.keep              = 100
+    s3.access_key_id     = ENV['MACHINE_BACKUP_S3_ACCESS_KEY_ID'].dup
+    s3.secret_access_key = ENV['MACHINE_BACKUP_S3_SECRET_ACCESS_KEY'].dup
+    s3.region            = ENV['MACHINE_BACKUP_S3_REGION'].dup
+    s3.bucket            = ENV['MACHINE_BACKUP_S3_BUCKET'].dup
+    s3.path              = ENV['MACHINE_BACKUP_S3_PATH'].dup
+    s3.encryption        = :aes256
   end
 
   store_with Local do |local|
     local.path = File.expand_path("~/Transient/Backups")
-    local.keep = 25
+    local.keep = 10
   end
 end
