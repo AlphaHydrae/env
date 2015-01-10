@@ -535,6 +535,7 @@ if [ ! -n "$INHERIT_ENV" ]; then
   alias vimt="vimtree"
   alias git="hub"
   alias vlc="open -n /Applications/VLC.app"
+  alias pub="cat ~/.ssh/id_rsa.pub"
 
   # color diffs for SVN 
   function svncdiff () {
