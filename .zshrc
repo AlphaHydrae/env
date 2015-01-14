@@ -526,17 +526,6 @@ if [ ! -n "$INHERIT_ENV" ]; then
     svn status|grep "\!"|sed 's/\! *//g;/^tmp/d;/^log/d'|xargs svn delete
   }
 
-  # Aliases
-  alias smn="summon"
-  alias vi="vim"
-  alias less="less -R"
-  alias pg="playground"
-  alias vimtree="vim -c NERDTree"
-  alias vimt="vimtree"
-  alias git="hub"
-  alias vlc="open -n /Applications/VLC.app"
-  alias pub="cat ~/.ssh/id_rsa.pub"
-
   # color diffs for SVN 
   function svncdiff () {
     if [ "$1" != "" ]; then
@@ -554,6 +543,17 @@ if [ ! -n "$INHERIT_ENV" ]; then
   [ -r ~/.zshprivate ] && source ~/.zshprivate
   [ -f ~/.zshconfig ] && source ~/.zshconfig
   which direnv &>/dev/null && eval "$(direnv hook zsh)"
+
+  # Aliases
+  alias smn="summon"
+  alias vi="vim"
+  alias less="less -R"
+  alias pg="playground"
+  alias vimtree="vim -c NERDTree"
+  alias vimt="vimtree"
+  alias vlc="open -n /Applications/VLC.app"
+  alias pub="cat ~/.ssh/id_rsa.pub"
+  hash hub 2>/dev/null && alias git="hub"
 
 # if for rvm
 fi
