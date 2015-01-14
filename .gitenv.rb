@@ -1,5 +1,6 @@
 
-zsh_version = Dir.entries('/opt/local/share/zsh').select{ |e| e.match /\A\d+\.\d+\.\d+\Z/ }.sort.last
+zsh_entries = Dir.entries([ '/opt/local/share/zsh', '/usr/share/zsh' ].find{ |path| File.directory? path })
+zsh_version = zsh_entries.select{ |e| e.match /\A\d+\.\d+\.\d+\Z/ }.sort.last
 raise "Could not detect ZSH version" unless zsh_version
 
 repo "~/Projects/env" do
