@@ -3,7 +3,9 @@ zsh_entries = Dir.entries([ '/opt/local/share/zsh', '/usr/share/zsh' ].find{ |pa
 zsh_version = zsh_entries.select{ |e| e.match /\A\d+\.\d+\.\d+\Z/ }.sort.last
 raise "Could not detect ZSH version" unless zsh_version
 
-repo "~/Projects/env" do
+raise "$ENV_REPO must be set" unless ENV['ENV_REPO']
+
+repo ENV['ENV_REPO'] do
   symlink dot_files.except('.zshconfig', '.bash_profile')
   copy('.zshconfig').once
   copy('.bash_profile').once
