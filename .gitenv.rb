@@ -1,12 +1,7 @@
 
-zsh_path = [ '/opt/local/share/zsh', '/usr/share/zsh' ].find{ |path| File.directory? path }
-zsh_version = Dir.entries(zsh_path).select{ |e| e.match /\A\d+\.\d+\.\d+\Z/ }.sort.last
-raise "Could not detect ZSH version" unless zsh_version
-
 symlink dot_files.except('.zshconfig', '.bash_profile')
 copy('.zshconfig').once
 copy('.bash_profile').once
-copy('prompt_adam2_setup').to File.join(zsh_path, zsh_version, "functions")
 
 if File.directory? File.expand_path("~/Safebox/Config")
   from "~/Safebox/Config" do
