@@ -16,6 +16,10 @@ set expandtab        " Use spaces instead of tabs.
 
 syntax on
 
+" Highlight Alt-Space
+highlight BadSpaces term=standout ctermbg=yellow guibg=yellow
+call matchadd('BadSpaces', ' ')
+
 let mapleader = ","
 
 " NERD Tree
