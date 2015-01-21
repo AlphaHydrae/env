@@ -2,6 +2,8 @@
 " Plugins in ~/.vim/bundle
 execute pathogen#infect()
 
+set encoding=utf-8
+
 set number
 set backspace=2
 set autoindent
@@ -16,9 +18,13 @@ set expandtab        " Use spaces instead of tabs.
 
 syntax on
 
-" Highlight Alt-Space
+" highlight alt-space
 highlight BadSpaces term=standout ctermbg=yellow guibg=yellow
 call matchadd('BadSpaces', ' ')
+
+" hilight tabs and trailing spaces
+set listchars=tab:→\ ,trail:•
+set list
 
 let mapleader = ","
 
