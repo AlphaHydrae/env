@@ -1,7 +1,11 @@
 
-symlink dot_files.except('.zshconfig', '.bash_profile')
+symlink dot_files.except('.zshconfig', '.bash_profile', '.gitenv.root.rb')
 copy('.zshconfig').once
 copy('.bash_profile').once
+
+from 'launchd' do
+  symlink('com.alphahydrae.android.plist').to('~/Library/LaunchAgents')
+end
 
 if File.directory? File.expand_path("~/Safebox/Config")
   from "~/Safebox/Config" do
