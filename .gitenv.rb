@@ -3,6 +3,10 @@ symlink dot_files.except('.zshconfig', '.bash_profile', '.gitenv.root.rb')
 copy('.zshconfig').once
 copy('.bash_profile').once
 
+from '.httpie' do
+  copy('config.json').to('~/.httpie').once
+end
+
 from 'launchd' do
   symlink('com.alphahydrae.android.plist').to('~/Library/LaunchAgents')
 end
