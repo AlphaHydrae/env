@@ -29,8 +29,10 @@ set list
 let mapleader = ","
 
 " NERD Tree
-com GG NERDTree
+com TREE NERDTree
 com CTF CommandTFlush
+com P set paste
+com NP set nopaste
 let NERDTreeShowHidden=1
 " Open/Close with `Shift-T o` and `Shift-T c`.
 nmap <S-T>o :NERDTree<Enter>
