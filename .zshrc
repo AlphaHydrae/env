@@ -477,6 +477,8 @@ if [ ! -n "$INHERIT_ENV" ]; then
   bindkey "^[[3~" delete-char # delete key for iterm 2
   bindkey "^[3;5~" delete-char # delete key for iterm 2
   bindkey '^R' history-incremental-search-backward # history search
+  bindkey "^[[A" history-incremental-search-backward
+  bindkey "^[[B" history-incremental-search-forward
 
   # No autologout in screen and such
   if [[ "${TERM}" == ([Ex]term*|dtterm|screen*) ]]; then
@@ -553,6 +555,7 @@ if [ ! -n "$INHERIT_ENV" ]; then
   alias vimt="vimtree"
   alias vlc="open -n /Applications/VLC.app"
   alias pub="cat ~/.ssh/id_rsa.pub"
+  alias token="dd if=/dev/random bs=100 count=1 2>/dev/null | base64"
   hash hub 2>/dev/null && alias git="hub"
 
 # if for rvm
