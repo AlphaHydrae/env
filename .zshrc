@@ -477,8 +477,7 @@ if [ ! -n "$INHERIT_ENV" ]; then
   bindkey "^[[3~" delete-char # delete key for iterm 2
   bindkey "^[3;5~" delete-char # delete key for iterm 2
   bindkey '^R' history-incremental-search-backward # history search
-  bindkey "^[[A" history-incremental-search-backward
-  bindkey "^[[B" history-incremental-search-forward
+  bindkey '^T' history-incremental-search-forward
 
   # No autologout in screen and such
   if [[ "${TERM}" == ([Ex]term*|dtterm|screen*) ]]; then
