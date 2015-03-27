@@ -557,6 +557,22 @@ if [ ! -n "$INHERIT_ENV" ]; then
   alias token="dd if=/dev/random bs=100 count=1 2>/dev/null | base64"
   hash hub 2>/dev/null && alias git="hub"
 
+  function random-hex () {
+    LENGTH=$1
+    if [ -z $LENGTH ]; then
+      LENGTH=32
+    fi
+    openssl rand -hex $LENGTH
+  }
+
+  function random-base64 () {
+    BYTES=$1
+    if [ -z $BYTES ]; then
+      BYTES=100
+    fi
+    dd if=/dev/random bs=$BYTES count=1 2>/dev/null | base64
+  }
+
 # if for rvm
 fi
 
