@@ -557,6 +557,10 @@ if [ ! -n "$INHERIT_ENV" ]; then
   alias token="dd if=/dev/random bs=100 count=1 2>/dev/null | base64"
   hash hub 2>/dev/null && alias git="hub"
 
+  # Docker Aliases
+  alias docker-rmfa="docker rm -f \$\(docker ps -a -q\)"
+  alias docker-runrm="docker run --rm -it"
+
   function random-hex () {
     LENGTH=$1
     if [ -z $LENGTH ]; then
