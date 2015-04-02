@@ -66,6 +66,6 @@
 [push]
   default = simple
 [merge]
-	conflictstyle = diff3
+  conflictstyle = diff3
 [rerere]
-	enabled = true
+  enabled = true
