@@ -460,9 +460,6 @@ if [ ! -n "$INHERIT_ENV" ]; then
     cx
   }
 
-  alias v=less
-  alias vs='less -S'
-
   # log files watching (auto refresh)
   alias tf='less +F'
   alias tfs='less -S +F'
@@ -561,6 +558,12 @@ if [ ! -n "$INHERIT_ENV" ]; then
   alias docker-rmfa="docker rm -f \$\(docker ps -a -q\)"
   alias docker-runrm="docker run --rm -it"
 
+  # Vagrant Utilities
+  function vs () {
+    vagrant ssh -c "cd /vagrant && $*"
+  }
+
+  # Random Utilities
   function random-hex () {
     LENGTH=$1
     if [ -z $LENGTH ]; then
