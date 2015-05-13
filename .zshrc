@@ -488,6 +488,7 @@ if [ ! -n "$INHERIT_ENV" ]; then
   #
 
   # Disable autocorrect
+  alias cap='nocorrect cap'
   alias man='nocorrect man'
   alias mkdir='nocorrect mkdir'
   alias mv='nocorrect mv'
