@@ -25,6 +25,7 @@
   mas = checkout master
   master = checkout master
   rh = reset HEAD
+  ptm = push --tags origin master
 
   cp = cherry-pick
   cpn = cherry-pick -n
