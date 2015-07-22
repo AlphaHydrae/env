@@ -499,6 +499,7 @@ if [ ! -n "$INHERIT_ENV" ]; then
   alias vim='nocorrect vim'
   alias rspec='nocorrect rspec'
   alias bundle='nocorrect bundle'
+  alias grunt='nocorrect grunt'
 
   # Functions
   summon () {
@@ -553,6 +554,7 @@ if [ ! -n "$INHERIT_ENV" ]; then
   alias vlc="open -n /Applications/VLC.app"
   alias pub="cat ~/.ssh/id_rsa.pub"
   alias token="dd if=/dev/random bs=100 count=1 2>/dev/null | base64"
+  alias dnsmasq-restart='sudo port unload dnsmasq && sudo port load dnsmasq && echo "dnsmasq successfully restarted"'
   hash hub 2>/dev/null && alias git="hub"
 
   # Docker Aliases
