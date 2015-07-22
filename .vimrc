@@ -30,10 +30,18 @@ let mapleader = ","
 
 " NERD Tree
 com TREE NERDTree
+let NERDTreeShowHidden=1
+
+" Command-T
 com CTF CommandTFlush
+
+" Pasting
 com P set paste
 com NP set nopaste
-let NERDTreeShowHidden=1
+
+" Tabular
+com MT Tab /|
+
 " Open/Close with `Shift-T o` and `Shift-T c`.
 nmap <S-T>o :NERDTree<Enter>
 nmap <S-T>c :NERDTreeClose<Enter>
