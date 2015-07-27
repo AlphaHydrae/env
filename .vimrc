@@ -16,6 +16,12 @@ set tabstop=2        " Global tab width.
 set shiftwidth=2     " And again, related.
 set expandtab        " Use spaces instead of tabs.
 
+" ignores
+set wildignore+=dist/**
+set wildignore+=bower_components/**
+set wildignore+=node_modules/**
+set wildignore+=vendor/**
+
 syntax on
 
 " highlight alt-space
