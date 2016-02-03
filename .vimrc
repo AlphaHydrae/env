@@ -55,6 +55,13 @@ nmap <S-T>c :NERDTreeClose<Enter>
 " delete key
 imap  <Del>
 
+" Command-T
+let g:CommandTMaxHeight=10
+
+" ctags
+nnoremap t <C-]>
+nnoremap <leader>T :CtrlPTag<cr>
+
 " auto-completion
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 au BufNewFile,BufRead *.ejs set filetype=javascript
@@ -66,9 +73,6 @@ au BufNewFile,BufRead *.god.j2 set filetype=ruby
 au BufNewFile,BufRead *.raml set filetype=yaml
 au BufNewFile,BufRead {config.ru,Capfile,Gemfile,Guardfile,Puppetfile,Rakefile,Thorfile,Vagrantfile} set ft=ruby
 set completeopt=longest,menuone
-
-" Command-T
-let g:CommandTMaxHeight=10
 
 " mouse scrolling with mouseterm
 if has("mouse")
