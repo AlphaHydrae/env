@@ -62,6 +62,10 @@ let g:CommandTMaxHeight=10
 nnoremap t <C-]>
 nnoremap <leader>T :CtrlPTag<cr>
 
+" Tagbar
+let g:tagbar_usearrows = 1
+nnoremap <leader>b :TagbarToggle<CR>
+
 " auto-completion
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 au BufNewFile,BufRead *.ejs set filetype=javascript

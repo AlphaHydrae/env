@@ -13,6 +13,7 @@ add "git://github.com/slim-template/vim-slim.git"
 add "git://github.com/digitaltoad/vim-jade.git"
 add "git://github.com/groenewege/vim-less.git"
 add "git://github.com/ctrlpvim/ctrlp.vim.git"
+add "git@github.com:majutsushi/tagbar.git"
 
 add "git://github.com/wincent/Command-T.git" do
   Dir.chdir "ruby/command-t"
