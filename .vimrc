@@ -20,6 +20,7 @@ set expandtab        " Use spaces instead of tabs.
 set wildignore+=dist/**
 set wildignore+=bower_components/**
 set wildignore+=node_modules/**
+set wildignore+=tmp/**
 set wildignore+=vendor/**
 
 syntax on
