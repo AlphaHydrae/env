@@ -23,6 +23,9 @@ set wildignore+=node_modules/**
 set wildignore+=tmp/**
 set wildignore+=vendor/**
 
+" add the hyphen as a keyword character
+set iskeyword+=-
+
 syntax on
 
 " highlight alt-space
