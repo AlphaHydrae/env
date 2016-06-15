@@ -1,7 +1,3 @@
-
-" Plugins in ~/.vim/bundle
-execute pathogen#infect()
-
 set encoding=utf-8
 
 set number
