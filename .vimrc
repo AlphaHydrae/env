@@ -26,6 +26,32 @@ set wildignore+=vendor/**
 " add the hyphen as a keyword character
 set iskeyword+=-
 
+" Vundle
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'ervandew/supertab'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'godlygeek/tabular'
+Plugin 'groenewege/vim-less'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'majutsushi/tagbar'
+Plugin 'rodjek/vim-puppet'
+Plugin 'scrooloose/nerdtree'
+Plugin 'slim-template/vim-slim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-rails'
+Plugin 'wavded/vim-stylus'
+Plugin 'wincent/Command-T'
+
+call vundle#end()
+filetype plugin indent on
+
 syntax on
 
 " highlight alt-space
