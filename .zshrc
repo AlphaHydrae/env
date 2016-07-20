@@ -500,6 +500,8 @@ if [ ! -n "$INHERIT_ENV" ]; then
   alias rspec='nocorrect rspec'
   alias bundle='nocorrect bundle'
   alias grunt='nocorrect grunt'
+  alias vagrant='nocorrect vagrant'
+  alias rake='nocorrect rake'
 
   # Functions
   summon () {
