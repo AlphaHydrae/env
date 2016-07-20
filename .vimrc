@@ -58,6 +58,16 @@ call matchadd('BadSpaces', ' ')
 set listchars=tab:→\ ,trail:•
 set list
 
+" highlight fenced code blocks in markdown
+let g:markdown_fenced_languages = [
+  \ 'css', 'less', 'stylus',
+  \ 'html', 'slim',
+  \ 'javascript', 'js=javascript',
+  \ 'python',
+  \ 'ruby', 'rb=ruby'
+\ ]
+
+" leader
 let mapleader = ","
 
 " NERD Tree
