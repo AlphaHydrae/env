@@ -15,7 +15,7 @@ zsh_homebrew_path = '/usr/local/Cellar/zsh'
 if File.directory? zsh_homebrew_path
   zsh_version = Dir.entries(zsh_homebrew_path).select{ |e| e.match /\A\d+\.\d+(?:\.\d+)?\Z/ }.sort.last
   raise "Could not detect ZSH version" unless zsh_version
-  copy('prompt_adam2_setup', backup: true).to File.join(zsh_path, zsh_version, "functions")
+  copy('prompt_adam2_setup', backup: true).to File.join(zsh_homebrew_path, zsh_version, "functions")
 end
 
 if File.directory? File.expand_path("~/Safebox/Config")
