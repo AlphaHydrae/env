@@ -585,6 +585,10 @@ if [ ! -n "$INHERIT_ENV" ]; then
     dd if=/dev/random bs=$BYTES count=1 2>/dev/null | base64
   }
 
+  function random-uuid () {
+    ruby -e "require 'securerandom'; print SecureRandom.uuid"
+  }
+
 # if for rvm
 fi
 
