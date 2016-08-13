@@ -35,6 +35,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'godlygeek/tabular'
 Plugin 'groenewege/vim-less'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'leafgarland/typescript-vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'rodjek/vim-puppet'
 Plugin 'scrooloose/nerdtree'
@@ -44,6 +45,12 @@ Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-rails'
 Plugin 'wavded/vim-stylus'
 Plugin 'wincent/Command-T'
+
+" Vundle Help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 
 call vundle#end()
 filetype plugin indent on
@@ -111,6 +118,7 @@ au BufNewFile,BufRead *.md set filetype=markdown
 au BufNewFile,BufRead *.god set filetype=ruby
 au BufNewFile,BufRead *.god.j2 set filetype=ruby
 au BufNewFile,BufRead *.raml set filetype=yaml
+au BufNewFile,BufRead *.slm set filetype=slim
 au BufNewFile,BufRead {config.ru,Capfile,Gemfile,Guardfile,Puppetfile,Rakefile,Thorfile,Vagrantfile} set ft=ruby
 set completeopt=longest,menuone
 
