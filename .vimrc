@@ -38,13 +38,17 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'rodjek/vim-puppet'
-Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree' " Tree explorer.
 Plugin 'slim-template/vim-slim'
-Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive' " Git wrapper.
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-rails'
 Plugin 'wavded/vim-stylus'
-Plugin 'wincent/Command-T'
+Plugin 'wincent/Command-T' " Fast file navigation.
+Plugin 'Quramy/tsuquyomi' " TypeScript plugin.
+Plugin 'Shougo/vimproc.vim' " Interactive command execution.
+Plugin 'alvan/vim-closetag' " Close XHTML tags.
+Plugin 'jiangmiao/auto-pairs' " Close brackets, quotes, etc.
 
 " Vundle Help
 " :PluginList       - lists configured plugins
@@ -90,6 +94,8 @@ com NP set nopaste
 
 " Tabular
 com MT Tab /|
+com ASC Tab /:
+com AEQ Tab /=
 
 " Open/Close with `Shift-T o` and `Shift-T c`.
 nmap <S-T>o :NERDTree<Enter>
