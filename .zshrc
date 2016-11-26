@@ -592,10 +592,22 @@ if [ ! -n "$INHERIT_ENV" ]; then
 # if for rvm
 fi
 
-# RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-PATH=$PATH:$HOME/.rvm/bin
+# Vim for projects
+export PROJECT_EDITOR="vim -c NERDTree"
+
+# Scide
+export SCIDE_AUTO=true
+
+# Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+# rbenv
+export PATH=$HOME/.rbenv/shims:$PATH
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+# RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+PATH=$PATH:$HOME/.rvm/bin
