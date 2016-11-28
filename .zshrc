@@ -502,6 +502,8 @@ if [ ! -n "$INHERIT_ENV" ]; then
   alias grunt='nocorrect grunt'
   alias vagrant='nocorrect vagrant'
   alias rake='nocorrect rake'
+  alias rbenv='nocorrect rbenv'
+  alias nodenv='nocorrect nodenv'
 
   # Functions
   summon () {
