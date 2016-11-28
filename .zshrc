@@ -606,9 +606,12 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # rbenv
 export PATH=$HOME/.rbenv/shims:$PATH
 
-# NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+# nodenv
+if [ -s /usr/local/bin/nodenv ]; then
+  eval "$(/usr/local/bin/nodenv init -)"
+else
+  export PATH=$HOME/.nodenv/bin:$HOME/.nodenv/shims:$PATH
+fi
 
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
