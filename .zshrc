@@ -218,7 +218,7 @@ if [ ! -n "$INHERIT_ENV" ]; then
   # Messages/warnings format
   zstyle ':completion:*:messages' format '%B%U---- %d%u%b' 
   zstyle ':completion:*:warnings' format '%B%U---- no match for: %d%u%b'
-   
+
   # Describe options in full
   zstyle ':completion:*:options' description 'yes'
   zstyle ':completion:*:options' auto-description '%d'
@@ -568,6 +568,20 @@ if [ ! -n "$INHERIT_ENV" ]; then
   # Vagrant Utilities
   function vs () {
     vagrant ssh -c "cd /vagrant && $*"
+  }
+
+  # PDF Utilities
+  function compress-pdf() {
+    INPUT="$1"
+    OUTPUT="$2"
+
+    if [ -z "$INPUT" ]; then
+      echo "First argument must be the PDF file to compress" >&2
+    elif [ -z "$OUTPUT" ]; then
+      echo "Second argument must be the target file" >&2
+    else
+      gs -sDEVICE=pdfwrite -dNOPAUSE -dQUIET -dBATCH -dPDFSETTINGS=/ebook -dCompatibilityLevel=1.4 -sOutputFile="$OUTPUT" "$INPUT"
+    fi
   }
 
   # Random Utilities
