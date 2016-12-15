@@ -97,6 +97,9 @@ com MT Tab /|
 com ASC Tab /:
 com AEQ Tab /=
 
+" Auto wrap current paragraph
+nnoremap <leader>w {<S-v>}gq
+
 " Open/Close with `Shift-T o` and `Shift-T c`.
 nmap <S-T>o :NERDTree<Enter>
 nmap <S-T>c :NERDTreeClose<Enter>
