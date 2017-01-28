@@ -117,6 +117,11 @@ nnoremap <leader>T :CtrlPTag<cr>
 let g:tagbar_usearrows = 1
 nnoremap <leader>b :TagbarToggle<CR>
 
+" TypeScript (tsuquyomi)
+com TSI TsuImport
+let g:tsuquyomi_single_quote_import = 1
+let g:tsuquyomi_shortest_import_path = 1
+
 " auto-completion
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 au BufNewFile,BufRead *.ejs set filetype=javascript
