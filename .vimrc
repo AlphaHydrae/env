@@ -88,6 +88,7 @@ let NERDTreeShowHidden=1
 
 " Command-T
 com CTF CommandTFlush
+let g:CommandTMaxHeight=10
 
 " Pasting
 com P set paste
@@ -107,9 +108,6 @@ nmap <S-T>c :NERDTreeClose<Enter>
 
 " delete key
 imap  <Del>
-
-" Command-T
-let g:CommandTMaxHeight=10
 
 " ctags
 nnoremap t <C-]>
