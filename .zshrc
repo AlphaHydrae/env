@@ -558,7 +558,7 @@ if [ ! -n "$INHERIT_ENV" ]; then
   alias vlc="open -n /Applications/VLC.app"
   alias pub="cat ~/.ssh/id_rsa.pub"
   alias token="dd if=/dev/random bs=100 count=1 2>/dev/null | base64"
-  alias dnsmasq-restart='sudo port unload dnsmasq && sudo port load dnsmasq && echo "dnsmasq successfully restarted"'
+  alias ogc="open -a Google\ Chrome"
   hash hub 2>/dev/null && alias git="hub"
 
   # Docker Aliases
