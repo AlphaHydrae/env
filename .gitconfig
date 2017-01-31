@@ -45,7 +45,7 @@
   # commit graph (simplified by decoration, all refs)
   gis = log --oneline --graph --decorate --all --simplify-by-decoration
   # commit graph (full)
-  gf = !"git log --pretty='%C(auto)%h%Creset %Cblue%ad%Creset %Cred%an%Creset%C(auto)%d %s%Creset' '--date=format:%Y-%m-%d' --graph --all"
+  gf = !"git log --pretty='%C(auto)%h%Creset %Cblue%ad%Creset %Cred%an%Creset%C(auto)%d %s%Creset' '--date=format:%Y-%m-%d %H:%M' --graph --all"
 
   # miscellaneous
   w = rebase -i
