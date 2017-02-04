@@ -75,8 +75,10 @@ let g:markdown_fenced_languages = [
   \ 'css', 'less', 'stylus',
   \ 'html', 'slim',
   \ 'javascript', 'js=javascript',
+  \ 'json',
   \ 'python',
-  \ 'ruby', 'rb=ruby'
+  \ 'ruby', 'rb=ruby',
+  \ 'typescript', 'ts=typescript'
 \ ]
 
 " leader
