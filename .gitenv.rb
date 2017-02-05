@@ -7,10 +7,6 @@ from '.httpie' do
   copy('config.json').to('~/.httpie').once
 end
 
-from 'launchd' do
-  symlink('com.alphahydrae.android.plist').to('~/Library/LaunchAgents')
-end
-
 zsh_homebrew_path = '/usr/local/Cellar/zsh'
 if File.directory? zsh_homebrew_path
   zsh_version = Dir.entries(zsh_homebrew_path).select{ |e| e.match /\A\d+\.\d+(?:\.\d+)?\Z/ }.sort.last
