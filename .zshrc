@@ -522,6 +522,13 @@ if [ ! -n "$INHERIT_ENV" ]; then
     fi
   }
 
+  td () {
+    for file in $@; do
+      mkdir -p "$(dirname "$file")"
+      touch "$file"
+    done
+  }
+
   svn_add_new () {
     svn status|grep "?"|sed 's/\? *//g;/^tmp/d;/^log/d'|xargs svn add
   }
