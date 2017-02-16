@@ -68,6 +68,7 @@
   bru = "!f() { if [ -z $1 ]; then echo 'Branch name required.' 1>&2; return 1; fi; if [ -z $2 ]; then set origin $1; fi; git checkout -b $2 $1/$2; }; f"
 [core]
   excludesfile = ~/.gitignore
+  editor = /usr/local/bin/vim
 [include]
   path = .gitprivate
 [push]
