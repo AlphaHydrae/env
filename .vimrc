@@ -50,6 +50,7 @@ Plugin 'Shougo/vimproc.vim' " Interactive command execution.
 Plugin 'alvan/vim-closetag' " Close XHTML tags.
 Plugin 'jiangmiao/auto-pairs' " Close brackets, quotes, etc.
 Plugin 'tpope/vim-surround' " Surround text with brackets, quotes, etc.
+Plugin 'pangloss/vim-javascript' " JavaScript syntax
 
 " Vundle Help
 " :PluginList       - lists configured plugins
