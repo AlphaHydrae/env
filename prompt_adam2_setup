@@ -117,7 +117,7 @@ function prompt_build_git {
   fi
 
   if [[ -n "$prompt_git_desc" ]] || [[ -n "$prompt_git_operation" ]]; then
-    
+
     prompt_git=" %B%F{$prompt_adam2_color1}[ "
     prompt_git_width=$(( prompt_git_width + 3 ))
 
@@ -142,23 +142,42 @@ function prompt_build_git {
   fi
 }
 
-function prompt_build_rvm {
-  
-  prompt_rvm=
-  prompt_rvm_width=0
+function prompt_build_ruby {
 
-  if [[ ! -f .rvmrc ]] && [[ ! -f .ruby-version ]] || [[ "$( pwd )" == "$HOME" ]]; then
+  prompt_ruby=
+  prompt_ruby_width=0
+
+  if [[ ! -f .rvmrc ]] && [[ ! -f .ruby-version ]] && [[ ! -f Gemfile ]] || [[ "$( pwd )" == "$HOME" ]] || ! command -v ruby &>/dev/null; then
     return
   fi
 
-  prompt_rvm_gemdir=${${${$( gem env gemdir 2>/dev/null )/*\//}/ruby-/}/-p*[0-9]/}
+  prompt_ruby_version="ruby-$( ruby -e 'print RUBY_VERSION' )"
 
-  if [ -z "$prompt_rvm_gemdir" ]; then
+  if [ -z "$prompt_ruby_version" ]; then
     return
   fi
 
-  prompt_rvm="%b%F{blue}${prompt_rvm_gemdir}%f%B%F{black}|%b%f"
-  prompt_rvm_width=$(( ${#prompt_rvm_gemdir} + 1 ))
+  prompt_ruby="%b%F{blue}${prompt_ruby_version}%f%B%F{black}|%b%f"
+  prompt_ruby_width=$(( ${#prompt_ruby_version} + 1 ))
+}
+
+function prompt_build_node {
+
+  prompt_node=
+  prompt_node_width=0
+
+  if [[ ! -f .node-version ]] && [[ ! -f package.json ]] || [[ "$( pwd )" == "$HOME" ]] || ! command -v node &>/dev/null; then
+    return
+  fi
+
+  prompt_node_version="node-${$( node --version )/v/}"
+
+  if [ -z "$prompt_node_version" ]; then
+    return
+  fi
+
+  prompt_node="%b%F{blue}${prompt_node_version}%f%B%F{black}|%b%f"
+  prompt_node_width=$(( ${#prompt_node_version} + 1 ))
 }
 
 function prompt_build_user_host {
@@ -222,7 +241,7 @@ prompt_adam2_setup () {
   prompt_cwd="%~"
 
   prompt_line_1a="$prompt_gfx_tbox$prompt_l_paren%{\$prompt_user_host%}%B%F{$prompt_adam2_color2}$prompt_cwd%{\$prompt_git%}$prompt_r_paren%b%F{$prompt_adam2_color1}"
-  prompt_line_1b="$prompt_l_paren%{\$prompt_rvm%}%F{$prompt_adam2_color1}%b$prompt_time$prompt_r_paren%b%F{$prompt_adam2_color1}${prompt_gfx_hyphen}"
+  prompt_line_1b="$prompt_l_paren%{\$prompt_ruby%}%{\$prompt_node%}%F{$prompt_adam2_color1}%b$prompt_time$prompt_r_paren%b%F{$prompt_adam2_color1}${prompt_gfx_hyphen}"
 
   prompt_line_2="$prompt_gfx_bbox${prompt_gfx_hyphen}%B%F{white}"
 
@@ -236,7 +255,8 @@ prompt_adam2_setup () {
 prompt_adam2_precmd() {
 
   prompt_build_git
-  prompt_build_rvm
+  prompt_build_ruby
+  prompt_build_node
   prompt_build_user_host
 
   setopt noxtrace localoptions extendedglob
@@ -257,9 +277,10 @@ prompt_adam2_choose_prompt () {
   local prompt_padding_size=$(( COLUMNS
                                   - prompt_line_1a_width
                                   - prompt_line_1b_width
-				  - prompt_git_width
-                                  - prompt_rvm_width
-				  - prompt_user_host_width ))
+                                  - prompt_git_width
+                                  - prompt_ruby_width
+                                  - prompt_node_width
+                                  - prompt_user_host_width ))
 
   # Try to fit in long path and user@host.
   if (( prompt_padding_size > 0 )); then
