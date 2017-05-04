@@ -151,14 +151,13 @@ function prompt_build_ruby {
     return
   fi
 
-  prompt_ruby_version="ruby-$( ruby -e 'print RUBY_VERSION' )"
-
+  prompt_ruby_version="$( ruby -e 'print RUBY_VERSION' )"
   if [ -z "$prompt_ruby_version" ]; then
     return
   fi
 
-  prompt_ruby="%b%F{blue}${prompt_ruby_version}%f%B%F{black}|%b%f"
-  prompt_ruby_width=$(( ${#prompt_ruby_version} + 1 ))
+  prompt_ruby="%b%F{blue}ruby-${prompt_ruby_version}%f%B%F{black}|%b%f"
+  prompt_ruby_width=$(( ${#prompt_ruby_version} + 6 ))
 }
 
 function prompt_build_node {
@@ -170,14 +169,13 @@ function prompt_build_node {
     return
   fi
 
-  prompt_node_version="node-${$( node --version )/v/}"
-
+  prompt_node_version="${$(node --version 2>/dev/null)/v/}"
   if [ -z "$prompt_node_version" ]; then
     return
   fi
 
-  prompt_node="%b%F{blue}${prompt_node_version}%f%B%F{black}|%b%f"
-  prompt_node_width=$(( ${#prompt_node_version} + 1 ))
+  prompt_node="%b%F{blue}node-${prompt_node_version}%f%B%F{black}|%b%f"
+  prompt_node_width=$(( ${#prompt_node_version} + 6 ))
 }
 
 function prompt_build_user_host {
