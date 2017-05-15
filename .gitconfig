@@ -7,6 +7,7 @@
   d = diff
   dc = diff --cached
   dn = diff --name-status
+  dw = diff --word-diff
   s = status
   st = status
   sta = status
