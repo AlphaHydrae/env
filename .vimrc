@@ -51,6 +51,7 @@ Plugin 'alvan/vim-closetag' " Close XHTML tags.
 Plugin 'jiangmiao/auto-pairs' " Close brackets, quotes, etc.
 Plugin 'tpope/vim-surround' " Surround text with brackets, quotes, etc.
 Plugin 'pangloss/vim-javascript' " JavaScript syntax
+Plugin 'b4b4r07/vim-hcl' " HashiCorp HCL syntax
 
 " Vundle Help
 " :PluginList       - lists configured plugins
