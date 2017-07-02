@@ -38,20 +38,21 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'rodjek/vim-puppet'
-Plugin 'scrooloose/nerdtree' " Tree explorer.
+Plugin 'scrooloose/nerdtree'      " Tree explorer.
 Plugin 'slim-template/vim-slim'
-Plugin 'tpope/vim-fugitive' " Git wrapper.
+Plugin 'tpope/vim-fugitive'       " Git wrapper.
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-rails'
 Plugin 'wavded/vim-stylus'
-Plugin 'wincent/Command-T' " Fast file navigation.
-Plugin 'Quramy/tsuquyomi' " TypeScript plugin.
-Plugin 'Shougo/vimproc.vim' " Interactive command execution.
-Plugin 'alvan/vim-closetag' " Close XHTML tags.
-Plugin 'jiangmiao/auto-pairs' " Close brackets, quotes, etc.
-Plugin 'tpope/vim-surround' " Surround text with brackets, quotes, etc.
-Plugin 'pangloss/vim-javascript' " JavaScript syntax
-Plugin 'b4b4r07/vim-hcl' " HashiCorp HCL syntax
+Plugin 'wincent/Command-T'        " Fast file navigation
+Plugin 'Quramy/tsuquyomi'         " TypeScript plugin
+Plugin 'Shougo/vimproc.vim'       " Interactive command execution
+Plugin 'alvan/vim-closetag'       " Close XHTML tags
+Plugin 'jiangmiao/auto-pairs'     " Close brackets, quotes, etc
+Plugin 'tpope/vim-surround'       " Surround text with brackets, quotes, etc
+Plugin 'pangloss/vim-javascript'  " JavaScript syntax
+Plugin 'mxw/vim-jsx'              " JSX syntax (depends on pangloss/vim-javascript)
+Plugin 'b4b4r07/vim-hcl'          " HashiCorp HCL syntax
 
 " Vundle Help
 " :PluginList       - lists configured plugins
@@ -82,6 +83,9 @@ let g:markdown_fenced_languages = [
   \ 'ruby', 'rb=ruby',
   \ 'typescript', 'ts=typescript'
 \ ]
+
+" highlight JSX in JS files
+let g:jsx_ext_required=0
 
 " leader
 let mapleader = ","
