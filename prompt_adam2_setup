@@ -147,7 +147,7 @@ function prompt_build_ruby {
   prompt_ruby=
   prompt_ruby_width=0
 
-  if [[ ! -f .rvmrc ]] && [[ ! -f .ruby-version ]] && [[ ! -f Gemfile ]] || [[ "$( pwd )" == "$HOME" ]] || ! command -v ruby &>/dev/null; then
+  if [[ ! -f .rvmrc ]] && [[ ! -f .ruby-version ]] && [[ ! -f Gemfile ]] && test -z "$RBENV_VERSION" || [[ "$( pwd )" == "$HOME" ]] || ! command -v ruby &>/dev/null; then
     return
   fi
 
@@ -165,7 +165,7 @@ function prompt_build_node {
   prompt_node=
   prompt_node_width=0
 
-  if [[ ! -f .node-version ]] && [[ ! -f package.json ]] || [[ "$( pwd )" == "$HOME" ]] || ! command -v node &>/dev/null; then
+  if [[ ! -f .node-version ]] && [[ ! -f package.json ]] && test -z "$NODENV_VERSION" || [[ "$( pwd )" == "$HOME" ]] || ! command -v node &>/dev/null; then
     return
   fi
 
