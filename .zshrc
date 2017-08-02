@@ -495,6 +495,7 @@ if [ ! -n "$INHERIT_ENV" ]; then
   alias rj='nocorrect rj'
   alias git='nocorrect git'
   alias hub='nocorrect hub'
+  alias ionic='nocorrect ionic'
   alias rvm='nocorrect rvm'
   alias vim='nocorrect vim'
   alias rspec='nocorrect rspec'
