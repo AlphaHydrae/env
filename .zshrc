@@ -597,7 +597,8 @@ if [ ! -n "$INHERIT_ENV" ]; then
     if [ -z $LENGTH ]; then
       LENGTH=32
     fi
-    openssl rand -hex $LENGTH
+
+    echo -n "$(openssl rand -hex $LENGTH)"
   }
 
   function random-base64 () {
@@ -605,7 +606,8 @@ if [ ! -n "$INHERIT_ENV" ]; then
     if [ -z $BYTES ]; then
       BYTES=100
     fi
-    dd if=/dev/random bs=$BYTES count=1 2>/dev/null | base64
+
+    echo -n "$(dd if=/dev/random bs=$BYTES count=1 2>/dev/null | base64)"
   }
 
   function random-uuid () {
