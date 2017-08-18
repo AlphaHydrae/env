@@ -504,7 +504,6 @@ if [ ! -n "$INHERIT_ENV" ]; then
   alias vagrant='nocorrect vagrant'
   alias rake='nocorrect rake'
   alias rbenv='nocorrect rbenv'
-  alias nodenv='nocorrect nodenv'
 
   # Functions
   summon () {
@@ -635,6 +634,8 @@ if [ -s /usr/local/bin/nodenv ]; then
 else
   export PATH=$HOME/.nodenv/bin:$HOME/.nodenv/shims:$PATH
 fi
+
+alias nodenv='nocorrect nodenv'
 
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
