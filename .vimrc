@@ -110,6 +110,9 @@ com AEQ Tab /=
 " Auto wrap current paragraph
 nnoremap <leader>w {<S-v>}gq
 
+" Auto-wrap git commit messages at 72 chars
+autocmd Filetype gitcommit setlocal textwidth=72
+
 " Open/Close with `Shift-T o` and `Shift-T c`.
 nmap <S-T>o :NERDTree<Enter>
 nmap <S-T>c :NERDTreeClose<Enter>
