@@ -145,6 +145,7 @@ au BufNewFile,BufRead *.raml set filetype=yaml
 au BufNewFile,BufRead *.slm set filetype=slim
 au BufNewFile,BufRead *.yml.j2 set filetype=yaml
 au BufNewFile,BufRead {config.ru,Capfile,Gemfile,Guardfile,Puppetfile,Rakefile,Thorfile,Vagrantfile} set ft=ruby
+au BufNewFile,BufRead {.nycrc} set filetype=json
 set completeopt=longest,menuone
 
 " mouse scrolling with mouseterm
