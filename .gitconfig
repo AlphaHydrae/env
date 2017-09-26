@@ -6,6 +6,7 @@
 [alias]
   d = diff
   dc = diff --cached
+  dcw = diff --cached --word-diff
   dn = diff --name-status
   dw = diff --word-diff
   s = status
@@ -14,6 +15,7 @@
   a = add --all .
   ai = add --interactive
   ap = add --patch
+  apw = !"git -c interactive.diffFilter='git diff --color-words' add -p"
   b = branch
   ba = branch -a
   c = checkout
