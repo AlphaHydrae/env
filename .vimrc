@@ -54,6 +54,7 @@ Plugin 'tpope/vim-surround'       " Surround text with brackets, quotes, etc
 Plugin 'pangloss/vim-javascript'  " JavaScript syntax
 Plugin 'mxw/vim-jsx'              " JSX syntax (depends on pangloss/vim-javascript)
 Plugin 'b4b4r07/vim-hcl'          " HashiCorp HCL syntax
+Plugin 'asciidoc/vim-asciidoc'    " AsciiDoc syntax
 
 " Vundle Help
 " :PluginList       - lists configured plugins
@@ -136,6 +137,7 @@ let g:tsuquyomi_shortest_import_path = 1
 
 " auto-completion
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+au BufNewFile,BufRead *.adoc set filetype=asciidoc
 au BufNewFile,BufRead *.ejs set filetype=javascript
 au BufNewFile,BufRead *.hamlc set filetype=haml
 au BufNewFile,BufRead *.god set filetype=ruby
@@ -153,3 +155,10 @@ set completeopt=longest,menuone
 if has("mouse")
   set mouse=a
 endif
+
+" asciidoc list formatting
+autocmd BufRead,BufNewFile *.adoc,*.asciidoc
+        \ setlocal autoindent expandtab tabstop=8 softtabstop=2 shiftwidth=2 filetype=asciidoc
+        \ textwidth=80 wrap formatoptions=tcqn
+        \ formatlistpat=^\\s*\\d\\+\\.\\s\\+\\\\|^\\s*<\\d\\+>\\s\\+\\\\|^\\s*[a-zA-Z.]\\.\\s\\+\\\\|^\\s*[ivxIVX]\\+\\.\\s\\+
+        \ comments=s1:/*,ex:*/,://,b:#,:%,:XCOMM,fb:-,fb:*,fb:+,fb:.,fb:>
