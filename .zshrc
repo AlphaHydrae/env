@@ -637,6 +637,9 @@ fi
 
 alias nodenv='nocorrect nodenv'
 
+# Homebrew sbin
+export PATH="$PATH:/usr/local/sbin"
+
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 PATH=$PATH:$HOME/.rvm/bin
