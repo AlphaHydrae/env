@@ -652,3 +652,6 @@ export PATH="$PATH:/usr/local/sbin"
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 PATH=$PATH:$HOME/.rvm/bin
+
+# Travis CI gem
+[ -f "$HOME/.travis/travis.sh" ] && source "$HOME/.travis/travis.sh"
