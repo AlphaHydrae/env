@@ -591,7 +591,7 @@ if [ ! -n "$INHERIT_ENV" ]; then
   }
 
   # Random Utilities
-  function random-hex () {
+  function random-hex() {
     LENGTH=$1
     if [ -z $LENGTH ]; then
       LENGTH=32
@@ -600,7 +600,7 @@ if [ ! -n "$INHERIT_ENV" ]; then
     echo -n "$(openssl rand -hex $LENGTH)"
   }
 
-  function random-base64 () {
+  function random-base64() {
     BYTES=$1
     if [ -z $BYTES ]; then
       BYTES=100
@@ -609,8 +609,17 @@ if [ ! -n "$INHERIT_ENV" ]; then
     echo -n "$(dd if=/dev/random bs=$BYTES count=1 2>/dev/null | base64)"
   }
 
-  function random-uuid () {
+  function random-uuid() {
     ruby -e "require 'securerandom'; print SecureRandom.uuid"
+  }
+
+  function random-alphanumeric() {
+    LENGTH=$1
+    if [ -z $LENGTH ]; then
+      LENGTH=32
+    fi
+
+    echo -n "$(env LC_CTYPE=C LC_ALL=C tr -dc 'a-zA-Z0-9' < /dev/urandom | fold -w $LENGTH | head -n 1)"
   }
 
 # if for rvm
