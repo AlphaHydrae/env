@@ -131,9 +131,14 @@ let g:tagbar_usearrows = 1
 nnoremap <leader>b :TagbarToggle<CR>
 
 " TypeScript (tsuquyomi)
+com TD TsuDefinition
+com TTD TsuTypeDefinition
 com TSI TsuImport
+let g:tsuquyomi_completion_detail = 1
 let g:tsuquyomi_single_quote_import = 1
 let g:tsuquyomi_shortest_import_path = 1
+au BufNewFile,BufRead *.ts,*.tsx nnoremap <leader>d :TsuDefinition<cr>
+au BufNewFile,BufRead *.ts,*.tsx nnoremap <leader>D :TsuTypeDefinition<cr>
 
 " auto-completion
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
