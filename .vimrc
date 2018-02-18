@@ -22,6 +22,9 @@ set wildignore+=vendor/**
 " add the hyphen as a keyword character
 set iskeyword+=-
 
+" 256 colors
+set t_Co=256
+
 " Vundle
 set nocompatible
 filetype off
@@ -53,8 +56,13 @@ Plugin 'jiangmiao/auto-pairs'     " Close brackets, quotes, etc
 Plugin 'tpope/vim-surround'       " Surround text with brackets, quotes, etc
 Plugin 'pangloss/vim-javascript'  " JavaScript syntax
 Plugin 'mxw/vim-jsx'              " JSX syntax (depends on pangloss/vim-javascript)
+Plugin 'ianks/vim-tsx'            " TSX syntax
 Plugin 'b4b4r07/vim-hcl'          " HashiCorp HCL syntax
 Plugin 'asciidoc/vim-asciidoc'    " AsciiDoc syntax
+Plugin 'fatih/vim-go'             " Golang development
+Plugin 'w0rp/ale'                 " Asynchronous Lint Engine
+Plugin 'vim-airline/vim-airline'  " Status line
+Plugin 'vim-airline/vim-airline-themes' " Airline themes
 
 " Vundle Help
 " :PluginList       - lists configured plugins
@@ -130,15 +138,31 @@ nnoremap <leader>T :CtrlPTag<cr>
 let g:tagbar_usearrows = 1
 nnoremap <leader>b :TagbarToggle<CR>
 
-" TypeScript (tsuquyomi)
-com TD TsuDefinition
-com TTD TsuTypeDefinition
-com TSI TsuImport
+" Tsuquyomi (TypeScript)
 let g:tsuquyomi_completion_detail = 1
-let g:tsuquyomi_single_quote_import = 1
 let g:tsuquyomi_shortest_import_path = 1
+let g:tsuquyomi_single_quote_import = 1
+let g:tsuquyomi_use_vimproc = 1
+let g:tsuquyomi_disable_quickfix = 1
 au BufNewFile,BufRead *.ts,*.tsx nnoremap <leader>d :TsuDefinition<cr>
 au BufNewFile,BufRead *.ts,*.tsx nnoremap <leader>D :TsuTypeDefinition<cr>
+au BufNewFile,BufRead *.ts,*.tsx nnoremap <leader>i :TsuImport<cr>
+au BufNewFile,BufRead *.ts,*.tsx nnoremap <leader>r :TsuReferences<cr>
+
+" Asynchronous Lint Engine
+let g:ale_completion_enabled = 1
+let g:ale_completion_delay = 750
+let g:ale_sign_error = 'E!'
+let g:ale_sign_warning = 'W!'
+let g:ale_lint_delay = 500
+" Always display the warning/error gutter in TypeScript files
+au BufNewFile,BufRead *.ts,*.tsx let g:ale_sign_column_always = 1
+" Set the gutter's background to black
+hi SignColumn ctermbg=black
+
+" Airline
+let g:airline_theme='distinguished'
+let g:airline#extensions#ale#enabled = 1
 
 " auto-completion
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
