@@ -42,9 +42,9 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'rodjek/vim-puppet'
-Plugin 'scrooloose/nerdtree'      " Tree explorer.
+Plugin 'scrooloose/nerdtree'      " Tree explorer
 Plugin 'slim-template/vim-slim'
-Plugin 'tpope/vim-fugitive'       " Git wrapper.
+Plugin 'tpope/vim-fugitive'       " Git wrapper
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-rails'
 Plugin 'wavded/vim-stylus'
@@ -63,6 +63,7 @@ Plugin 'fatih/vim-go'             " Golang development
 Plugin 'w0rp/ale'                 " Asynchronous Lint Engine
 Plugin 'vim-airline/vim-airline'  " Status line
 Plugin 'vim-airline/vim-airline-themes' " Airline themes
+Plugin 'cakebaker/scss-syntax.vim' " Sass/SCSS syntax
 
 " Vundle Help
 " :PluginList       - lists configured plugins
@@ -85,7 +86,7 @@ set list
 
 " highlight fenced code blocks in markdown
 let g:markdown_fenced_languages = [
-  \ 'css', 'less', 'stylus',
+  \ 'css', 'less', 'sass', 'scss', 'stylus',
   \ 'html', 'slim',
   \ 'javascript', 'js=javascript',
   \ 'json',
