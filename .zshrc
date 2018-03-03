@@ -631,9 +631,6 @@ export PROJECT_EDITOR="vim -c NERDTree"
 # Scide
 export SCIDE_AUTO=true
 
-# Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
 # rbenv
 export PATH=$HOME/.rbenv/shims:$PATH
 
