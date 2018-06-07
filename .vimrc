@@ -157,6 +157,7 @@ let g:ale_completion_delay = 500
 let g:ale_sign_error = 'E!'
 let g:ale_sign_warning = 'W!'
 let g:ale_lint_delay = 500
+nnoremap <leader>e :ALENext<cr>
 " Always display the warning/error gutter in TypeScript files
 au BufNewFile,BufRead *.ts,*.tsx let g:ale_sign_column_always = 1
 " Set the gutter's background to black
