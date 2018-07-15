@@ -166,6 +166,9 @@ hi SignColumn ctermbg=black
 let g:airline_theme='distinguished'
 let g:airline#extensions#ale#enabled = 1
 
+" Syntax highlighting
+nnoremap <leader>s :syntax sync fromstart<cr>
+
 " auto-completion
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 au BufNewFile,BufRead *.adoc set filetype=asciidoc
