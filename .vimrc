@@ -64,6 +64,7 @@ Plugin 'w0rp/ale'                 " Asynchronous Lint Engine
 Plugin 'vim-airline/vim-airline'  " Status line
 Plugin 'vim-airline/vim-airline-themes' " Airline themes
 Plugin 'cakebaker/scss-syntax.vim' " Sass/SCSS syntax
+Plugin 'posva/vim-vue'            " Vue syntax
 
 " Vundle Help
 " :PluginList       - lists configured plugins
