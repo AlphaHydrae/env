@@ -616,7 +616,7 @@ if [ ! -n "$INHERIT_ENV" ]; then
   function random-alphanumeric() {
     LENGTH=$1
     if [ -z $LENGTH ]; then
-      LENGTH=32
+      LENGTH=50
     fi
 
     echo -n "$(env LC_CTYPE=C LC_ALL=C tr -dc 'a-zA-Z0-9' < /dev/urandom | fold -w $LENGTH | head -n 1)"
