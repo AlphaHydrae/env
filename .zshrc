@@ -622,6 +622,15 @@ if [ ! -n "$INHERIT_ENV" ]; then
     echo -n "$(env LC_CTYPE=C LC_ALL=C tr -dc 'a-zA-Z0-9' < /dev/urandom | fold -w $LENGTH | head -n 1)"
   }
 
+  function random-password() {
+    LENGTH=$1
+    if [ -z $LENGTH ]; then
+      LENGTH=50
+    fi
+
+    echo -n "$(env LC_CTYPE=C LC_ALL=C tr -dc 'A-Za-z0-9!#$%&()*+,-./:;<=>?@[\]^_`{|}~' </dev/urandom | head -c $LENGTH)"
+  }
+
 # if for rvm
 fi
 
