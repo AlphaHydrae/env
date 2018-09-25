@@ -499,7 +499,6 @@ alias bundle='nocorrect bundle'
 alias grunt='nocorrect grunt'
 alias vagrant='nocorrect vagrant'
 alias rake='nocorrect rake'
-alias rbenv='nocorrect rbenv'
 
 # Functions
 summon () {
@@ -635,7 +634,11 @@ export PROJECT_EDITOR="vim -c NERDTree"
 export SCIDE_AUTO=true
 
 # rbenv
-export PATH=$HOME/.rbenv/shims:$PATH
+if [ -s /usr/local/bin/rbenv ]; then
+  eval "$(/usr/local/bin/rbenv init -)"
+else
+  export PATH=$HOME/.rbenv/shims:$PATH
+fi
 
 # nodenv
 if [ -s /usr/local/bin/nodenv ]; then
@@ -645,6 +648,7 @@ else
 fi
 
 alias nodenv='nocorrect nodenv'
+alias rbenv='nocorrect rbenv'
 
 # Homebrew sbin
 export PATH="$PATH:/usr/local/sbin"
