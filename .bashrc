@@ -1,5 +1,12 @@
 
 export LANG="en_US.UTF-8"
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# nodenv
+if [ -s /usr/local/bin/nodenv ]; then
+  eval "$(/usr/local/bin/nodenv init -)"
+else
+  export PATH=$HOME/.nodenv/bin:$HOME/.nodenv/shims:$PATH
+fi
+
+# rbenv
+export PATH=$HOME/.rbenv/shims:$PATH
