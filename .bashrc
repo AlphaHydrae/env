@@ -9,4 +9,8 @@ else
 fi
 
 # rbenv
-export PATH=$HOME/.rbenv/shims:$PATH
+if [ -s /usr/local/bin/rbenv ]; then
+  eval "$(/usr/local/bin/rbenv init -)"
+else
+  export PATH=$HOME/.rbenv/shims:$PATH
+fi
