@@ -66,6 +66,7 @@ Plugin 'vim-airline/vim-airline-themes' " Airline themes
 Plugin 'cakebaker/scss-syntax.vim' " Sass/SCSS syntax
 Plugin 'posva/vim-vue'            " Vue syntax
 Plugin 'uarun/vim-protobuf'       " Protocol buffers syntax
+Plugin 'elixir-editors/vim-elixir' " Elixir syntax
 
 " Vundle Help
 " :PluginList       - lists configured plugins
