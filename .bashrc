@@ -1,5 +1,6 @@
 
 export LANG="en_US.UTF-8"
+export PATH="/usr/local/bin:$PATH"
 
 # nodenv
 if [ -s /usr/local/bin/nodenv ]; then
