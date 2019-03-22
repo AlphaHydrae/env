@@ -638,6 +638,13 @@ export PROJECT_EDITOR="vim -c NERDTree"
 # Scide
 export SCIDE_AUTO=true
 
+# jenv
+if [ -s /usr/local/bin/jenv ]; then
+  eval "$(jenv init -)"
+else
+  export PATH=$HOME/.jenv/bin:$HOME/.jenv/shims:$PATH
+fi
+
 # rbenv
 if [ -s /usr/local/bin/rbenv ]; then
   eval "$(/usr/local/bin/rbenv init -)"
