@@ -484,6 +484,11 @@ which check_hist_size >&/dev/null && check_hist_size
 # Additions by AlphaHydrae
 #
 
+# Add auto-completion functions
+if test -d /usr/local/share/zsh/site-functions; then
+  fpath=(/usr/local/share/zsh/functions /usr/local/share/zsh/site-functions "$fpath")
+fi
+
 # Disable autocorrect
 alias cap='nocorrect cap'
 alias man='nocorrect man'
