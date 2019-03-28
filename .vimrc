@@ -153,15 +153,27 @@ au BufNewFile,BufRead *.ts,*.tsx nnoremap <leader>D :TsuTypeDefinition<cr>
 au BufNewFile,BufRead *.ts,*.tsx nnoremap <leader>i :TsuImport<cr>
 au BufNewFile,BufRead *.ts,*.tsx nnoremap <leader>r :TsuReferences<cr>
 
-" Asynchronous Lint Engine
+" ALE (Asynchronous Lint Engine)
 let g:ale_completion_enabled = 1
 let g:ale_completion_delay = 500
 let g:ale_sign_error = 'E!'
 let g:ale_sign_warning = 'W!'
 let g:ale_lint_delay = 500
+
+" ALE configuration for Vue
+" let g:ale_linter_aliases = {'vue': 'typescript'}
+" let g:ale_linters = {'vue': ['eslint', 'tsserver']}
+
+" ALE no auto-fixing
+let g:ale_fixers = []
+let g:ale_fix_on_save = 0
+
+" ALE shortcuts
 nnoremap <leader>e :ALENext<cr>
+
 " Always display the warning/error gutter in TypeScript files
 au BufNewFile,BufRead *.ts,*.tsx let g:ale_sign_column_always = 1
+
 " Set the gutter's background to black
 hi SignColumn ctermbg=black
 
