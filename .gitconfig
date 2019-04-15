@@ -33,7 +33,8 @@
   cp = cherry-pick
   cpn = cherry-pick -n
 
-  lp = log --patch
+  l = log --show-signature
+  lp = log --patch --show-signature
 
   # commit graph
   g = !"git log --pretty='%C(auto)%h%Creset %Cblue%ad%Creset%C(auto)%d %s%Creset' '--date=format:%m-%d' --graph"
