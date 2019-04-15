@@ -638,6 +638,9 @@ export PROJECT_EDITOR="vim -c NERDTree"
 # Scide
 export SCIDE_AUTO=true
 
+# GPG
+export GPG_TTY=$(tty)
+
 # jenv
 if [ -s /usr/local/bin/jenv ]; then
   eval "$(jenv init -)"
