@@ -75,6 +75,7 @@
   editor = /usr/local/bin/vim
 [include]
   path = .gitprivate
+  path = .gitlocal
 [push]
   default = simple
 [merge]
