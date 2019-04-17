@@ -631,6 +631,7 @@ function random-password() {
   echo -n "$(env LC_CTYPE=C LC_ALL=C tr -dc 'A-Za-z0-9!#$%&()*+,-./:;<=>?@[\]^_`{|}~' </dev/urandom | head -c $LENGTH)"
 }
 
+export EDITOR="vim"
 
 # Vim for projects
 export PROJECT_EDITOR="vim -c NERDTree"
