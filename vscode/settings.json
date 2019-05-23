@@ -1,0 +1,29 @@
+{
+  "better-comments.tags": [
+    {
+      "tag": "todo",
+      "color": "#FF8C00",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
+    },
+    {
+      "tag": "fixme",
+      "color": "#c00000",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
+    }
+  ],
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "editor.detectIndentation": false,
+  "editor.fontSize": 16,
+  "editor.fontFamily": "BitStream Vera Sans Mono, Menlo, Monaco, 'Courier New', monospace",
+  "editor.renderWhitespace": "boundary",
+  "editor.tabSize": 2,
+  "workbench.tree.indent": 12,
+  "statusbarerror.wholeLine.show": true,
+  "window.openFoldersInNewWindow": "on",
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#486faf"
+  }
+}
