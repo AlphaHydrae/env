@@ -34,7 +34,8 @@
   },
   {
     "key": "f6",
-    "command": "workbench.action.focusNextGroup"
+    "command": "workbench.action.focusNextGroup",
+    "when": "!terminalFocus"
   },
   {
     "key": "alt+cmd+right",
@@ -42,7 +43,8 @@
   },
   {
     "key": "f5",
-    "command": "workbench.action.focusPreviousGroup"
+    "command": "workbench.action.focusPreviousGroup",
+    "when": "!terminalFocus"
   },
   {
     "key": "alt+cmd+left",
@@ -135,5 +137,20 @@
     "key": "alt+f8",
     "command": "-editor.action.marker.next",
     "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "f5",
+    "command": "-workbench.action.debug.start",
+    "when": "!inDebugMode"
+  },
+  {
+    "key": "f5",
+    "command": "-workbench.action.debug.continue",
+    "when": "inDebugMode"
+  },
+  {
+    "key": "f6",
+    "command": "-workbench.action.debug.pause",
+    "when": "debugState == 'running'"
   }
 ]
