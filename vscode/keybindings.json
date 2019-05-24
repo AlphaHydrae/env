@@ -34,7 +34,7 @@
   },
   {
     "key": "f6",
-    "command": "workbench.action.nextEditor"
+    "command": "workbench.action.focusNextGroup"
   },
   {
     "key": "alt+cmd+right",
@@ -42,7 +42,7 @@
   },
   {
     "key": "f5",
-    "command": "workbench.action.previousEditor"
+    "command": "workbench.action.focusPreviousGroup"
   },
   {
     "key": "alt+cmd+left",
@@ -125,5 +125,15 @@
   {
     "key": "shift+cmd+i",
     "command": "workbench.action.toggleMaximizedPanel"
+  },
+  {
+    "key": "shift+cmd+d e",
+    "command": "editor.action.marker.next",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "alt+f8",
+    "command": "-editor.action.marker.next",
+    "when": "editorTextFocus && !editorReadonly"
   }
 ]
