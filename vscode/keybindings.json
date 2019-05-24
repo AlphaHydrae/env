@@ -29,7 +29,7 @@
     "command": "-workbench.action.navigateBack"
   },
   {
-    "key": "shift+cmd+right",
+    "key": "f6",
     "command": "workbench.action.nextEditor"
   },
   {
@@ -37,11 +37,39 @@
     "command": "-workbench.action.nextEditor"
   },
   {
-    "key": "shift+cmd+left",
+    "key": "f5",
     "command": "workbench.action.previousEditor"
   },
   {
     "key": "alt+cmd+left",
     "command": "-workbench.action.previousEditor"
+  },
+  {
+    "key": "f7",
+    "command": "explorer.newFile"
+  },
+  {
+    "key": "f1",
+    "command": "workbench.action.splitEditorDown"
+  },
+  {
+    "key": "f2",
+    "command": "workbench.action.splitEditorLeft"
+  },
+  {
+    "key": "f4",
+    "command": "workbench.action.closeActiveEditor"
+  },
+  {
+    "key": "shift+cmd+a",
+    "command": "workbench.action.focusActiveEditorGroup"
+  },
+  {
+    "key": "alt+cmd+g l",
+    "command": "gitlens.toggleLineBlame"
+  },
+  {
+    "key": "shift+cmd+t",
+    "command": "workbench.action.terminal.newInActiveWorkspace"
   }
 ]

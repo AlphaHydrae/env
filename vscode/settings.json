@@ -13,17 +13,21 @@
       "backgroundColor": "transparent"
     }
   ],
-  "telemetry.enableCrashReporter": false,
-  "telemetry.enableTelemetry": false,
+  "gitlens.currentLine.enabled": false,
   "editor.detectIndentation": false,
   "editor.fontSize": 16,
   "editor.fontFamily": "BitStream Vera Sans Mono, Menlo, Monaco, 'Courier New', monospace",
   "editor.renderWhitespace": "boundary",
+  "editor.scrollBeyondLastLine": false,
   "editor.tabSize": 2,
   "workbench.tree.indent": 12,
   "statusbarerror.wholeLine.show": true,
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
   "window.openFoldersInNewWindow": "on",
   "workbench.colorCustomizations": {
     "statusBar.background": "#486faf"
-  }
+  },
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.enablePreviewFromQuickOpen": false
 }
