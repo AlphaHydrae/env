@@ -1,6 +1,7 @@
 aaron-bond.better-comments
 christian-kohler.npm-intellisense
 dbaeumer.vscode-eslint
+eamodio.gitlens
 EditorConfig.EditorConfig
 Gruntfuggly.todo-tree
 JoeBerria.statusbarerror
@@ -10,9 +11,8 @@ ms-vscode.vscode-typescript-tslint-plugin
 naumovs.color-highlight
 PeterJausovec.vscode-docker
 pranaygp.vscode-css-peek
-qezhu.gitlink
 sysoev.language-stylus
 vscodevim.vim
-waderyan.gitblame
 wayou.vscode-todo-highlight
+xabikos.JavaScriptSnippets
 Zignd.html-css-class-completion
