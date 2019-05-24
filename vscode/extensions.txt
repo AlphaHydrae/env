@@ -1,5 +1,4 @@
 aaron-bond.better-comments
-christian-kohler.npm-intellisense
 dbaeumer.vscode-eslint
 eamodio.gitlens
 EditorConfig.EditorConfig
@@ -7,6 +6,7 @@ Gruntfuggly.todo-tree
 JoeBerria.statusbarerror
 lamartire.git-indicators
 mhutchie.git-graph
+mrmlnc.vscode-pugbeautify
 ms-vscode.vscode-typescript-tslint-plugin
 naumovs.color-highlight
 PeterJausovec.vscode-docker
