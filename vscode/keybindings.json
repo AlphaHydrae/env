@@ -30,7 +30,13 @@
   },
   {
     "key": "f3",
-    "command": "workbench.action.nextEditor"
+    "command": "workbench.action.nextEditor",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "f3",
+    "command": "workbench.action.toggleMaximizedPanel",
+    "when": "terminalFocus"
   },
   {
     "key": "f6",
@@ -56,18 +62,14 @@
   },
   {
     "key": "f1",
-    "command": "workbench.action.splitEditorDown"
-  },
-  {
-    "key": "f2",
-    "command": "workbench.action.splitEditorLeft"
+    "command": "workbench.action.terminal.toggleTerminal"
   },
   {
     "key": "f4",
     "command": "workbench.action.closeActiveEditor"
   },
   {
-    "key": "shift+cmd+a",
+    "key": "f2",
     "command": "workbench.action.focusActiveEditorGroup"
   },
   {
@@ -152,5 +154,21 @@
     "key": "f6",
     "command": "-workbench.action.debug.pause",
     "when": "debugState == 'running'"
+  },
+  {
+    "key": "alt+f",
+    "command": "workbench.action.toggleFullScreen"
+  },
+  {
+    "key": "ctrl+cmd+f",
+    "command": "workbench.action.toggleFullScreen"
+  },
+  {
+    "key": "shift+f2",
+    "command": "workbench.action.splitEditorRight"
+  },
+  {
+    "key": "shift+f1",
+    "command": "workbench.action.splitEditorDown"
   }
 ]
