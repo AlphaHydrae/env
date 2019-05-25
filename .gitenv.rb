@@ -7,6 +7,14 @@ from '.httpie' do
   copy('config.json').to('~/.httpie').once
 end
 
+vscode_dir = File.expand_path('~/.vscode')
+if File.directory? vscode_dir
+  from 'vscode' do
+    symlink('keybindings.json', overwrite: true).to(vscode_dir)
+    symlink('settings.json', overwrite: true).to(vscode_dir)
+  end
+end
+
 zsh_homebrew_path = '/usr/local/Cellar/zsh'
 if File.directory? zsh_homebrew_path
   zsh_version = Dir.entries(zsh_homebrew_path).select{ |e| e.match(/\A\d+\.\d+(?:\.\d+(?:_\d+)?)?\Z/) }.sort.last
