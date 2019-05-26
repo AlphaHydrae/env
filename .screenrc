@@ -8,3 +8,4 @@ hardstatus string '%{= kG}[%{G}%H%{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?
 bindkey "^[[15~" prev # f5
 bindkey "^[[17~" next # f6
 bindkey "^[[18~" screen # f7
+bindkey "^[[19~" copy # f8
