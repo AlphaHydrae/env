@@ -61,6 +61,10 @@
     "command": "explorer.newFile"
   },
   {
+    "key": "cmd+n",
+    "command": "explorer.newFile"
+  },
+  {
     "key": "f1",
     "command": "workbench.action.terminal.toggleTerminal"
   },
@@ -201,5 +205,9 @@
     "key": "f3",
     "command": "-editor.action.nextMatchFindAction",
     "when": "editorFocus"
+  },
+  {
+    "key": "cmd+n",
+    "command": "-workbench.action.files.newUntitledFile"
   }
 ]
