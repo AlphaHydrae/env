@@ -671,3 +671,6 @@ export PATH="$PATH:/usr/local/sbin"
 
 # Travis CI gem
 [ -f "$HOME/.travis/travis.sh" ] && source "$HOME/.travis/travis.sh"
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

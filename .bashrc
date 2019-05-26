@@ -15,3 +15,6 @@ if [ -s /usr/local/bin/rbenv ]; then
 else
   export PATH=$HOME/.rbenv/shims:$PATH
 fi
+
+# fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
