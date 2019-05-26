@@ -13,6 +13,7 @@
       "backgroundColor": "transparent"
     }
   ],
+  "debug.console.fontSize": 16,
   "editor.detectIndentation": false,
   "editor.fontSize": 16,
   "editor.fontFamily": "BitStream Vera Sans Mono, Menlo, Monaco, 'Courier New', monospace",

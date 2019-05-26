@@ -66,11 +66,23 @@
   },
   {
     "key": "f4",
-    "command": "workbench.action.closeActiveEditor"
+    "command": "workbench.action.closeActiveEditor",
+    "when": "!terminalFocus"
   },
   {
     "key": "f2",
-    "command": "workbench.action.focusActiveEditorGroup"
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "explorerFocus"
+  },
+  {
+    "key": "f2",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "f2",
+    "command": "workbench.view.explorer",
+    "when": "editorFocus"
   },
   {
     "key": "alt+cmd+g l",
@@ -170,5 +182,24 @@
   {
     "key": "shift+f1",
     "command": "workbench.action.splitEditorDown"
+  },
+  {
+    "key": "shift+f3",
+    "command": "workbench.action.quickSwitchWindow"
+  },
+  {
+    "key": "f3",
+    "command": "-workbench.action.terminal.findNextTerminalFocus",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "f3",
+    "command": "-workbench.action.terminal.findNext",
+    "when": "terminalFindWidgetFocused"
+  },
+  {
+    "key": "f3",
+    "command": "-editor.action.nextMatchFindAction",
+    "when": "editorFocus"
   }
 ]
