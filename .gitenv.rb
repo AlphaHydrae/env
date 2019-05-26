@@ -7,7 +7,7 @@ from '.httpie' do
   copy('config.json').to('~/.httpie').once
 end
 
-vscode_dir = File.expand_path('~/.vscode')
+vscode_dir = File.expand_path(File.join('~', 'Library', 'Application Support', 'Code', 'User'))
 if File.directory? vscode_dir
   from 'vscode' do
     symlink('keybindings.json', overwrite: true).to(vscode_dir)
