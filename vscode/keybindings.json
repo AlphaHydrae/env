@@ -34,6 +34,11 @@
     "when": "!terminalFocus"
   },
   {
+    "key": "shift+f3",
+    "command": "workbench.action.previousEditor",
+    "when": "!terminalFocus"
+  },
+  {
     "key": "f3",
     "command": "workbench.action.toggleMaximizedPanel",
     "when": "terminalFocus"
@@ -136,7 +141,7 @@
   },
   {
     "key": "shift+cmd+w",
-    "command": "workbench.action.newWindow"
+    "command": "workbench.action.quickSwitchWindow"
   },
   {
     "key": "shift+cmd+n",
@@ -186,10 +191,6 @@
   {
     "key": "shift+f1",
     "command": "workbench.action.splitEditorDown"
-  },
-  {
-    "key": "shift+f3",
-    "command": "workbench.action.quickSwitchWindow"
   },
   {
     "key": "f3",
