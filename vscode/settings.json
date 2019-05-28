@@ -21,10 +21,12 @@
   "editor.scrollBeyondLastLine": false,
   "editor.tabSize": 2,
   "gitlens.currentLine.enabled": false,
+  "javascript.preferences.quoteStyle": "single",
   "statusbarerror.wholeLine.show": true,
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "terminal.integrated.fontSize": 16,
+  "typescript.preferences.quoteStyle": "single",
   "window.openFoldersInNewWindow": "on",
   "workbench.colorCustomizations": {
     "statusBar.background": "#486faf"
