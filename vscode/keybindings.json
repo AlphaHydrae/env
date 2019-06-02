@@ -152,7 +152,7 @@
     "command": "workbench.action.toggleMaximizedPanel"
   },
   {
-    "key": "shift+cmd+d e",
+    "key": "cmd+e",
     "command": "editor.action.marker.next",
     "when": "editorTextFocus && !editorReadonly"
   },
@@ -210,5 +210,9 @@
   {
     "key": "cmd+n",
     "command": "-workbench.action.files.newUntitledFile"
+  },
+  {
+    "key": "cmd+e",
+    "command": "-actions.findWithSelection"
   }
 ]
