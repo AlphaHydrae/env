@@ -27,6 +27,7 @@
   "telemetry.enableTelemetry": false,
   "terminal.integrated.fontSize": 16,
   "typescript.preferences.quoteStyle": "single",
+  "vim.leader": ",",
   "window.openFoldersInNewWindow": "on",
   "workbench.colorCustomizations": {
     "statusBar.background": "#486faf"
