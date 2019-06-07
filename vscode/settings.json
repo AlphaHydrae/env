@@ -23,6 +23,7 @@
   "gitlens.currentLine.enabled": false,
   "javascript.preferences.quoteStyle": "single",
   "statusbarerror.wholeLine.show": true,
+  "tableformatter.common.centerAlignedHeader": false,
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "terminal.integrated.fontSize": 16,
