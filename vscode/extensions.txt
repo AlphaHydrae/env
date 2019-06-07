@@ -7,11 +7,15 @@ JoeBerria.statusbarerror
 lamartire.git-indicators
 mhutchie.git-graph
 mrmlnc.vscode-pugbeautify
+ms-vscode.Go
 ms-vscode.vscode-typescript-tslint-plugin
 naumovs.color-highlight
+octref.vetur
 PeterJausovec.vscode-docker
 pranaygp.vscode-css-peek
 shardulm94.trailing-spaces
+shuworks.vscode-table-formatter
+stkb.rewrap
 sysoev.language-stylus
 vscodevim.vim
 wayou.vscode-todo-highlight
