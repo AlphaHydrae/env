@@ -28,6 +28,7 @@
   "telemetry.enableTelemetry": false,
   "terminal.integrated.fontSize": 16,
   "typescript.preferences.quoteStyle": "single",
+  "vim.camelCaseMotion.enable": true,
   "vim.leader": ",",
   "window.openFoldersInNewWindow": "on",
   "workbench.colorCustomizations": {
