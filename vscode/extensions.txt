@@ -21,3 +21,4 @@ vscodevim.vim
 wayou.vscode-todo-highlight
 xabikos.JavaScriptSnippets
 Zignd.html-css-class-completion
+zxh404.vscode-proto3
