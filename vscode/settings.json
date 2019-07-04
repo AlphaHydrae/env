@@ -27,6 +27,7 @@
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "terminal.integrated.fontSize": 16,
+  "terminal.integrated.inheritEnv": false,
   "typescript.preferences.quoteStyle": "single",
   "vim.camelCaseMotion.enable": true,
   "vim.leader": ",",
@@ -37,5 +38,6 @@
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.editor.showTabs": true,
-  "workbench.tree.indent": 12
+  "workbench.tree.indent": 12,
+  "window.zoomLevel": 0
 }
