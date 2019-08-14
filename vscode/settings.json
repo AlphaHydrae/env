@@ -20,6 +20,9 @@
   "editor.renderWhitespace": "boundary",
   "editor.scrollBeyondLastLine": false,
   "editor.tabSize": 2,
+  "files.associations": {
+    "Vagrantfile": "ruby"
+  },
   "gitlens.currentLine.enabled": false,
   "javascript.preferences.quoteStyle": "single",
   "statusbarerror.wholeLine.show": true,
