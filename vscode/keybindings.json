@@ -1,4 +1,3 @@
-// Place your key bindings in this file to override the defaultsauto[]
 [
   {
     "key": "cmd+d d",
@@ -214,5 +213,9 @@
   {
     "key": "cmd+e",
     "command": "-actions.findWithSelection"
+  },
+  {
+    "key": "shift+cmd+[Comma]",
+    "command": "workbench.action.openSettingsJson"
   }
 ]
