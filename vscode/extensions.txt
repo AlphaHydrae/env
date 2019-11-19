@@ -4,6 +4,7 @@ dunstontc.dark-plus-syntax
 eamodio.gitlens
 EditorConfig.EditorConfig
 Gruntfuggly.todo-tree
+JakeBecker.elixir-ls
 JoeBerria.statusbarerror
 lamartire.git-indicators
 mhutchie.git-graph

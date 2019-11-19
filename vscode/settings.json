@@ -20,6 +20,11 @@
   "editor.renderWhitespace": "boundary",
   "editor.scrollBeyondLastLine": false,
   "editor.tabSize": 2,
+  "editor.tokenColorCustomizations": {
+    "[dark-plus-syntax]": {
+      "comments": "#6A9955"
+    }
+  },
   "files.associations": {
     "Vagrantfile": "ruby"
   },
