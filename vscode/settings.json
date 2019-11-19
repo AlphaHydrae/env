@@ -1,4 +1,11 @@
 {
+  "[elixir]": {
+    "editor.wordBasedSuggestions": true,
+    "editor.formatOnType": false,
+    "editor.acceptSuggestionOnEnter": "smart",
+    "editor.trimAutoWhitespace": true,
+    "files.insertFinalNewline": true
+  },
   "better-comments.tags": [
     {
       "tag": "todo",
