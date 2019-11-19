@@ -36,10 +36,12 @@
   "telemetry.enableTelemetry": false,
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.inheritEnv": false,
+  "todo-tree.highlights.enabled": true,
   "typescript.preferences.quoteStyle": "single",
   "vim.camelCaseMotion.enable": true,
   "vim.leader": ",",
   "window.openFoldersInNewWindow": "on",
+  "window.zoomLevel": 0,
   "workbench.colorCustomizations": {
     "statusBar.background": "#486faf"
   },
@@ -47,5 +49,6 @@
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.editor.showTabs": true,
   "workbench.tree.indent": 12,
-  "window.zoomLevel": 0
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.colorTheme": "dark-plus-syntax"
 }
