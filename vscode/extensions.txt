@@ -1,5 +1,6 @@
 aaron-bond.better-comments
 dbaeumer.vscode-eslint
+dunstontc.dark-plus-syntax
 eamodio.gitlens
 EditorConfig.EditorConfig
 Gruntfuggly.todo-tree
