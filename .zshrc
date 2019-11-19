@@ -565,6 +565,7 @@ alias vimt="vimtree"
 alias vlc="open -n /Applications/VLC.app"
 alias pub="cat ~/.ssh/id_rsa.pub"
 alias ogc="open -a Google\ Chrome"
+alias telnet='telnet -e "^Q"'
 hash hub 2>/dev/null && alias git="hub"
 
 # Docker Aliases
