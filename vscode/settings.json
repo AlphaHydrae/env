@@ -32,6 +32,7 @@
       "comments": "#6A9955"
     }
   },
+  "explorer.confirmDragAndDrop": false,
   "files.associations": {
     "Vagrantfile": "ruby"
   },
@@ -70,7 +71,7 @@
     "terminal.background": "#1e1e1e",
     "terminal.border": "#80808059",
     "terminal.foreground": "#cccccc",
-    "terminal.selectionBackground": "#ffffff40",
+    "terminal.selectionBackground": "#ffffff40"
   },
   "workbench.colorTheme": "dark-plus-syntax",
   "workbench.editor.enablePreview": false,
