@@ -70,6 +70,10 @@
   #    bru <branch>
   #    bru <remote> <branch>
   bru = "!f() { if [ -z $1 ]; then echo 'Branch name required.' 1>&2; return 1; fi; if [ -z $2 ]; then set origin $1; fi; git checkout -b $2 $1/$2; }; f"
+
+  # merge current branch upstream
+  #    mu
+  mu = "!f() { upstream=\"$(git rev-parse --abbrev-ref --symbolic-full-name @{u})\"; if [ $? -ne 0 ]; then return 2; fi; git merge \"$upstream\"; }; f"
 [core]
   excludesfile = ~/.gitignore
   editor = /usr/local/bin/vim
