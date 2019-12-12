@@ -29,7 +29,51 @@
   "editor.tabSize": 2,
   "editor.tokenColorCustomizations": {
     "[dark-plus-syntax]": {
-      "comments": "#6A9955"
+      "comments": "#6A9955",
+      "textMateRules": [
+        {
+          "scope": [
+            "comment",
+            "comment.line.double-slash.js",
+            "comment.block.html",
+            "comment.block.handlebars"
+          ],
+          "settings": {
+            "foreground": "#6A9955"
+          }
+        },
+        {
+          "name": "Curly Braces, Semicolons, etc.",
+          "scope": [
+            "meta.tag.sgml.html",
+            "meta.tag.sgml.doctype.html",
+            "meta.tag.sgml.html punctuation.definition.tag.html",
+            "meta.structure.dictionary.json",
+            "punctuation.definition.array.begin.json",
+            "punctuation.definition.array.end.json",
+            "punctuation.separator.array.json",
+            "punctuation.terminator",
+            "punctuation.definition.string.begin.markdown",
+            "punctuation.definition.string.end.markdown",
+            "punctuation.definition.metadata.markdown",
+            "invalid.illegal.bad-comments-or-CDATA.html",
+            "punctuation.definition.italic.markdown",
+            "punctuation.definition.bold.markdown"
+          ],
+          "settings": {
+          "foreground": "#d4d4d4"
+          }
+        },
+        {
+          "scope": [
+            "comment.line.number-sign.yaml",
+            "punctuation.separator.key-value.mapping.yaml"
+          ],
+          "settings": {
+            "foreground": "#6A9955"
+          }
+        }
+      ]
     }
   },
   "explorer.confirmDragAndDrop": false,
