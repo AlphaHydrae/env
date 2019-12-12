@@ -577,6 +577,10 @@ function vs () {
   vagrant ssh -c "cd /vagrant && $*"
 }
 
+function vsu () {
+  vagrant ssh -c "sudo su -" "$@"
+}
+
 # PDF Utilities
 function compress-pdf() {
   INPUT="$1"
