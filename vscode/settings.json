@@ -72,6 +72,44 @@
           "settings": {
             "foreground": "#6A9955"
           }
+        },
+        {
+          "scope": [
+            "markup.underline.link.markdown",
+            "markup.underline.link.image.markdown"
+          ],
+          "settings": {
+            "foreground": "#999900"
+          }
+        },
+        {
+          "scope": [
+            "meta.link.reference.markdown constant.other.reference.link.markdown",
+            "meta.image.reference.markdown constant.other.reference.link.markdown"
+          ],
+          "settings": {
+            "fontStyle": "italic",
+            "foreground": "#999900"
+          }
+        },
+        {
+          "scope": [
+            "markup.fenced_code.block.markdown punctuation.definition.markdown",
+            "punctuation.definition.italic.markdown",
+            "punctuation.definition.bold.markdown",
+            "punctuation.definition.raw.markdown",
+            "beginning.punctuation.definition.quote.markdown",
+            "meta.link.reference.def.markdown punctuation.definition.constant.markdown",
+            "meta.link.reference.def.markdown punctuation.separator.key-value.markdown",
+            "meta.link.reference.markdown punctuation.definition.constant.begin.markdown",
+            "meta.link.reference.markdown punctuation.definition.constant.end.markdown",
+            "meta.image.reference.markdown punctuation.definition.constant.markdown",
+            "block-dollars",
+            "inline-dollars"
+          ],
+          "settings": {
+            "foreground": "#999999"
+          }
         }
       ]
     }
