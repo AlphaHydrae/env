@@ -673,6 +673,11 @@ else
   export PATH=$HOME/.nodenv/bin:$HOME/.nodenv/shims:$PATH
 fi
 
+# asdf
+if [ -s /usr/local/opt/asdf/asdf.sh ]; then
+  source /usr/local/opt/asdf/asdf.sh
+fi
+
 alias nodenv='nocorrect nodenv'
 alias rbenv='nocorrect rbenv'
 
