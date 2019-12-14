@@ -168,6 +168,11 @@ else
   PS1='%n@%m %B%3~%b %# '
 fi
 
+# Configure Homebrew's completions
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
+
 # Advanced completion
 autoload -U compinit
 compinit -C # don't perform security check
