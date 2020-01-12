@@ -18,6 +18,7 @@ naumovs.color-highlight
 octref.vetur
 pgourlain.erlang
 pranaygp.vscode-css-peek
+sbrink.elm
 shardulm94.trailing-spaces
 shuworks.vscode-table-formatter
 stkb.rewrap
