@@ -122,6 +122,7 @@
     "Vagrantfile": "ruby"
   },
   "gitlens.currentLine.enabled": false,
+  "html.mirrorCursorOnMatchingTag": false,
   "javascript.preferences.quoteStyle": "single",
   "statusbarerror.wholeLine.show": true,
   "tableformatter.common.centerAlignedHeader": false,
