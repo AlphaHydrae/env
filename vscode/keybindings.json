@@ -176,6 +176,10 @@
     "when": "debugState == 'running'"
   },
   {
+    "key": "f6",
+    "command": "-workbench.action.focusNextPart"
+  },
+  {
     "key": "alt+f",
     "command": "workbench.action.toggleFullScreen"
   },
