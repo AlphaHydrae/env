@@ -6,6 +6,9 @@
     "editor.wordBasedSuggestions": true,
     "files.insertFinalNewline": true
   },
+  "[elm]": {
+    "editor.codeLens": false
+  },
   "better-comments.tags": [
     {
       "tag": "todo",
