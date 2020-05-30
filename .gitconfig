@@ -18,8 +18,9 @@
   apw = !"git -c interactive.diffFilter='git diff --color-words' add -p"
   b = branch
   ba = branch -a
-  c = checkout
+  ch = checkout
   cb = checkout -b
+  co = commit
   f = fetch
   fp = fetch --prune
   fa = fetch --all --prune
