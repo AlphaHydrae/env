@@ -135,6 +135,7 @@
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.inheritEnv": false,
   "todo-tree.highlights.enabled": true,
+  "todo-tree.tree.showScanModeButton": false,
   "typescript.preferences.quoteStyle": "single",
   "vim.camelCaseMotion.enable": true,
   "vim.leader": ",",
