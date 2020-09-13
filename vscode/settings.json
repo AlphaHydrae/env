@@ -122,7 +122,8 @@
   },
   "explorer.confirmDragAndDrop": false,
   "files.associations": {
-    "Vagrantfile": "ruby"
+    "Vagrantfile": "ruby",
+    ".env.sample": "dotenv"
   },
   "gitlens.currentLine.enabled": false,
   "html.mirrorCursorOnMatchingTag": false,
