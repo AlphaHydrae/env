@@ -211,6 +211,11 @@
     "when": "editorFocus"
   },
   {
+    "key": "f5",
+    "command": "-workbench.action.debug.start",
+    "when": "debuggersAvailable && !inDebugMode"
+  },
+  {
     "key": "cmd+n",
     "command": "-workbench.action.files.newUntitledFile"
   },
