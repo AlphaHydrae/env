@@ -9,6 +9,9 @@
   "[elm]": {
     "editor.codeLens": false
   },
+  "[rust]": {
+    "editor.formatOnSave": true
+  },
   "better-comments.tags": [
     {
       "tag": "todo",
@@ -128,6 +131,7 @@
   "gitlens.currentLine.enabled": false,
   "html.mirrorCursorOnMatchingTag": false,
   "javascript.preferences.quoteStyle": "single",
+  "rust-client.rustupPath": "~/.asdf/shims/rustup",
   "statusbarerror.wholeLine.show": true,
   "tableformatter.common.centerAlignedHeader": false,
   "telemetry.enableCrashReporter": false,
