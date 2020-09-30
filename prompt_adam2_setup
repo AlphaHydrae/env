@@ -147,16 +147,40 @@ function prompt_build_ruby {
   prompt_ruby=
   prompt_ruby_width=0
 
-  if [[ ! -f .rvmrc ]] && [[ ! -f .ruby-version ]] && [[ ! -f Gemfile ]] && test -z "$RBENV_VERSION" || [[ "$( pwd )" == "$HOME" ]] || ! command -v ruby &>/dev/null; then
+  if [[ ! -f Gemfile ]] || [[ "$PWD" == "$HOME" ]]; then
     return
   fi
 
-  prompt_ruby_version="$( ruby -e 'print RUBY_VERSION' )"
+  prompt_ruby_path="$(command -v ruby 2>/dev/null)"
+  if [[ $? != 0 ]]; then
+    return
+  fi
+
+  if [[ "$prompt_ruby_path" == */.asdf/* ]]; then
+    if test -e "$ASDF_RUBY_VERSION"; then
+      prompt_ruby_version="$ASDF_RUBY_VERSION"
+    else
+      test -f .tool-versions && asdf_ruby_version="$(cat .tool-versions|grep ruby 2>/dev/null)"
+      test -z "$asdf_ruby_version" && asdf_ruby_version="$(cat ~/.tool-versions|grep ruby 2>/dev/null)"
+      test -n "$asdf_ruby_version" && prompt_ruby_version="${asdf_ruby_version#"ruby "}"
+    fi
+  elif [[ "$prompt_ruby_path" == */.rbenv/* ]]; then
+    if test -e "$RBENV_VERSION"; then
+      prompt_ruby_version="$RBENV_VERSION"
+    elif test -f .ruby-version; then
+      prompt_ruby_version="$(head -n 1 .ruby-version)"
+    fi
+  else
+    prompt_ruby_version="$(ruby -e 'print RUBY_VERSION')"
+  fi
+
   if [ -z "$prompt_ruby_version" ]; then
     return
   fi
 
-  prompt_ruby="%b%F{blue}ruby-${prompt_ruby_version}%f%B%F{black}|%b%f"
+  [[ "$prompt_ruby_version" == ruby* ]] || prompt_ruby_version="ruby-${prompt_ruby_version}"
+
+  prompt_ruby="%b%F{blue}${prompt_ruby_version}%f%B%F{black}|%b%f"
   prompt_ruby_width=$(( ${#prompt_ruby_version} + 6 ))
 }
 
@@ -165,11 +189,34 @@ function prompt_build_node {
   prompt_node=
   prompt_node_width=0
 
-  if [[ ! -f .node-version ]] && [[ ! -f package.json ]] && test -z "$NODENV_VERSION" || [[ "$( pwd )" == "$HOME" ]] || ! command -v node &>/dev/null; then
+  if [[ ! -f package.json ]] || [[ "$PWD" == "$HOME" ]]; then
     return
   fi
 
-  prompt_node_version="${$(node --version 2>/dev/null)/v/}"
+  prompt_node_path="$(command -v node 2>/dev/null)"
+  if [[ $? != 0 ]]; then
+    return
+  fi
+
+  if [[ "$prompt_node_path" == */.asdf/* ]]; then
+    if test -e "$ASDF_NODE_VERSION"; then
+      prompt_node_version="$ASDF_NODE_VERSION"
+    else
+      test -f .tool-versions && asdf_nodejs_version="$(cat .tool-versions|grep nodejs 2>/dev/null)"
+      test -z "$asdf_nodejs_version" && asdf_nodejs_version="$(cat ~/.tool-versions|grep node 2>/dev/null)"
+      test -n "$asdf_nodejs_version" && prompt_node_version="${asdf_nodejs_version#"nodejs "}"
+    fi
+  elif [[ "$prompt_node_path" == */.nodenv/* ]]; then
+    if test -e "$NODENV_VERSION"; then
+      prompt_node_version="$NODENV_VERSION"
+    elif test -f .node-version; then
+      prompt_node_version="$(head -n 1 .node-version)"
+    fi
+  else
+    prompt_node_version="$(node -e 'console.log(process.version)')"
+    prompt_node_version="${prompt_node_version#v}"
+  fi
+
   if [ -z "$prompt_node_version" ]; then
     return
   fi
