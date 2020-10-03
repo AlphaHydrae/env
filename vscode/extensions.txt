@@ -9,7 +9,6 @@ elmTooling.elm-ls-vscode
 golang.go
 Gruntfuggly.todo-tree
 JakeBecker.elixir-ls
-JamesBirtles.svelte-vscode
 JoeBerria.statusbarerror
 karunamurti.haml
 lamartire.git-indicators
