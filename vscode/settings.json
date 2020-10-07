@@ -7,7 +7,8 @@
     "files.insertFinalNewline": true
   },
   "[elm]": {
-    "editor.codeLens": false
+    "editor.codeLens": false,
+    "editor.formatOnSave": true
   },
   "[rust]": {
     "editor.formatOnSave": true
@@ -123,6 +124,7 @@
       ]
     }
   },
+  "elmLS.elmAnalyseTrigger": "save",
   "explorer.confirmDragAndDrop": false,
   "files.associations": {
     "Vagrantfile": "ruby",
