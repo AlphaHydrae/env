@@ -131,7 +131,6 @@
     ".env.sample": "dotenv"
   },
   "gitlens.currentLine.enabled": false,
-  "html.mirrorCursorOnMatchingTag": false,
   "javascript.preferences.quoteStyle": "single",
   "rust-client.rustupPath": "~/.asdf/shims/rustup",
   "statusbarerror.wholeLine.show": true,
