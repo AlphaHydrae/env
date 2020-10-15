@@ -85,6 +85,8 @@
   default = simple
 [merge]
   conflictstyle = diff3
+[pull]
+  rebase = false
 [rerere]
   enabled = true
 [diff]
