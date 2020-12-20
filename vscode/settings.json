@@ -36,6 +36,7 @@
     80
   ],
   "editor.scrollBeyondLastLine": false,
+  "editor.suggest.showStatusBar": true,
   "editor.tabSize": 2,
   "editor.tokenColorCustomizations": {
     "[dark-plus-syntax]": {
@@ -126,6 +127,7 @@
   },
   "elmLS.elmAnalyseTrigger": "save",
   "explorer.confirmDragAndDrop": false,
+  "extensions.ignoreRecommendations": false,
   "files.associations": {
     "Vagrantfile": "ruby",
     ".env.sample": "dotenv"
