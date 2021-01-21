@@ -81,6 +81,8 @@
 [include]
   path = .gitprivate
   path = .gitlocal
+[init]
+  defaultBranch = main
 [push]
   default = simple
 [merge]
