@@ -90,7 +90,7 @@
   {
     "key": "f2",
     "command": "workbench.view.explorer",
-    "when": "editorFocus"
+    "when": "!explorerFocus && !terminalFocus"
   },
   {
     "key": "alt+cmd+g l",
