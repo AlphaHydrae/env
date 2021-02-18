@@ -28,7 +28,6 @@
   develop = checkout develop
   mas = checkout master
   master = checkout master
-  rh = reset HEAD
   ptm = push --tags origin master
 
   cp = cherry-pick
@@ -36,6 +35,10 @@
 
   l = log --show-signature
   lp = log --patch --show-signature
+
+  rh = reset HEAD
+  unadd = reset HEAD
+  unstage = reset HEAD
 
   # commit graph
   g = !"git log --pretty='%C(auto)%h%Creset %Cblue%ad%Creset%C(auto)%d %s%Creset' '--date=format:%m-%d' --graph"
