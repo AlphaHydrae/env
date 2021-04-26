@@ -141,7 +141,17 @@
   "telemetry.enableTelemetry": false,
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.inheritEnv": false,
+  "todo-tree.general.tags": [
+    "BUG",
+    "HACK",
+    "FIXME",
+    "TODO",
+    "XXX",
+    "[ ]",
+    "[x]"
+  ],
   "todo-tree.highlights.enabled": true,
+  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
   "todo-tree.tree.showScanModeButton": false,
   "typescript.preferences.quoteStyle": "single",
   "vim.camelCaseMotion.enable": true,
