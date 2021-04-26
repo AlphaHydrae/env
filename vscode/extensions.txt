@@ -1,6 +1,6 @@
 aaron-bond.better-comments
-ardenivanov.svelte-intellisense
 bungcip.better-toml
+csstools.postcss
 dbaeumer.vscode-eslint
 dunstontc.dark-plus-syntax
 eamodio.gitlens
@@ -14,6 +14,7 @@ karunamurti.haml
 lamartire.git-indicators
 mhutchie.git-graph
 mikestead.dotenv
+mkaufman.HTMLHint
 mrmlnc.vscode-pugbeautify
 ms-azuretools.vscode-docker
 ms-python.python
@@ -26,11 +27,12 @@ rebornix.ruby
 shardulm94.trailing-spaces
 shuworks.vscode-table-formatter
 sianglim.slim
+sjhuangx.vscode-scheme
 stkb.rewrap
+svelte.svelte-vscode
 syler.sass-indented
 sysoev.language-stylus
 vscodevim.vim
-vscoss.vscode-ansible
 wayou.vscode-todo-highlight
 wholroyd.jinja
 wingrunr21.vscode-ruby
