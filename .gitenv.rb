@@ -17,7 +17,7 @@ end
 
 zsh_homebrew_path = '/usr/local/Cellar/zsh'
 if File.directory? zsh_homebrew_path
-  zsh_version = Dir.entries(zsh_homebrew_path).select{ |e| e.match(/\A\d+\.\d+(?:\.\d+(?:_\d+)?)?\Z/) }.sort.last
+  zsh_version = Dir.entries(zsh_homebrew_path).select{ |e| e.match(/\A\d+\.\d+(?:\.\d+)?(?:_\d+)?\Z/) }.sort.last
   raise 'Could not detect ZSH version' unless zsh_version
   copy('prompt_adam2_setup', overwrite: true).to File.join(zsh_homebrew_path, zsh_version, 'share', 'zsh', 'functions')
 end
