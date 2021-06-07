@@ -26,6 +26,7 @@ octref.vetur
 pgourlain.erlang
 pranaygp.vscode-css-peek
 rebornix.ruby
+rust-lang.rust
 shardulm94.trailing-spaces
 shuworks.vscode-table-formatter
 sianglim.slim
