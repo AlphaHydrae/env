@@ -18,6 +18,8 @@ mkaufman.HTMLHint
 mrmlnc.vscode-pugbeautify
 ms-azuretools.vscode-docker
 ms-python.python
+ms-python.vscode-pylance
+ms-toolsai.jupyter
 ms-vscode.vscode-typescript-tslint-plugin
 naumovs.color-highlight
 octref.vetur
