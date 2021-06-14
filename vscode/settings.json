@@ -28,9 +28,12 @@
     }
   ],
   "debug.console.fontSize": 16,
+  "editor.cursorStyle": "line",
   "editor.detectIndentation": false,
   "editor.fontSize": 16,
   "editor.fontFamily": "BitStream Vera Sans Mono, Menlo, Monaco, 'Courier New', monospace",
+  "editor.insertSpaces": false,
+  "editor.lineNumbers": "on",
   "editor.renderWhitespace": "boundary",
   "editor.rulers": [
     80
@@ -125,6 +128,8 @@
       ]
     }
   },
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "editor.wordWrap": "off",
   "elmLS.elmAnalyseTrigger": "save",
   "explorer.confirmDragAndDrop": false,
   "extensions.ignoreRecommendations": false,
@@ -186,12 +191,9 @@
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.editor.showTabs": true,
-  "workbench.editorAssociations": [
-    {
-      "viewType": "jupyter.notebook.ipynb",
-      "filenamePattern": "*.ipynb"
-    }
-  ],
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
   "workbench.startupEditor": "newUntitledFile",
   "workbench.tree.indent": 12
 }
