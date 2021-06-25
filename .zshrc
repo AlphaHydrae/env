@@ -682,8 +682,9 @@ fi
 alias nodenv='nocorrect nodenv'
 alias rbenv='nocorrect rbenv'
 
-# Homebrew sbin
-export PATH="$PATH:/usr/local/sbin"
+# Homebrew
+[ -d /opt/homebrew ] && export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+[ -d /usr/local/sbin ] && export PATH="/usr/local/sbin:$PATH"
 
 # Travis CI gem
 [ -f "$HOME/.travis/travis.sh" ] && source "$HOME/.travis/travis.sh"
