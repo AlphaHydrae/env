@@ -675,9 +675,8 @@ else
 fi
 
 # asdf
-if [ -s /usr/local/opt/asdf/asdf.sh ]; then
-  source /usr/local/opt/asdf/asdf.sh
-fi
+[ -s /opt/homebrew/opt/asdf/asdf.sh ] && . /opt/homebrew/opt/asdf/asdf.sh
+[ -s /usr/local/opt/asdf/asdf.sh ] && . /usr/local/opt/asdf/asdf.sh
 
 alias nodenv='nocorrect nodenv'
 alias rbenv='nocorrect rbenv'
