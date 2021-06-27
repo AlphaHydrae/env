@@ -40,6 +40,7 @@
   ],
   "editor.scrollBeyondLastLine": false,
   "editor.suggest.showStatusBar": true,
+  "editor.suggestSelection": "first",
   "editor.tabSize": 2,
   "editor.tokenColorCustomizations": {
     "[dark-plus-syntax]": {
@@ -138,7 +139,9 @@
     ".env.sample": "dotenv"
   },
   "gitlens.currentLine.enabled": false,
+  "java.configuration.checkProjectSettingsExclusions": false,
   "javascript.preferences.quoteStyle": "single",
+  "redhat.telemetry.enabled": false,
   "rust-client.rustupPath": "~/.asdf/shims/rustup",
   "statusbarerror.wholeLine.show": true,
   "tableformatter.common.centerAlignedHeader": false,
@@ -161,6 +164,7 @@
   "typescript.preferences.quoteStyle": "single",
   "vim.camelCaseMotion.enable": true,
   "vim.leader": ",",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.openFoldersInNewWindow": "on",
   "window.zoomLevel": 0,
   "workbench.colorCustomizations": {
