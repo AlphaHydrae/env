@@ -674,16 +674,16 @@ else
   export PATH=$HOME/.nodenv/bin:$HOME/.nodenv/shims:$PATH
 fi
 
+# Homebrew
+[ -d /opt/homebrew ] && export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+[ -d /usr/local/sbin ] && export PATH="/usr/local/sbin:$PATH"
+
 # asdf
 [ -s /opt/homebrew/opt/asdf/asdf.sh ] && . /opt/homebrew/opt/asdf/asdf.sh
 [ -s /usr/local/opt/asdf/asdf.sh ] && . /usr/local/opt/asdf/asdf.sh
 
 alias nodenv='nocorrect nodenv'
 alias rbenv='nocorrect rbenv'
-
-# Homebrew
-[ -d /opt/homebrew ] && export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
-[ -d /usr/local/sbin ] && export PATH="/usr/local/sbin:$PATH"
 
 # Travis CI gem
 [ -f "$HOME/.travis/travis.sh" ] && source "$HOME/.travis/travis.sh"
