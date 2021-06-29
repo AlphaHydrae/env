@@ -15,7 +15,9 @@ if File.directory? vscode_dir
   end
 end
 
-zsh_homebrew_path = '/usr/local/Cellar/zsh'
+zsh_old_homebrew_path = '/usr/local/Cellar/zsh'
+zsh_homebrew_path = '/opt/homebrew/Cellar/zsh'
+zsh_homebrew_path = zsh_old_homebrew_path if File.directory? zsh_old_homebrew_path
 if File.directory? zsh_homebrew_path
   zsh_version = Dir.entries(zsh_homebrew_path).select{ |e| e.match(/\A\d+\.\d+(?:\.\d+)?(?:_\d+)?\Z/) }.sort.last
   raise 'Could not detect ZSH version' unless zsh_version
