@@ -39,6 +39,7 @@ shuworks.vscode-table-formatter
 sianglim.slim
 sjhuangx.vscode-scheme
 stkb.rewrap
+sumneko.lua
 svelte.svelte-vscode
 syler.sass-indented
 sysoev.language-stylus
