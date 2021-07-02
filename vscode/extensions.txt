@@ -2,6 +2,7 @@ aaron-bond.better-comments
 bungcip.better-toml
 csstools.postcss
 dbaeumer.vscode-eslint
+denoland.vscode-deno
 DotJoshJohnson.xml
 dunstontc.dark-plus-syntax
 eamodio.gitlens
