@@ -141,6 +141,7 @@
   "gitlens.currentLine.enabled": false,
   "java.configuration.checkProjectSettingsExclusions": false,
   "javascript.preferences.quoteStyle": "single",
+  "Lua.telemetry.enable": false,
   "redhat.telemetry.enabled": false,
   "rust-client.rustupPath": "~/.asdf/shims/rustup",
   "statusbarerror.wholeLine.show": true,
