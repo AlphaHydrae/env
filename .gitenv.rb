@@ -24,11 +24,11 @@ if File.directory? zsh_homebrew_path
   copy('prompt_adam2_setup', overwrite: true).to File.join(zsh_homebrew_path, zsh_version, 'share', 'zsh', 'functions')
 end
 
-if File.directory? File.expand_path('~/Safebox/Config')
-  from '~/Safebox/Config' do
+private_config_dir = ENV['PRIVATE_CONFIG']
+if private_config_dir && File.directory?(File.expand_path(private_config_dir))
+  from private_config_dir do
     symlink dot_files.except('.env')
     copy('.env').once
     symlink('config').from('.ssh').to('.ssh')
-    symlink('settings.xml').from('.m2').to('.m2') if File.directory?(File.expand_path('~/.m2'))
   end
 end
