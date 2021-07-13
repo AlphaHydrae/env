@@ -35,9 +35,7 @@
   "editor.insertSpaces": true,
   "editor.lineNumbers": "on",
   "editor.renderWhitespace": "boundary",
-  "editor.rulers": [
-    80
-  ],
+  "editor.rulers": [80],
   "editor.scrollBeyondLastLine": false,
   "editor.suggest.showStatusBar": true,
   "editor.suggestSelection": "first",
@@ -76,7 +74,7 @@
             "punctuation.definition.bold.markdown"
           ],
           "settings": {
-          "foreground": "#d4d4d4"
+            "foreground": "#d4d4d4"
           }
         },
         {
