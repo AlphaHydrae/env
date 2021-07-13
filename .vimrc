@@ -211,3 +211,17 @@ autocmd BufRead,BufNewFile *.adoc,*.asciidoc
         \ textwidth=80 wrap formatoptions=tcqn
         \ formatlistpat=^\\s*\\d\\+\\.\\s\\+\\\\|^\\s*<\\d\\+>\\s\\+\\\\|^\\s*[a-zA-Z.]\\.\\s\\+\\\\|^\\s*[ivxIVX]\\+\\.\\s\\+
         \ comments=s1:/*,ex:*/,://,b:#,:%,:XCOMM,fb:-,fb:*,fb:+,fb:.,fb:>
+
+" Toggles paste mode
+function! TogglePaste()
+  if(&paste == 0)
+    set paste
+    echo "Paste Mode Enabled"
+  else
+    set nopaste
+    echo "Paste Mode Disabled"
+  endif
+endfunction
+
+" Toggle the paste mode with <Leader>p
+map <leader>p :call TogglePaste()<cr>
