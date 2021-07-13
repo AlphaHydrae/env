@@ -32,7 +32,7 @@
   "editor.detectIndentation": false,
   "editor.fontSize": 16,
   "editor.fontFamily": "BitStream Vera Sans Mono, Menlo, Monaco, 'Courier New', monospace",
-  "editor.insertSpaces": false,
+  "editor.insertSpaces": true,
   "editor.lineNumbers": "on",
   "editor.renderWhitespace": "boundary",
   "editor.rulers": [
