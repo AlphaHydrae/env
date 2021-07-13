@@ -54,7 +54,7 @@
   {
     "key": "f5",
     "command": "workbench.action.focusPreviousGroup",
-    "when": "!terminalFocus"
+    "when": "editorFocus || editorTextFocus"
   },
   {
     "key": "alt+cmd+left",
@@ -253,6 +253,11 @@
     "when": "debugState == 'stopped'"
   },
   {
+    "key": "f5",
+    "command": "workbench.action.debug.start",
+    "when": "debuggersAvailable && debugState != 'initializing' && inDebugRepl"
+  },
+  {
     "key": "f2",
     "command": "-editor.action.rename",
     "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
@@ -264,5 +269,24 @@
   {
     "key": "shift+cmd+w",
     "command": "-workbench.action.closeWindow"
+  },
+  {
+    "key": "alt+f5",
+    "command": "workbench.action.debug.selectandstart"
+  },
+  {
+    "key": "alt+d",
+    "command": "workbench.debug.action.toggleRepl",
+    "when": "workbench.panel.repl.view.active"
+  },
+  {
+    "key": "shift+cmd+y",
+    "command": "-workbench.debug.action.toggleRepl",
+    "when": "workbench.panel.repl.view.active"
+  },
+  {
+    "key": "alt+f5",
+    "command": "-workbench.action.editor.nextChange",
+    "when": "editorTextFocus"
   }
 ]
