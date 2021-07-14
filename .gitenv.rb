@@ -1,10 +1,13 @@
-
-symlink dot_files.except('.zshconfig', '.bash_profile'), overwrite: true, backup: false
-copy('.zshconfig').once
+symlink dot_files.except('.zshlocal', '.bash_profile'), overwrite: true, backup: false
+copy('.zshlocal').once
 copy('.bash_profile').once
 
 from '.httpie' do
   copy('config.json').to('~/.httpie').once
+end
+
+from 'oh-my-zsh' do
+  symlink(all_files).to('.oh-my-zsh/custom')
 end
 
 vscode_dir = File.expand_path(File.join('~', 'Library', 'Application Support', 'Code', 'User'))

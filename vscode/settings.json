@@ -138,6 +138,7 @@
   },
   "gitlens.currentLine.enabled": false,
   "java.configuration.checkProjectSettingsExclusions": false,
+  "java.home": "/Users/unknow/.asdf/installs/java/openjdk-16.0.1",
   "javascript.preferences.quoteStyle": "single",
   "Lua.telemetry.enable": false,
   "redhat.telemetry.enabled": false,

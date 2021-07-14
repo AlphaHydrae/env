@@ -1,4 +1,0 @@
-prompt adam2 lightblue green white white
-
-# MacPorts
-export PATH=/opt/bin:/opt/local/bin:/opt/local/sbin:$PATH
