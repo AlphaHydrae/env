@@ -1,6 +1,7 @@
 {
   "[elixir]": {
     "editor.acceptSuggestionOnEnter": "smart",
+    "editor.formatOnSave": true,
     "editor.formatOnType": false,
     "editor.trimAutoWhitespace": true,
     "editor.wordBasedSuggestions": true,
