@@ -29,6 +29,7 @@
     }
   ],
   "debug.console.fontSize": 15,
+  "debug.toolBarLocation": "docked",
   "editor.cursorStyle": "line",
   "editor.detectIndentation": false,
   "editor.fontSize": 16,
