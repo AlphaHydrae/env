@@ -11,7 +11,7 @@
 # Path to the oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# Set the theme. See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes.
 ZSH_THEME="agnoster"
 
 # Hide the default user from the prompt.
@@ -36,12 +36,10 @@ DEFAULT_USER=`whoami`
 # Uncomment the following line if pasting URLs and other text is messed up.
 DISABLE_MAGIC_FUNCTIONS="true"
 
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
-# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
+# Uncomment the following line to display red dots whilst waiting for
+# completion. Caution: this setting can cause issues with multiline prompts
+# (zsh 5.7.1 and newer seem to work) See
+# https://github.com/ohmyzsh/ohmyzsh/issues/5765.
 COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load?
@@ -56,31 +54,23 @@ plugins=(git)
 # User configuration
 # ==================
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# History
+# Save a truckload of commands in the history.
 HISTFILE=~/.zshhistory
 HISTSIZE=300000
 SAVEHIST=300000
 
-# Key bindings
+# Customize key bindings.
 bindkey -v # vim key bindings
 bindkey '^d' delete-char # delete key
 bindkey '^?' backward-delete-char # backspace key
 bindkey "^[[3~" delete-char # delete key for iterm 2
 bindkey "^[3;5~" delete-char # delete key for iterm 2
 
-# Configuration specific to the local machine
+# Load configuration specific to the local machine.
 test -f ~/.zshlocal && . ~/.zshlocal
 
-# Private configuration
+# Load private configuration.
 test -f ~/.zshprivate && . ~/.zshprivate
 
 # https://direnv.net
@@ -121,3 +111,7 @@ test -f ~/.asdf/plugins/java/set-java-home.zsh && . ~/.asdf/plugins/java/set-jav
 
 # https://github.com/junegunn/fzf
 test -f ~/.fzf.zsh && . ~/.fzf.zsh
+
+# Further customization
+# =====================
+# See $ZSH_CUSTOM directory.
