@@ -28,7 +28,7 @@
       "backgroundColor": "transparent"
     }
   ],
-  "debug.console.fontSize": 16,
+  "debug.console.fontSize": 15,
   "editor.cursorStyle": "line",
   "editor.detectIndentation": false,
   "editor.fontSize": 16,
