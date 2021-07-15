@@ -77,9 +77,6 @@ bindkey '^?' backward-delete-char # backspace key
 bindkey "^[[3~" delete-char # delete key for iterm 2
 bindkey "^[3;5~" delete-char # delete key for iterm 2
 
-# https://hub.github.com
-hash hub 2>/dev/null && alias git="hub"
-
 # Configuration specific to the local machine
 test -f ~/.zshlocal && . ~/.zshlocal
 
