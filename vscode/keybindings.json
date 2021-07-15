@@ -292,5 +292,9 @@
     "key": "alt+f5",
     "command": "-workbench.action.editor.nextChange",
     "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+cmd+e",
+    "command": "eslint.executeAutofix"
   }
 ]
