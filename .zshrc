@@ -76,8 +76,6 @@ bindkey '^d' delete-char # delete key
 bindkey '^?' backward-delete-char # backspace key
 bindkey "^[[3~" delete-char # delete key for iterm 2
 bindkey "^[3;5~" delete-char # delete key for iterm 2
-bindkey '^R' history-incremental-search-backward # history search
-bindkey '^T' history-incremental-search-forward
 
 # https://hub.github.com
 hash hub 2>/dev/null && alias git="hub"
