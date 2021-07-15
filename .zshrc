@@ -20,6 +20,8 @@ DEFAULT_USER=`whoami`
 # Use hyphen-insensitive completion (_ and - will be interchangeable).
 HYPHEN_INSENSITIVE="true"
 
+# Disable auto-setting terminal title.
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
