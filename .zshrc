@@ -14,6 +14,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="agnoster"
 
+# Hide the default user from the prompt.
+DEFAULT_USER=`whoami`
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
