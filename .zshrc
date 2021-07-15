@@ -91,44 +91,51 @@ test -f ~/.zshlocal && . ~/.zshlocal
 # Load private configuration.
 test -f ~/.zshprivate && . ~/.zshprivate
 
-# https://direnv.net
-hash direnv 2>/dev/null && eval "$(direnv hook zsh)"
+# Composer - https://getcomposer.org
+# ==================================
+[ -d "$HOME/.composer" ] && export PATH="$HOME/.composer/vendor/bin:$PATH"
 
-# https://www.jenv.be
+# jenv - https://www.jenv.be
+# ==========================
 if [ -s /usr/local/bin/jenv ]; then
   eval "$(jenv init -)"
-else
-  export PATH=$HOME/.jenv/bin:$HOME/.jenv/shims:$PATH
+elif [ -d "$HOME/.jenv" ]; then
+  export PATH="$HOME/.jenv/bin:$HOME/.jenv/shims:$PATH"
 fi
 
-# rbenv
+# rbenv - https://github.com/rbenv/rbenv
+# ======================================
 if [ -s /usr/local/bin/rbenv ]; then
   eval "$(/usr/local/bin/rbenv init -)"
-else
-  export PATH=$HOME/.rbenv/shims:$PATH
+elif [ -d "$HOME/.rbenv" ]; then
+  export PATH="$HOME/.rbenv/shims:$PATH"
 fi
 
-# nodenv
+# nodenv - https://github.com/nodenv/nodenv
+# =========================================
 if [ -s /usr/local/bin/nodenv ]; then
   eval "$(/usr/local/bin/nodenv init -)"
-else
-  export PATH=$HOME/.nodenv/bin:$HOME/.nodenv/shims:$PATH
+elif [ -d "$HOME/.nodenv" ]; then
+  export PATH="$HOME/.nodenv/bin:$HOME/.nodenv/shims:$PATH"
 fi
 
-# https://brew.sh
+# Homebrew - https://brew.sh
+# ==========================
 [ -d /opt/homebrew ] && export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 [ -d /usr/local/sbin ] && export PATH="/usr/local/sbin:$PATH"
 
-# Disable Homebrew analytics
+# Disable Homebrew analytics.
 export HOMEBREW_NO_ANALYTICS=1
 
-# https://asdf-vm.com
+# asdf - https://asdf-vm.com
+# ==========================
 test -s /opt/homebrew/opt/asdf/asdf.sh && . /opt/homebrew/opt/asdf/asdf.sh
 test -s /usr/local/opt/asdf/asdf.sh && . /usr/local/opt/asdf/asdf.sh
 test -f ~/.asdf/plugins/java/set-java-home.zsh && . ~/.asdf/plugins/java/set-java-home.zsh # Java plugin
 
-# https://github.com/junegunn/fzf
-test -f ~/.fzf.zsh && . ~/.fzf.zsh
+# fzf - https://github.com/junegunn/fzf
+# =====================================
+[ -f ~/.fzf.zsh ] && . ~/.fzf.zsh
 
 # Further customization
 # =====================
