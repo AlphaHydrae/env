@@ -12,7 +12,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 # Set the theme. See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes.
-ZSH_THEME="agnoster"
+ZSH_THEME="alphahydrae"
 
 # Hide the default user from the prompt.
 DEFAULT_USER=`whoami`

@@ -8,6 +8,9 @@ end
 
 from 'oh-my-zsh' do
   symlink(all_files).to('.oh-my-zsh/custom')
+  from 'themes' do
+    symlink('alphahydrae.zsh-theme').to('.oh-my-zsh/custom/themes')
+  end
 end
 
 vscode_dir = File.expand_path(File.join('~', 'Library', 'Application Support', 'Code', 'User'))
