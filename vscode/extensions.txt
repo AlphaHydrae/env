@@ -8,6 +8,7 @@ dunstontc.dark-plus-syntax
 eamodio.gitlens
 EditorConfig.EditorConfig
 elmTooling.elm-ls-vscode
+esbenp.prettier-vscode
 golang.go
 Gruntfuggly.todo-tree
 hbenl.vscode-test-explorer
