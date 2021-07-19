@@ -91,6 +91,13 @@ bindkey "^[3;5~" delete-char # delete key for iterm 2
 # Load configuration specific to the local machine.
 [ -f ~/.zshlocal ] && . ~/.zshlocal
 
+# Homebrew - https://brew.sh
+# ==========================
+[ -d /opt/homebrew ] && export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+[ -d /usr/local/sbin ] && export PATH="/usr/local/sbin:$PATH"
+
+# Disable Homebrew analytics.
+export HOMEBREW_NO_ANALYTICS=1
 
 # Composer - https://getcomposer.org
 # ==================================
@@ -120,13 +127,6 @@ elif [ -d "$HOME/.nodenv" ]; then
   export PATH="$HOME/.nodenv/bin:$HOME/.nodenv/shims:$PATH"
 fi
 
-# Homebrew - https://brew.sh
-# ==========================
-[ -d /opt/homebrew ] && export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
-[ -d /usr/local/sbin ] && export PATH="/usr/local/sbin:$PATH"
-
-# Disable Homebrew analytics.
-export HOMEBREW_NO_ANALYTICS=1
 
 # asdf - https://asdf-vm.com
 # ==========================
