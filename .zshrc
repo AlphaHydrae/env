@@ -64,6 +64,9 @@ plugins=(
   zsh-autosuggestions  # Fish-like autosuggestions - https://github.com/zsh-users/zsh-autosuggestions#readme
 )
 
+# Load configuration related to ZSH customization.
+[ -f ~/.zshcustom ] && . ~/.zshcustom
+
 # Load Oh My ZSH.
 . $ZSH/oh-my-zsh.sh
 
