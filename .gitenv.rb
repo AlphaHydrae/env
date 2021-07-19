@@ -1,16 +1,9 @@
-symlink dot_files.except('.zshlocal', '.bash_profile'), overwrite: true, backup: false
+symlink dot_files.except('.gitmodules', '.zshlocal', '.bash_profile'), overwrite: true, backup: false
 copy('.zshlocal').once
 copy('.bash_profile').once
 
 from '.httpie' do
   copy('config.json').to('~/.httpie').once
-end
-
-from 'oh-my-zsh' do
-  symlink(all_files).to('.oh-my-zsh/custom')
-  from 'themes' do
-    symlink('alphahydrae.zsh-theme').to('.oh-my-zsh/custom/themes')
-  end
 end
 
 vscode_dir = File.expand_path(File.join('~', 'Library', 'Application Support', 'Code', 'User'))
