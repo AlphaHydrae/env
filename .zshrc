@@ -85,11 +85,12 @@ bindkey '^?' backward-delete-char # backspace key
 bindkey "^[[3~" delete-char # delete key for iterm 2
 bindkey "^[3;5~" delete-char # delete key for iterm 2
 
-# Load configuration specific to the local machine.
-test -f ~/.zshlocal && . ~/.zshlocal
-
 # Load private configuration.
-test -f ~/.zshprivate && . ~/.zshprivate
+[ -f ~/.zshprivate ] && . ~/.zshprivate
+
+# Load configuration specific to the local machine.
+[ -f ~/.zshlocal ] && . ~/.zshlocal
+
 
 # Composer - https://getcomposer.org
 # ==================================
