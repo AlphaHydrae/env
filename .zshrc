@@ -96,6 +96,8 @@ bindkey "^[3;5~" delete-char # delete key for iterm 2
 [ -d /opt/homebrew ] && export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 [ -d /usr/local/sbin ] && export PATH="/usr/local/sbin:$PATH"
 
+export HOMEBREW_PREFIX="$(brew --prefix)"
+
 # Disable Homebrew analytics.
 export HOMEBREW_NO_ANALYTICS=1
 
@@ -105,34 +107,32 @@ export HOMEBREW_NO_ANALYTICS=1
 
 # jenv - https://www.jenv.be
 # ==========================
-if [ -s /usr/local/bin/jenv ]; then
+if [ -s "${HOMEBREW_PREFIX}/bin/jenv" ]; then
   eval "$(jenv init -)"
 elif [ -d "$HOME/.jenv" ]; then
   export PATH="$HOME/.jenv/bin:$HOME/.jenv/shims:$PATH"
 fi
 
-# rbenv - https://github.com/rbenv/rbenv
-# ======================================
-if [ -s /usr/local/bin/rbenv ]; then
-  eval "$(/usr/local/bin/rbenv init -)"
-elif [ -d "$HOME/.rbenv" ]; then
-  export PATH="$HOME/.rbenv/shims:$PATH"
-fi
-
 # nodenv - https://github.com/nodenv/nodenv
 # =========================================
-if [ -s /usr/local/bin/nodenv ]; then
-  eval "$(/usr/local/bin/nodenv init -)"
+if [ -s "${HOMEBREW_PREFIX}/bin/nodenv" ]; then
+  eval "$(${HOMEBREW_PREFIX}/bin/nodenv init -)"
 elif [ -d "$HOME/.nodenv" ]; then
   export PATH="$HOME/.nodenv/bin:$HOME/.nodenv/shims:$PATH"
 fi
 
+# rbenv - https://github.com/rbenv/rbenv
+# ======================================
+if [ -s "${HOMEBREW_PREFIX}/bin/rbenv" ]; then
+  eval "$(${HOMEBREW_PREFIX}/bin/rbenv init -)"
+elif [ -d "$HOME/.rbenv" ]; then
+  export PATH="$HOME/.rbenv/shims:$PATH"
+fi
 
 # asdf - https://asdf-vm.com
 # ==========================
-test -s /opt/homebrew/opt/asdf/asdf.sh && . /opt/homebrew/opt/asdf/asdf.sh
-test -s /usr/local/opt/asdf/asdf.sh && . /usr/local/opt/asdf/asdf.sh
-test -f ~/.asdf/plugins/java/set-java-home.zsh && . ~/.asdf/plugins/java/set-java-home.zsh # Java plugin
+[ -s "${HOMEBREW_PREFIX}/opt/asdf/asdf.sh" ] && . "${HOMEBREW_PREFIX}/opt/asdf/asdf.sh"
+[ -f ~/.asdf/plugins/java/set-java-home.zsh ] && . ~/.asdf/plugins/java/set-java-home.zsh # Java plugin
 
 # fzf - https://github.com/junegunn/fzf
 # =====================================
