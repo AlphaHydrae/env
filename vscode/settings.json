@@ -142,6 +142,15 @@
   "gitlens.currentLine.enabled": false,
   "java.configuration.checkProjectSettingsExclusions": false,
   "java.configuration.updateBuildConfiguration": "automatic",
+  "java.completion.favoriteStaticMembers": [
+    "com.jayway.jsonpath.matchers.JsonPathMatchers.*",
+    "org.exparity.hamcrest.date.LocalDateMatchers.*",
+    "org.exparity.hamcrest.date.LocalDateTimeMatchers.*",
+    "org.exparity.hamcrest.date.LocalTimeMatchers.*",
+    "org.hamcrest.CoreMatchers.*",
+    "org.hamcrest.MatcherAssert.*",
+    "org.hamcrest.Matchers.*"
+  ],
   "javascript.preferences.quoteStyle": "single",
   "Lua.telemetry.enable": false,
   "prettier.requireConfig": true,
