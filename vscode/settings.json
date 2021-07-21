@@ -149,7 +149,10 @@
     "org.exparity.hamcrest.date.LocalTimeMatchers.*",
     "org.hamcrest.CoreMatchers.*",
     "org.hamcrest.MatcherAssert.*",
-    "org.hamcrest.Matchers.*"
+    "org.hamcrest.Matchers.*",
+    "org.mockito.Mockito.*",
+    "org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*",
+    "org.springframework.test.web.servlet.result.MockMvcResultMatchers.*"
   ],
   "javascript.preferences.quoteStyle": "single",
   "Lua.telemetry.enable": false,
