@@ -103,26 +103,34 @@ prompt_git() {
   local PL_BRANCH_CHAR
   () {
     local LC_ALL="" LC_CTYPE="en_US.UTF-8"
-    PL_BRANCH_CHAR=$'\ue0a0'         # 
+    PL_BRANCH_CHAR=$'\ue0a0' # 
   }
-  local ref dirty mode repo_path
+  local ref dirty mode remote_changes repo_path
 
   if [[ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ]]; then
     repo_path=$(git rev-parse --git-dir 2>/dev/null)
     dirty=$(parse_git_dirty)
     ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git rev-parse --short HEAD 2> /dev/null)"
-    if [[ -n $dirty ]]; then
+    remote_changes=$(parse_git_remote_changes "${ref/refs\/heads\/}")
+
+    if [[ -e "${repo_path}/BISECT_LOG" ]]; then
+      mode=" <bisect>"
+    elif [[ -e "${repo_path}/MERGE_HEAD" ]]; then
+      mode=" <merge>"
+    elif [[ -e "${repo_path}/rebase-merge/interactive" ]]; then
+      mode=" <rebase -i>"
+    elif [[ -e "${repo_path}/rebase" || -e "${repo_path}/rebase-apply" || -e "${repo_path}/rebase-merge" || -e "${repo_path}/../.dotest" ]]; then
+      mode=" <rebase>"
+    elif [[ -e "${repo_path}/index.lock" ]]; then
+      mode=" <locked>"
+    fi
+
+    if [[ -n "$mode" ]]; then
+      prompt_segment magenta $CURRENT_FG
+    elif [[ -n "$dirty" ]]; then
       prompt_segment yellow black
     else
       prompt_segment green $CURRENT_FG
-    fi
-
-    if [[ -e "${repo_path}/BISECT_LOG" ]]; then
-      mode=" <B>"
-    elif [[ -e "${repo_path}/MERGE_HEAD" ]]; then
-      mode=" >M<"
-    elif [[ -e "${repo_path}/rebase" || -e "${repo_path}/rebase-apply" || -e "${repo_path}/rebase-merge" || -e "${repo_path}/../.dotest" ]]; then
-      mode=" >R>"
     fi
 
     setopt promptsubst
@@ -131,26 +139,26 @@ prompt_git() {
     zstyle ':vcs_info:*' enable git
     zstyle ':vcs_info:*' get-revision true
     zstyle ':vcs_info:*' check-for-changes true
-    zstyle ':vcs_info:*' stagedstr '✚'
-    zstyle ':vcs_info:*' unstagedstr '±'
+    zstyle ':vcs_info:*' stagedstr '±'
+    zstyle ':vcs_info:*' unstagedstr '∅'
     zstyle ':vcs_info:*' formats ' %u%c'
     zstyle ':vcs_info:*' actionformats ' %u%c'
     vcs_info
-    echo -n "${ref/refs\/heads\//$PL_BRANCH_CHAR }${vcs_info_msg_0_%% }$(prompt_build_git_changes "${ref/refs\/heads\/}")${mode}"
+    echo -n "${ref/refs\/heads\//$PL_BRANCH_CHAR }${vcs_info_msg_0_%% }${remote_changes}${mode}"
   fi
 }
 
-prompt_build_git_changes() {
+parse_git_remote_changes() {
   local branch="$1"
   prompt_git_ahead=0
   prompt_git_behind=0
 
-  local merge=$( git config branch.$branch.merge 2>/dev/null )
-  local remote=$( git config branch.$branch.remote 2>/dev/null )
+  local merge=$(git config branch.$branch.merge 2>/dev/null)
+  local remote=$(git config branch.$branch.remote 2>/dev/null)
 
   if [[ -n "$merge" ]] && [[ -n "$remote" ]]; then
     local ref=${merge/heads/remotes/$remote}
-    local changes=${$( git rev-list --left-right $ref...HEAD 2>/dev/null | tr '\n' '-' )//[^<>]/}
+    local changes=${$(git rev-list --left-right $ref...HEAD 2>/dev/null | tr '\n' '-')//[^<>]/}
     prompt_git_ahead=${#${changes//</}}
     prompt_git_behind=${#${changes//>/}}
   fi
