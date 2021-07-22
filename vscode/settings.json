@@ -144,6 +144,7 @@
   "java.configuration.updateBuildConfiguration": "automatic",
   "java.completion.favoriteStaticMembers": [
     "com.jayway.jsonpath.matchers.JsonPathMatchers.*",
+    "javax.persistence.*",
     "org.exparity.hamcrest.date.LocalDateMatchers.*",
     "org.exparity.hamcrest.date.LocalDateTimeMatchers.*",
     "org.exparity.hamcrest.date.LocalTimeMatchers.*",
@@ -151,6 +152,7 @@
     "org.hamcrest.MatcherAssert.*",
     "org.hamcrest.Matchers.*",
     "org.mockito.Mockito.*",
+    "org.springframework.test.web.servlet.ResultMatcher.*",
     "org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*",
     "org.springframework.test.web.servlet.result.MockMvcResultMatchers.*"
   ],
