@@ -148,10 +148,12 @@
     "org.exparity.hamcrest.date.LocalDateMatchers.*",
     "org.exparity.hamcrest.date.LocalDateTimeMatchers.*",
     "org.exparity.hamcrest.date.LocalTimeMatchers.*",
+    "org.junit.Assert.*",
     "org.hamcrest.CoreMatchers.*",
     "org.hamcrest.MatcherAssert.*",
     "org.hamcrest.Matchers.*",
     "org.mockito.Mockito.*",
+    "org.mockito.ArgumentMatchers.*",
     "org.springframework.test.web.servlet.ResultMatcher.*",
     "org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*",
     "org.springframework.test.web.servlet.result.MockMvcResultMatchers.*"
