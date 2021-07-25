@@ -7,65 +7,73 @@
 # # README
 #
 # In order for this theme to render correctly, you will need a
-# [Powerline-patched font](https://github.com/Lokaltog/powerline-fonts).
-# Make sure you have a recent version: the code points that Powerline
-# uses changed in 2012, and older versions will display incorrectly,
-# in confusing ways.
-#
-# In addition, I recommend the
-# [Solarized theme](https://github.com/altercation/solarized/) and, if you're
-# using it on Mac OS X, [iTerm 2](https://iterm2.com/) over Terminal.app -
-# it has significantly better color fidelity.
-#
-# If using with "light" variant of the Solarized color schema, set
-# SOLARIZED_THEME variable to "light". If you don't specify, we'll assume
-# you're using the "dark" variant.
-#
-# # Goals
-#
-# The aim of this theme is to only show you *relevant* information. Like most
-# prompts, it will only show git information when in a git working directory.
-# However, it goes a step further: everything from the current user and
-# hostname to whether the last call exited with an error to whether background
-# jobs are running in this shell will all be displayed automatically when
-# appropriate.
+# [Powerline-patched font](https://github.com/Lokaltog/powerline-fonts). Make
+# sure you have a recent version: the code points that Powerline uses changed
+# in 2012, and older versions will display incorrectly, in confusing ways.
 
-### Segment drawing
-# A few utility functions to make it easy and re-usable to draw segmented prompts
 
-CURRENT_BG='NONE'
 
-case ${SOLARIZED_THEME:-dark} in
-    light) CURRENT_FG='white';;
-    *)     CURRENT_FG='black';;
-esac
+# Hooks
+# =====
 
-# Special Powerline characters
-
-() {
-  local LC_ALL="" LC_CTYPE="en_US.UTF-8"
-  # NOTE: This segment separator character is correct.  In 2012, Powerline changed
-  # the code points they use for their special characters. This is the new code point.
-  # If this is not working for you, you probably have an old version of the
-  # Powerline-patched fonts installed. Download and install the new version.
-  # Do not submit PRs to change this unless you have reviewed the Powerline code point
-  # history and have new information.
-  # This is defined using a Unicode escape sequence so it is unambiguously readable, regardless of
-  # what font the user is viewing this source code in. Do not replace the
-  # escape sequence with a single literal character.
-  # Do not change this! Do not make it '\u2b80'; that is the old, wrong code point.
-  SEGMENT_SEPARATOR=$'\ue0b0'
+# Execution time start
+exec_time_preexec_hook() {
+  exec_time_start=$(date +%s)
 }
 
-# Begin a segment
-# Takes two arguments, background and foreground. Both can be omitted,
-# rendering default background/foreground.
+# Execution time end
+exec_time_precmd_hook() {
+  [[ -n $exec_time_duration ]] && unset exec_time_duration
+  [[ -z $exec_time_start ]] && return
+  local exec_time_stop=$(date +%s)
+  exec_time_duration=$(( $exec_time_stop - $exec_time_start ))
+  unset exec_time_start
+}
+
+
+
+# Segment drawing
+# ===============
+# A few utility functions to make it easy and re-usable to draw segmented prompts.
+
+CURRENT_BG='NONE'
+CURRENT_FG='black'
+CURRENT_PROMPT='left'
+
+# Special Powerline characters
+() {
+  local LC_ALL="" LC_CTYPE="en_US.UTF-8"
+  # NOTE: This segment separator character is correct.  In 2012, Powerline
+  # changed the code points they use for their special characters. This is the
+  # new code point.  If this is not working for you, you probably have an old
+  # version of the Powerline-patched fonts installed. Download and install the
+  # new version.  Do not submit PRs to change this unless you have reviewed the
+  # Powerline code point history and have new information.
+  #
+  # This is defined using a Unicode escape sequence so it is unambiguously
+  # readable, regardless of what font the user is viewing this source code in.
+  # Do not replace the escape sequence with a single literal character.  Do not
+  # change this! Do not make it '\u2b80'; that is the old, wrong code point.
+  SEGMENT_SEPARATOR=$'\ue0b0'
+  # This is the corresponding segment separator character for the right prompt.
+  SEGMENT_SEPARATOR_RIGHT=$'\ue0b2'
+}
+
+# Begin a segment for the left or right prompt (the separator character is
+# automatically deduced based on $CURRENT_PROMPT).  Takes two arguments,
+# background and foreground. Both can be omitted, rendering default
+# background/foreground.
 prompt_segment() {
   local bg fg
   [[ -n $1 ]] && bg="%K{$1}" || bg="%k"
   [[ -n $2 ]] && fg="%F{$2}" || fg="%f"
+
   if [[ $CURRENT_BG != 'NONE' && $1 != $CURRENT_BG ]]; then
-    echo -n " %{$bg%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR%{$fg%} "
+    if [[ $CURRENT_PROMPT == 'left' ]]; then
+      echo -n " %{$bg%F{$CURRENT_BG}%}${SEGMENT_SEPARATOR}%{$fg%} "
+    else
+      echo -n " %{%K{$CURRENT_BG}%F{$1}%}${SEGMENT_SEPARATOR_RIGHT}%{$bg$fg%} "
+    fi
   else
     echo -n "%{$bg%}%{$fg%} "
   fi
@@ -73,8 +81,8 @@ prompt_segment() {
   [[ -n $3 ]] && echo -n $3
 }
 
-# End the prompt, closing any open segments
-prompt_end() {
+# End the left prompt, closing any open segments.
+prompt_end_left() {
   if [[ -n $CURRENT_BG ]]; then
     echo -n " %{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR"
   else
@@ -84,17 +92,42 @@ prompt_end() {
   CURRENT_BG=''
 }
 
-### Prompt components
-# Each component will draw itself, and hide itself if no information needs to be shown
+# Start the right prompt.
+prompt_start_right() {
+  local color
+  [[ $exec_time_duration -gt 1 ]] && color=red || color=yellow
+  echo -n "%{%F{${color}}%}"
+  echo -n "$SEGMENT_SEPARATOR_RIGHT"
+}
+
+
+
+# Prompt components
+# =================
+# Each component will draw itself, and hide itself if no information needs to
+# be shown.
 
 # Context: user@hostname (who am I and where am I)
 prompt_context() {
+  # Hide if the current user matches the configured default user.
   if [[ "$USERNAME" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
     prompt_segment black default "%(!.%{%F{yellow}%}.)%n@%m"
   fi
 }
 
-# Git: branch/detached head, dirty status
+# Current working directory
+prompt_dir() {
+  prompt_segment blue $CURRENT_FG '%~'
+}
+
+# Duration of the last command if it is longer than 1 second
+prompt_duration() {
+  if [[ $exec_time_duration -gt 1 ]]; then
+    prompt_segment red white "${exec_time_duration}s⌛"
+  fi
+}
+
+# Git: branch/detached head, dirty status, changes compared to the remote
 prompt_git() {
   (( $+commands[git] )) || return
   if [[ "$(git config --get oh-my-zsh.hide-status 2>/dev/null)" = 1 ]]; then
@@ -148,6 +181,7 @@ prompt_git() {
   fi
 }
 
+# Git changes compared to the current branch's remote (if configured).
 parse_git_remote_changes() {
   local branch="$1"
   prompt_git_ahead=0
@@ -169,15 +203,10 @@ parse_git_remote_changes() {
   print "$result"
 }
 
-# Dir: current working directory
-prompt_dir() {
-  prompt_segment blue $CURRENT_FG '%~'
-}
-
 # Status:
-# - was there an error
-# - am I root
-# - are there background jobs?
+# * Was there an error?
+# * Am I root?
+# * Are there background jobs?
 prompt_status() {
   local -a symbols
 
@@ -188,14 +217,35 @@ prompt_status() {
   [[ -n "$symbols" ]] && prompt_segment black default "$symbols"
 }
 
-## Main prompt
+# Current time with seconds
+prompt_time() {
+  prompt_segment yellow $CURRENT_FG "$(date '+%X')"
+}
+
+
+
+# Main prompts
+# ============
+
 build_prompt() {
   RETVAL=$?
   prompt_status
   prompt_context
   prompt_dir
   prompt_git
-  prompt_end
+  prompt_end_left
 }
 
+build_right_prompt() {
+  CURRENT_PROMPT="right"
+  prompt_start_right
+  prompt_duration
+  prompt_time
+}
+
+autoload -Uz add-zsh-hook
+add-zsh-hook preexec exec_time_preexec_hook
+add-zsh-hook precmd exec_time_precmd_hook
+
 PROMPT='%{%f%b%k%}$(build_prompt) '
+RPROMPT='%{%f%b%k%}$(build_right_prompt) '
