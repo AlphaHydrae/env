@@ -74,9 +74,12 @@ prompt_segment() {
     else
       echo -n " %{%K{$CURRENT_BG}%F{$1}%}${SEGMENT_SEPARATOR_RIGHT}%{$bg$fg%} "
     fi
-  else
+  elif [[ $CURRENT_PROMPT == 'left' ]]; then
     echo -n "%{$bg%}%{$fg%} "
+  else
+    echo -n "%{%K{$CURRENT_BG}%F{$1}%}${SEGMENT_SEPARATOR_RIGHT}%{$bg$fg%} "
   fi
+
   CURRENT_BG=$1
   [[ -n $3 ]] && echo -n $3
 }
@@ -90,14 +93,6 @@ prompt_end_left() {
   fi
   echo -n "%{%f%}"
   CURRENT_BG=''
-}
-
-# Start the right prompt.
-prompt_start_right() {
-  local color
-  [[ $exec_time_duration -gt 1 ]] && color=red || color=yellow
-  echo -n "%{%F{${color}}%}"
-  echo -n "$SEGMENT_SEPARATOR_RIGHT"
 }
 
 
@@ -237,9 +232,9 @@ build_prompt() {
 }
 
 build_right_prompt() {
-  CURRENT_PROMPT="right"
-  prompt_start_right
-  prompt_duration
+  CURRENT_BG='NONE'
+  CURRENT_PROMPT='right'
+  prompt_duration_of_last_command
   prompt_time
 }
 
