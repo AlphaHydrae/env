@@ -115,10 +115,10 @@ prompt_dir() {
   prompt_segment blue $CURRENT_FG '%~'
 }
 
-# Duration of the last command if it is longer than 1 second
-prompt_duration() {
-  if [[ $exec_time_duration -gt 1 ]]; then
-    prompt_segment red white "${exec_time_duration}s⌛"
+# Duration of the last command if it is longer than 2 seconds
+prompt_duration_of_last_command() {
+  if [[ $exec_time_duration -gt 2 ]]; then
+    prompt_segment yellow $CURRENT_FG "${exec_time_duration}s⌛"
   fi
 }
 
@@ -214,7 +214,8 @@ prompt_status() {
 
 # Current time with seconds
 prompt_time() {
-  prompt_segment yellow $CURRENT_FG "$(date '+%X')"
+  local dark_gray=240
+  prompt_segment $dark_gray $CURRENT_FG "$(date '+%X')"
 }
 
 
