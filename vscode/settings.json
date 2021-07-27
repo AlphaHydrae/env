@@ -153,6 +153,7 @@
     "org.hamcrest.MatcherAssert.*",
     "org.hamcrest.Matchers.*",
     "org.mockito.Mockito.*",
+    "org.mockito.AdditionalMatchers.*",
     "org.mockito.ArgumentMatchers.*",
     "org.springframework.test.web.servlet.ResultMatcher.*",
     "org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*",
