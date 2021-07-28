@@ -10,3 +10,6 @@ export PROJECT_EDITOR="vim -c NERDTree"
 
 # GPG
 export GPG_TTY=$(tty)
+
+# Increase the maximum number of open file descriptors
+ulimit -n 1024
