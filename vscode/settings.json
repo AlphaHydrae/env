@@ -144,6 +144,7 @@
   "java.configuration.updateBuildConfiguration": "automatic",
   "java.completion.favoriteStaticMembers": [
     "com.jayway.jsonpath.matchers.JsonPathMatchers.*",
+    "com.spotify.hamcrest.optional.OptionalMatchers.*",
     "javax.persistence.*",
     "org.exparity.hamcrest.date.LocalDateMatchers.*",
     "org.exparity.hamcrest.date.LocalDateTimeMatchers.*",
