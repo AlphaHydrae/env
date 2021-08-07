@@ -169,6 +169,8 @@
   "tableformatter.common.centerAlignedHeader": false,
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
+  "terminal.integrated.confirmOnExit": "hasChildProcesses",
+  "terminal.integrated.confirmOnKill": "always",
   "terminal.integrated.fontFamily": "MesloLGS NF",
   "terminal.integrated.fontSize": 15,
   "terminal.integrated.inheritEnv": false,
