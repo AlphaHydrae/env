@@ -306,5 +306,15 @@
     "key": "shift+alt+o",
     "command": "-editor.action.organizeImports",
     "when": "editorTextFocus && !editorReadonly && supportedCodeAction =~ /(\\s|^)source\\.organizeImports\\b/"
+  },
+  {
+    "key": "cmd+r",
+    "command": "-workbench.action.reloadWindow",
+    "when": "isDevelopment"
+  },
+  {
+    "key": "cmd+r",
+    "command": "editor.action.rename",
+    "when": "editorTextFocus && !editorReadonly"
   }
 ]
