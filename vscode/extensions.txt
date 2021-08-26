@@ -13,6 +13,7 @@ golang.go
 Gruntfuggly.todo-tree
 hbenl.vscode-test-explorer
 JakeBecker.elixir-ls
+jetmartin.bats
 JoeBerria.statusbarerror
 karunamurti.haml
 lamartire.git-indicators
