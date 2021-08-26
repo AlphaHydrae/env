@@ -32,6 +32,7 @@
   "debug.toolBarLocation": "docked",
   "editor.cursorStyle": "line",
   "editor.detectIndentation": false,
+  "editor.foldingImportsByDefault": false,
   "editor.fontSize": 16,
   "editor.fontFamily": "BitStream Vera Sans Mono, Menlo, Monaco, 'Courier New', monospace",
   "editor.insertSpaces": true,
