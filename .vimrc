@@ -42,31 +42,32 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'rodjek/vim-puppet'
-Plugin 'scrooloose/nerdtree'      " Tree explorer
+Plugin 'scrooloose/nerdtree'       " Tree explorer
 Plugin 'slim-template/vim-slim'
-Plugin 'tpope/vim-fugitive'       " Git wrapper
+Plugin 'tpope/vim-fugitive'        " Git wrapper
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-rails'
 Plugin 'wavded/vim-stylus'
-Plugin 'wincent/Command-T'        " Fast file navigation
-Plugin 'Quramy/tsuquyomi'         " TypeScript plugin
-Plugin 'Shougo/vimproc.vim'       " Interactive command execution
-Plugin 'alvan/vim-closetag'       " Close XHTML tags
-Plugin 'jiangmiao/auto-pairs'     " Close brackets, quotes, etc
-Plugin 'tpope/vim-surround'       " Surround text with brackets, quotes, etc
-Plugin 'pangloss/vim-javascript'  " JavaScript syntax
-Plugin 'mxw/vim-jsx'              " JSX syntax (depends on pangloss/vim-javascript)
-Plugin 'ianks/vim-tsx'            " TSX syntax
-Plugin 'b4b4r07/vim-hcl'          " HashiCorp HCL syntax
-Plugin 'asciidoc/vim-asciidoc'    " AsciiDoc syntax
-Plugin 'fatih/vim-go'             " Golang development
-Plugin 'w0rp/ale'                 " Asynchronous Lint Engine
-Plugin 'vim-airline/vim-airline'  " Status line
+Plugin 'wincent/Command-T'         " Fast file navigation
+Plugin 'Quramy/tsuquyomi'          " TypeScript plugin
+Plugin 'Shougo/vimproc.vim'        " Interactive command execution
+Plugin 'alvan/vim-closetag'        " Close XHTML tags
+Plugin 'jiangmiao/auto-pairs'      " Close brackets, quotes, etc
+Plugin 'tpope/vim-surround'        " Surround text with brackets, quotes, etc
+Plugin 'pangloss/vim-javascript'   " JavaScript syntax
+Plugin 'mxw/vim-jsx'               " JSX syntax (depends on pangloss/vim-javascript)
+Plugin 'ianks/vim-tsx'             " TSX syntax
+Plugin 'b4b4r07/vim-hcl'           " HashiCorp HCL syntax
+Plugin 'asciidoc/vim-asciidoc'     " AsciiDoc syntax
+Plugin 'fatih/vim-go'              " Golang development
+Plugin 'w0rp/ale'                  " Asynchronous Lint Engine
+Plugin 'vim-airline/vim-airline'   " Status line
 Plugin 'vim-airline/vim-airline-themes' " Airline themes
 Plugin 'cakebaker/scss-syntax.vim' " Sass/SCSS syntax
-Plugin 'posva/vim-vue'            " Vue syntax
-Plugin 'uarun/vim-protobuf'       " Protocol buffers syntax
+Plugin 'posva/vim-vue'             " Vue syntax
+Plugin 'uarun/vim-protobuf'        " Protocol buffers syntax
 Plugin 'elixir-editors/vim-elixir' " Elixir syntax
+Plugin 'bkad/CamelCaseMotion'      " Camel-case motion
 
 " Vundle Help
 " :PluginList       - lists configured plugins
@@ -103,6 +104,9 @@ let g:jsx_ext_required=0
 
 " leader
 let mapleader = ","
+
+" Camel-case motion
+let g:camelcasemotion_key = '<leader>'
 
 " NERD Tree
 com TREE NERDTree
