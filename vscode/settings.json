@@ -208,7 +208,6 @@
   "vim.leader": ",",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.openFoldersInNewWindow": "on",
-  "window.zoomLevel": 0,
   "workbench.colorCustomizations": {
     "editorRuler.foreground": "#333333",
     "statusBar.background": "#486faf",
