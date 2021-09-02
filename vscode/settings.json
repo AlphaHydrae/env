@@ -148,6 +148,7 @@
   "java.configuration.checkProjectSettingsExclusions": false,
   "java.configuration.updateBuildConfiguration": "automatic",
   "java.completion.favoriteStaticMembers": [
+    "ch.sqrs.core.test.matchers.identifiable.ContainsIdentifiableMatcher.*",
     "com.jayway.jsonpath.matchers.JsonPathMatchers.*",
     "com.spotify.hamcrest.optional.OptionalMatchers.*",
     "javax.persistence.*",
@@ -155,6 +156,7 @@
     "org.exparity.hamcrest.date.LocalDateTimeMatchers.*",
     "org.exparity.hamcrest.date.LocalTimeMatchers.*",
     "org.junit.Assert.*",
+    "org.junit.jupiter.api.Assertions.*",
     "org.hamcrest.CoreMatchers.*",
     "org.hamcrest.MatcherAssert.*",
     "org.hamcrest.Matchers.*",
