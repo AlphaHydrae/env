@@ -185,6 +185,7 @@
   "terminal.integrated.confirmOnKill": "always",
   "terminal.integrated.fontFamily": "MesloLGS NF",
   "terminal.integrated.fontSize": 15,
+  "terminal.integrated.gpuAcceleration": "on",
   "terminal.integrated.inheritEnv": false,
   "todo-tree.general.tags": [
     "BUG",
