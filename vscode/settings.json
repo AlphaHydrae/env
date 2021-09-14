@@ -187,6 +187,7 @@
   "terminal.integrated.fontSize": 15,
   "terminal.integrated.gpuAcceleration": "on",
   "terminal.integrated.inheritEnv": false,
+  "terminal.integrated.persistentSessionScrollback": 10000,
   "todo-tree.general.tags": [
     "BUG",
     "HACK",
