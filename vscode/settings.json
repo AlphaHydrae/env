@@ -161,6 +161,7 @@
     "org.hamcrest.MatcherAssert.*",
     "org.hamcrest.Matchers.*",
     "org.mockito.Mockito.*",
+    "org.mockito.AdditionalAnswers.*",
     "org.mockito.AdditionalMatchers.*",
     "org.mockito.ArgumentMatchers.*",
     "org.springframework.test.web.servlet.ResultMatcher.*",
