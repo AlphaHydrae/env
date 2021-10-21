@@ -19,7 +19,6 @@ karunamurti.haml
 lamartire.git-indicators
 mhutchie.git-graph
 mikestead.dotenv
-mkaufman.HTMLHint
 mrmlnc.vscode-pugbeautify
 ms-azuretools.vscode-docker
 ms-python.python
