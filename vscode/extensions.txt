@@ -25,6 +25,8 @@ ms-azuretools.vscode-docker
 ms-python.python
 ms-python.vscode-pylance
 ms-toolsai.jupyter
+ms-toolsai.jupyter-keymap
+ms-toolsai.jupyter-renderers
 ms-vscode.test-adapter-converter
 ms-vscode.vscode-typescript-tslint-plugin
 naumovs.color-highlight
@@ -35,6 +37,8 @@ rebornix.ruby
 redhat.fabric8-analytics
 redhat.java
 redhat.vscode-commons
+redhat.vscode-xml
+redhat.vscode-yaml
 rust-lang.rust
 shardulm94.trailing-spaces
 shuworks.vscode-table-formatter
