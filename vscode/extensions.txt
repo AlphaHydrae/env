@@ -49,6 +49,7 @@ sumneko.lua
 svelte.svelte-vscode
 syler.sass-indented
 sysoev.language-stylus
+Tyriar.lorem-ipsum
 VisualStudioExptTeam.vscodeintellicode
 vscjava.vscode-java-debug
 vscjava.vscode-java-dependency
