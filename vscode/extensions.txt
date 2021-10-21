@@ -4,6 +4,7 @@ csstools.postcss
 dbaeumer.vscode-eslint
 denoland.vscode-deno
 DotJoshJohnson.xml
+ducfilan.pug-formatter
 dunstontc.dark-plus-syntax
 eamodio.gitlens
 EditorConfig.EditorConfig
