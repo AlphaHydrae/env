@@ -45,7 +45,6 @@ plugins=(
   direnv               # enables direnv - https://direnv.net
   docker               # completions for `docker` - https://www.docker.com
   docker-compose       # completions for `docker-compose` - https://docs.docker.com/compose/
-  dotenv               # automatically load `.env` files - https://github.com/motdotla/dotenv
   gem                  # completions for `gem` - https://rubygems.org
   git-extras           # completions for https://github.com/tj/git-extras
   golang               # completions for `go` - https://golang.org
