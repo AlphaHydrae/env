@@ -15,6 +15,9 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
+  "[jade]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[java]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
