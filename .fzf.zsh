@@ -15,8 +15,8 @@ if command -v brew &>/dev/null; then
   source "${HOMEBREW_PREFIX}/opt/fzf/shell/key-bindings.zsh"
 elif test -d /opt/local/fzf/shell; then
   # Git
-  source /opt/local/fzf/shell/key-bindings.bash
-  source /opt/local/fzf/shell/completion.bash
+  source /opt/local/fzf/shell/key-bindings.zsh
+  source /opt/local/fzf/shell/completion.zsh
 elif test -d /usr/share/doc/fzf/examples; then
   # APT
   source /usr/share/doc/fzf/examples/key-bindings.zsh
