@@ -98,7 +98,7 @@ bindkey "^[3;5~" delete-char # delete key for iterm 2
 [ -d /opt/homebrew ] && export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 [ -d /usr/local/sbin ] && export PATH="/usr/local/sbin:$PATH"
 
-export HOMEBREW_PREFIX="$(brew --prefix)"
+export HOMEBREW_PREFIX="$(command -v brew &>/dev/null && brew --prefix || echo -n "/nowhere")"
 
 # Disable Homebrew analytics.
 export HOMEBREW_NO_ANALYTICS=1
@@ -133,7 +133,12 @@ fi
 
 # asdf - https://asdf-vm.com
 # ==========================
-[ -s "${HOMEBREW_PREFIX}/opt/asdf/asdf.sh" ] && . "${HOMEBREW_PREFIX}/opt/asdf/asdf.sh"
+if [ -s "${HOMEBREW_PREFIX}/opt/asdf/asdf.sh" ]; then
+  . "${HOMEBREW_PREFIX}/opt/asdf/asdf.sh"
+elif [ -s ~/.asdf/asdf.sh ]; then
+  . ~/.asdf/asdf.sh
+fi
+
 [ -f ~/.asdf/plugins/java/set-java-home.zsh ] && . ~/.asdf/plugins/java/set-java-home.zsh # Java plugin
 
 # fzf - https://github.com/junegunn/fzf
