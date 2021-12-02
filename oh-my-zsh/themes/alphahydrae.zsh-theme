@@ -112,6 +112,26 @@ prompt_context() {
   fi
 }
 
+# Host environment: dev/staging/production environment
+prompt_host_environment() {
+
+  local host_environment_file=""
+  [ -n "$HOST_ENVIRONMENT_FILE" ] && host_environment_file="$HOST_ENVIRONMENT_FILE"
+  [ -f "$HOME/.host-environment" ] && host_environment_file="${HOME}/.host-environment"
+  [ -f /.host-environment ] && host_environment_file="/.host-environment"
+  [ ! -f "$host_environment_file" ] && return
+
+  local host_environment="$(cat "$host_environment_file" | sed 's/[^A-Z0-9a-z\_\-]*//')"
+  [ -z "$host_environment" ] && return
+
+  local bg=white
+  local fg=black
+  local normalized_host_environment="$(echo -n "$host_environment" | tr '[:upper:]' '[:lower:]')"
+  [[ "$normalized_host_environment" == st* ]] && bg=yellow
+  [[ "$normalized_host_environment" == pr* ]] && bg=red && fg=white && host_environment="%{%B%}$(echo "$host_environment" | tr '[:lower:]' '[:upper:]' | sed -Er 's/^PR$|^PROD$/PRODUCTION/')%{%b%}"
+  prompt_segment "$bg" "$fg" "$host_environment"
+}
+
 # Current working directory
 prompt_dir() {
   prompt_segment blue $CURRENT_FG '%~'
@@ -229,6 +249,7 @@ build_prompt() {
   RETVAL=$?
   prompt_status
   prompt_context
+  prompt_host_environment
   prompt_dir
   prompt_git
   prompt_end_left
