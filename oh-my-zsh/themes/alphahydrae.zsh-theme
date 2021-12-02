@@ -118,7 +118,7 @@ prompt_host_environment() {
   local host_environment_file=""
   [ -n "$HOST_ENVIRONMENT_FILE" ] && host_environment_file="$HOST_ENVIRONMENT_FILE"
   [ -f "$HOME/.host-environment" ] && host_environment_file="${HOME}/.host-environment"
-  [ -f /.host-environment ] && host_environment_file="/.host-environment"
+  [ -f /etc/.host-environment ] && host_environment_file="/etc/.host-environment"
   [ ! -f "$host_environment_file" ] && return
 
   local host_environment="$(cat "$host_environment_file" | sed 's/[^A-Z0-9a-z\_\-]*//')"
