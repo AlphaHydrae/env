@@ -102,11 +102,13 @@ prompt_end_left() {
 # Each component will draw itself, and hide itself if no information needs to
 # be shown.
 
-# Context: user@hostname (who am I and where am I)
+# Context: [ssh] user@hostname (who am I and where am I)
 prompt_context() {
   # Hide if the current user matches the configured default user.
   if [[ "$USERNAME" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    prompt_segment black default "%(!.%{%F{yellow}%}.)%n@%m"
+    local ssh=""
+    [ -z "$SSH_CLIENT" ] && ssh="ssh "
+    prompt_segment black magenta "%(!.%{%F{yellow}%}.)${ssh}%n@%m"
   fi
 }
 
