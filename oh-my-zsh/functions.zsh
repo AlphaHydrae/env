@@ -65,7 +65,7 @@ function random-base64() {
 
 function random-uuid() {
   if command -v uuidgen &>/dev/null; then
-    uuidgen | tr "[:upper:]" "[:lower:]"
+    uuidgen | tr "[:upper:]" "[:lower:]" | tr -d '\n'
   elif command -v ruby &>/dev/null; then
     ruby -e "require 'securerandom'; print SecureRandom.uuid"
   else
