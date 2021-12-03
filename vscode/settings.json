@@ -193,6 +193,13 @@
   "prettier.requireConfig": true,
   "redhat.telemetry.enabled": false,
   "rust-client.rustupPath": "~/.asdf/shims/rustup",
+  "sonarlint.rules": {
+    "java:S110": {
+      "parameters": {
+        "max": 8
+      }
+    }
+  },
   "statusbarerror.wholeLine.show": true,
   "tableformatter.common.centerAlignedHeader": false,
   "telemetry.telemetryLevel": "off",
