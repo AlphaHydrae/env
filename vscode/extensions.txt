@@ -50,6 +50,7 @@ sumneko.lua
 svelte.svelte-vscode
 syler.sass-indented
 sysoev.language-stylus
+tomoki1207.pdf
 Tyriar.lorem-ipsum
 VisualStudioExptTeam.vscodeintellicode
 vscjava.vscode-java-debug
