@@ -45,6 +45,7 @@ shardulm94.trailing-spaces
 shuworks.vscode-table-formatter
 sianglim.slim
 sjhuangx.vscode-scheme
+SonarSource.sonarlint-vscode
 stkb.rewrap
 sumneko.lua
 svelte.svelte-vscode
