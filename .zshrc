@@ -133,7 +133,9 @@ fi
 
 # asdf - https://asdf-vm.com
 # ==========================
-if [ -s "${HOMEBREW_PREFIX}/opt/asdf/asdf.sh" ]; then
+if [ -s "${HOMEBREW_PREFIX}/opt/asdf/libexec/asdf.sh" ]; then
+  . "${HOMEBREW_PREFIX}/opt/asdf/libexec/asdf.sh"
+elif [ -s "${HOMEBREW_PREFIX}/opt/asdf/asdf.sh" ]; then
   . "${HOMEBREW_PREFIX}/opt/asdf/asdf.sh"
 elif [ -s ~/.asdf/asdf.sh ]; then
   . ~/.asdf/asdf.sh
