@@ -19,5 +19,5 @@ elif test -d /opt/local/fzf/shell; then
 elif test -d /usr/share/doc/fzf/examples; then
   # APT
   source /usr/share/doc/fzf/examples/key-bindings.bash
-  source /usr/share/doc/fzf/examples/completion.bash
+  source /usr/share/bash-completion/completions/fzf
 fi
