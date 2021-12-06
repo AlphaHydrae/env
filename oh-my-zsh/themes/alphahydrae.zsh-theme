@@ -106,8 +106,7 @@ prompt_end_left() {
 prompt_context() {
   # Hide if the current user matches the configured default user.
   if [[ "$USERNAME" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    local ssh=""
-    [ -n "$SSH_CLIENT" ] && ssh="%{%F{green}%}ssh%{%F{magenta}%} "
+    [ -n "$SSH_CLIENT" ] && prompt_segment green black "SSH"
     prompt_segment black magenta "%(!.%{%F{yellow}%}.)${ssh}%n%{%F{green}%}@%{%F{magenta}%}%m"
   fi
 }
