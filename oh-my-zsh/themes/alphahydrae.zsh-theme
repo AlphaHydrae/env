@@ -108,7 +108,7 @@ prompt_context() {
   if [[ "$USERNAME" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
     local ssh=""
     [ -n "$SSH_CLIENT" ] && ssh="%{%F{green}%}ssh%{%F{magenta}%} "
-    prompt_segment black magenta "%(!.%{%F{yellow}%}.)${ssh}%n%{%F{white}%}@%{%F{magenta}%}%m"
+    prompt_segment black magenta "%(!.%{%F{yellow}%}.)${ssh}%n%{%F{green}%}@%{%F{magenta}%}%m"
   fi
 }
 
