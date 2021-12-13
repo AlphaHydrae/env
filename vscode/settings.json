@@ -49,6 +49,9 @@
   ],
   "debug.console.fontSize": 15,
   "debug.toolBarLocation": "docked",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
   "editor.cursorStyle": "line",
   "editor.detectIndentation": false,
   "editor.foldingImportsByDefault": false,
