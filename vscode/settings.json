@@ -182,6 +182,7 @@
     "org.mockito.AdditionalAnswers.*",
     "org.mockito.AdditionalMatchers.*",
     "org.mockito.ArgumentMatchers.*",
+    "org.mockito.hamcrest.MockitoHamcrest.*",
     "org.springframework.test.web.servlet.ResultMatcher.*",
     "org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*",
     "org.springframework.test.web.servlet.result.MockMvcResultMatchers.*"
