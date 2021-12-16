@@ -29,6 +29,7 @@
   mas = checkout master
   master = checkout master
   ptm = push --tags origin master
+  rsh1 = reset --soft HEAD~1
 
   cp = cherry-pick
   cpn = cherry-pick -n
