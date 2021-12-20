@@ -42,6 +42,7 @@ redhat.vscode-commons
 redhat.vscode-xml
 redhat.vscode-yaml
 rust-lang.rust
+samuelcolvin.jinjahtml
 shardulm94.trailing-spaces
 shuworks.vscode-table-formatter
 sianglim.slim
