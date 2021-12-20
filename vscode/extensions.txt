@@ -33,6 +33,7 @@ ms-vscode.vscode-typescript-tslint-plugin
 naumovs.color-highlight
 octref.vetur
 pgourlain.erlang
+phoenixframework.phoenix
 pranaygp.vscode-css-peek
 rebornix.ruby
 redhat.fabric8-analytics
