@@ -58,7 +58,6 @@ plugins=(
   rebar                # completions for `rebar3` - https://rebar3.org
   redis-cli            # completions for `redis-cli` - https://redis.io
   rust                 # completions for `rustc` - https://www.rust-lang.org
-  rustup               # completions for `rustup` - https://rustup.rs
   vagrant              # completions for `vagrant` - https://www.vagrantup.com
   zsh-autosuggestions  # Fish-like autosuggestions - https://github.com/zsh-users/zsh-autosuggestions#readme
 )
