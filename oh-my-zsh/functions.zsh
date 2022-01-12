@@ -101,6 +101,11 @@ function random-password() {
   echo -n "$(env LC_CTYPE=C LC_ALL=C tr -dc 'A-Za-z0-9!#$%&()*+,-./:;<=>?@[\]^_`{|}~' </dev/urandom | head -c $LENGTH)"
 }
 
+function random-port() {
+  local n="$(random-number 65534)"
+  echo -n "$(($n + 1))"
+}
+
 
 # Vagrant configuration & utilities
 # =================================
