@@ -29,7 +29,7 @@
   main = checkout main
   mas = checkout master
   master = checkout master
-  ptm = push --tags origin master
+  ptm = !"if git rev-parse --verify main &>/dev/null; then git push --tags origin main; elif git rev-parse --verify master &>/dev/null; then git push --tags origin master; else >&2 echo No main/master branch found && exit 1; fi"
   rsh1 = reset --soft HEAD~1
 
   cp = cherry-pick
