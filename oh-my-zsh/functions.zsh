@@ -83,6 +83,15 @@ function random-alphanumeric() {
   echo -n "$(env LC_CTYPE=C LC_ALL=C tr -dc 'a-zA-Z0-9' < /dev/urandom | fold -w $LENGTH | head -n 1)"
 }
 
+function random-number() {
+  local max="$1"
+  if test -n "$max"; then
+    shuf -i "0-${max}" -n 1
+  else
+    sh -c "RANDOM=\$\$ echo -n \$RANDOM"
+  fi
+}
+
 function random-password() {
   LENGTH=$1
   if [ -z $LENGTH ]; then
