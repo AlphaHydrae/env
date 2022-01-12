@@ -206,9 +206,19 @@
   "redhat.telemetry.enabled": false,
   "rust-client.rustupPath": "~/.asdf/shims/rustup",
   "sonarlint.rules": {
+    "java:S107": {
+      "parameters": {
+        "max": 10
+      }
+    },
     "java:S110": {
       "parameters": {
         "max": 8
+      }
+    },
+    "java:S2699": {
+      "parameters": {
+        "customAssertionMethods": "andExpectAll"
       }
     }
   },
