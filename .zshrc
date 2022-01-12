@@ -106,6 +106,10 @@ export HOMEBREW_NO_ANALYTICS=1
 # ==================================
 [ -d "$HOME/.composer" ] && export PATH="$HOME/.composer/vendor/bin:$PATH"
 
+# Pip - https://pypi.org/project/pip/
+# ===================================
+test -d "$HOME/.local/bin" && export PATH="$HOME/.local/bin:$PATH"
+
 # jenv - https://www.jenv.be
 # ==========================
 if [ -s "${HOMEBREW_PREFIX}/bin/jenv" ]; then
