@@ -26,6 +26,7 @@
   fa = fetch --all --prune
   dev = checkout develop
   develop = checkout develop
+  main = checkout main
   mas = checkout master
   master = checkout master
   ptm = push --tags origin master
