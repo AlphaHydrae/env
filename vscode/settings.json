@@ -1,4 +1,8 @@
 {
+  "[dockercompose]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
   "[elixir]": {
     "editor.acceptSuggestionOnEnter": "smart",
     "editor.formatOnSave": true,
