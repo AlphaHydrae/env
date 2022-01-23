@@ -31,8 +31,8 @@ end
 private_config_dir = ENV['PRIVATE_CONFIG_DIR']
 raise 'Environment variable $PRIVATE_CONFIG_DIR is required' unless private_config_dir
 from private_config_dir do
-  symlink dot_files.except('.env', '.gitenv.private.rb')
-  copy('.env').once
+  symlink dot_files.except('.secrets', '.gitenv.private.rb')
+  copy('.secrets').once
 
   from '.config' do
     symlink('rclone.conf').to('.config/rclone')
