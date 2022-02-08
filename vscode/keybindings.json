@@ -189,11 +189,11 @@
   },
   {
     "key": "shift+f2",
-    "command": "workbench.action.splitEditorRight"
+    "command": "workbench.action.moveEditorToRightGroup"
   },
   {
     "key": "shift+f1",
-    "command": "workbench.action.splitEditorDown"
+    "command": "workbench.action.moveEditorToBelowGroup"
   },
   {
     "key": "f3",
