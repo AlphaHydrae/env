@@ -228,6 +228,9 @@
       "parameters": {
         "customAssertionMethods": "andExpectAll"
       }
+    },
+    "typescript:S5860": {
+      "level": "off"
     }
   },
   "statusbarerror.wholeLine.show": true,
