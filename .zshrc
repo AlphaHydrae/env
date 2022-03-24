@@ -38,7 +38,6 @@ COMPLETION_WAITING_DOTS="true"
 # Plugins to load. Standard plugins can be found in "$ZSH/plugins/". Custom
 # plugins may be added to "$ZSH_CUSTOM/plugins/".
 plugins=(
-  asdf                 # completions for `asdf` - https://asdf-vm.com
   aws                  # completions for `aws` - https://aws.amazon.com/cli/
   bundler              # completions for `bundler` - https://bundler.io
   composer             # completions for `composer` - https://getcomposer.org
