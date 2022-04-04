@@ -12,6 +12,7 @@ EditorConfig.EditorConfig
 elmTooling.elm-ls-vscode
 esbenp.prettier-vscode
 golang.go
+GraphQL.vscode-graphql
 Gruntfuggly.todo-tree
 hbenl.vscode-test-explorer
 JakeBecker.elixir-ls
