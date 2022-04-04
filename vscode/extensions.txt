@@ -1,5 +1,6 @@
 aaron-bond.better-comments
 Angular.ng-template
+bradlc.vscode-tailwindcss
 bungcip.better-toml
 csstools.postcss
 dbaeumer.vscode-eslint
