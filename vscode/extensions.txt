@@ -31,7 +31,6 @@ ms-toolsai.jupyter
 ms-toolsai.jupyter-keymap
 ms-toolsai.jupyter-renderers
 ms-vscode.test-adapter-converter
-ms-vscode.vscode-typescript-tslint-plugin
 naumovs.color-highlight
 octref.vetur
 pgourlain.erlang
