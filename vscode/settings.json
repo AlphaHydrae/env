@@ -231,6 +231,9 @@
     },
     "typescript:S5860": {
       "level": "off"
+    },
+    "Web:BoldAndItalicTagsCheck": {
+      "level": "off"
     }
   },
   "statusbarerror.wholeLine.show": true,
