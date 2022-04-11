@@ -88,7 +88,7 @@ function random-number() {
   if test -n "$max"; then
     shuf -i "0-${max}" -n 1
   else
-    sh -c "RANDOM=\$\$ echo -n \$RANDOM"
+    sh -c "RANDOM=\$\$ printf \$RANDOM"
   fi
 }
 
