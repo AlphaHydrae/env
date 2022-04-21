@@ -86,7 +86,7 @@ function random-alphanumeric() {
 function random-number() {
   local max="$1"
   if test -n "$max"; then
-    shuf -i "0-${max}" -n 1
+    shuf -i "0-${max}" -n 1 | tr -d '\n'
   else
     sh -c "RANDOM=\$\$ printf \$RANDOM"
   fi
