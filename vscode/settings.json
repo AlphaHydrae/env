@@ -76,6 +76,11 @@
   "editor.inlayHints.enabled": "onUnlessPressed",
   "editor.insertSpaces": true,
   "editor.lineNumbers": "on",
+  "editor.quickSuggestions": {
+    "other": "on",
+    "comments": "off",
+    "strings": "off"
+  },
   "editor.renderWhitespace": "boundary",
   "editor.rulers": [80],
   "editor.scrollBeyondLastLine": false,
