@@ -73,6 +73,7 @@
   "editor.foldingImportsByDefault": false,
   "editor.fontSize": 16,
   "editor.fontFamily": "BitStream Vera Sans Mono, Menlo, Monaco, 'Courier New', monospace",
+  "editor.inlayHints.enabled": "onUnlessPressed",
   "editor.insertSpaces": true,
   "editor.lineNumbers": "on",
   "editor.renderWhitespace": "boundary",
