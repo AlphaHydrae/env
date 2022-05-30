@@ -275,6 +275,7 @@
   "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
   "typescript.inlayHints.variableTypes.enabled": true,
   "typescript.preferences.quoteStyle": "single",
+  "typescript.suggest.completeFunctionCalls": true,
   "vim.camelCaseMotion.enable": true,
   "vim.leader": ",",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
