@@ -240,6 +240,12 @@
     },
     "Web:BoldAndItalicTagsCheck": {
       "level": "off"
+    },
+    "typescript:S125": {
+      "level": "off"
+    },
+    "typescript:S107": {
+      "level": "off"
     }
   },
   "statusbarerror.wholeLine.show": true,
