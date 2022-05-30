@@ -176,7 +176,6 @@
   },
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "editor.wordWrap": "off",
-  "elmLS.elmAnalyseTrigger": "save",
   "explorer.confirmDelete": true,
   "explorer.confirmDragAndDrop": false,
   "extensions.ignoreRecommendations": false,
