@@ -250,6 +250,9 @@
   },
   "statusbarerror.wholeLine.show": true,
   "tableformatter.common.centerAlignedHeader": false,
+  "tailwindCSS.includeLanguages": {
+    "phoenix-heex": "html"
+  },
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.confirmOnExit": "hasChildProcesses",
   "terminal.integrated.confirmOnKill": "always",
