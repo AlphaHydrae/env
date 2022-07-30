@@ -235,6 +235,9 @@
         "customAssertionMethods": "andExpectAll"
       }
     },
+    "java:S5976": {
+      "level": "off"
+    },
     "typescript:S5860": {
       "level": "off"
     },
