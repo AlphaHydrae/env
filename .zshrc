@@ -74,7 +74,7 @@ plugins=(
 export TERM="xterm-256color"
 
 # Save a truckload of commands in the history.
-HISTFILE=~/.zshhistory
+HISTFILE=~/.zsh_history
 HISTSIZE=300000
 SAVEHIST=300000
 
