@@ -34,7 +34,7 @@ from private_config_dir do
   symlink dot_files.except('.secrets', '.gitenv.private.rb')
   copy('.secrets').once
 
-  from '.config' do
+  from '.config/rclone' do
     symlink('rclone.conf').to('.config/rclone')
   end
 
