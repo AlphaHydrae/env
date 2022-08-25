@@ -238,6 +238,9 @@
     "java:S5976": {
       "level": "off"
     },
+    "javascript:S3317": {
+      "level": "off"
+    },
     "typescript:S5860": {
       "level": "off"
     },
