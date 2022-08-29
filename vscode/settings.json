@@ -252,6 +252,9 @@
     },
     "typescript:S107": {
       "level": "off"
+    },
+    "Web:S5256": {
+      "level": "off"
     }
   },
   "statusbarerror.wholeLine.show": true,
