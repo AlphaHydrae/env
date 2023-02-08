@@ -68,6 +68,7 @@ Plugin 'posva/vim-vue'             " Vue syntax
 Plugin 'uarun/vim-protobuf'        " Protocol buffers syntax
 Plugin 'elixir-editors/vim-elixir' " Elixir syntax
 Plugin 'bkad/CamelCaseMotion'      " Camel-case motion
+Plugin 'neovimhaskell/haskell-vim' " Haskell syntax
 
 " Vundle Help
 " :PluginList       - lists configured plugins
