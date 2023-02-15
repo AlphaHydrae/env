@@ -295,6 +295,24 @@
   "typescript.suggest.completeFunctionCalls": true,
   "vim.camelCaseMotion.enable": true,
   "vim.leader": ",",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "u"
+      ],
+      "commands": [
+        "undo"
+      ]
+    },
+    {
+      "before": [
+        "c-r"
+      ],
+      "commands": [
+        "redo"
+      ]
+    }
+  ],
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.openFoldersInNewWindow": "on",
   "workbench.colorCustomizations": {
