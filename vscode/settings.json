@@ -184,7 +184,6 @@
     ".env.sample": "dotenv"
   },
   "gitlens.currentLine.enabled": false,
-  "java.configuration.checkProjectSettingsExclusions": false,
   "java.configuration.updateBuildConfiguration": "automatic",
   "java.completion.favoriteStaticMembers": [
     "ch.sqrs.core.test.matchers.identifiable.ContainsIdentifiableMatcher.*",
@@ -210,6 +209,7 @@
     "org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*",
     "org.springframework.test.web.servlet.result.MockMvcResultMatchers.*"
   ],
+  "java.import.generatesMetadataFilesAtProjectRoot": false,
   "java.inlayHints.parameterNames.enabled": "all",
   "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
   "javascript.inlayHints.parameterNames.enabled": "all",
