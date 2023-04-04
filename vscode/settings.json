@@ -195,6 +195,7 @@
     "org.exparity.hamcrest.date.LocalTimeMatchers.*",
     "org.junit.Assert.*",
     "org.junit.jupiter.api.Assertions.*",
+    "org.junit.jupiter.api.Assumptions.*",
     "org.hamcrest.CoreMatchers.*",
     "org.hamcrest.MatcherAssert.*",
     "org.hamcrest.Matchers.*",
