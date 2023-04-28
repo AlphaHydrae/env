@@ -230,3 +230,23 @@ endfunction
 
 " Toggle the paste mode with <Leader>p
 map <leader>p :call TogglePaste()<cr>
+
+" Show Git diff in vertical split when writing a commit message.
+" https://gist.github.com/aroben/d54d002269d9c39f0d5c89d910f7307e
+autocmd VimEnter COMMIT_EDITMSG call OpenCommitMessageDiff()
+function OpenCommitMessageDiff()
+  try
+    " Remove 'vert' if you want it horizontally split.
+    :vert Git diff --cached
+
+    " Fix-up tmp buffer
+    set filetype=diff noswapfile nomodified readonly
+    silent file [Changes\ to\ be\ committed]
+
+    " Put the diff on the left
+    wincmd r
+  endtry
+
+  " Get back to the commit message
+  wincmd p
+endfunction
