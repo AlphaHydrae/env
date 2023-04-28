@@ -143,6 +143,10 @@ imap  <Del>
 nnoremap t <C-]>
 nnoremap <leader>T :CtrlPTag<cr>
 
+" split navigation
+nnoremap h <C-w>h
+nnoremap l <C-w>l
+
 " Tagbar
 let g:tagbar_usearrows = 1
 nnoremap <leader>b :TagbarToggle<CR>
