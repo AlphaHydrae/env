@@ -144,8 +144,8 @@ nnoremap t <C-]>
 nnoremap <leader>T :CtrlPTag<cr>
 
 " split navigation
-nnoremap h <C-w>h
-nnoremap l <C-w>l
+nnoremap <leader>h <C-w>h
+nnoremap <leader>l <C-w>l
 
 " Tagbar
 let g:tagbar_usearrows = 1
