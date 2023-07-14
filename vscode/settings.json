@@ -233,6 +233,9 @@
         "max": 8
       }
     },
+    "java:S119": {
+      "level": "off"
+    },
     "java:S2699": {
       "parameters": {
         "customAssertionMethods": "andExpectAll"
