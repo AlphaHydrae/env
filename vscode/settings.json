@@ -193,6 +193,7 @@
   "java.configuration.updateBuildConfiguration": "automatic",
   "java.completion.favoriteStaticMembers": [
     "ch.sqrs.core.test.matchers.identifiable.ContainsIdentifiableMatcher.*",
+    "ch.sqrs.gestimmo.core.utils.OptionalUtils.*",
     "com.jayway.jsonpath.matchers.JsonPathMatchers.*",
     "com.spotify.hamcrest.optional.OptionalMatchers.*",
     "javax.persistence.*",
@@ -210,6 +211,7 @@
     "org.mockito.AdditionalMatchers.*",
     "org.mockito.ArgumentMatchers.*",
     "org.mockito.hamcrest.MockitoHamcrest.*",
+    "org.springframework.data.jpa.domain.Specification.*",
     "org.springframework.test.web.client.match.MockRestRequestMatchers.*",
     "org.springframework.test.web.client.response.MockRestResponseCreators.*",
     "org.springframework.test.web.servlet.ResultMatcher.*",
