@@ -242,6 +242,9 @@
     "java:S119": {
       "level": "off"
     },
+    "java:S1075": {
+      "level": "off"
+    },
     "java:S110": {
       "parameters": {
         "max": 8
