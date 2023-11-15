@@ -264,9 +264,6 @@
     "typescript:S5860": {
       "level": "off"
     },
-    "Web:BoldAndItalicTagsCheck": {
-      "level": "off"
-    },
     "typescript:S125": {
       "level": "off"
     },
@@ -274,6 +271,9 @@
       "level": "off"
     },
     "typescript:S3776": {
+      "level": "off"
+    },
+    "Web:BoldAndItalicTagsCheck": {
       "level": "off"
     },
     "Web:S5256": {
