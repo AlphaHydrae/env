@@ -183,6 +183,12 @@
     "Vagrantfile": "ruby",
     ".env.sample": "dotenv"
   },
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
   "gitlens.currentLine.enabled": false,
   "java.configuration.updateBuildConfiguration": "automatic",
   "java.completion.favoriteStaticMembers": [
