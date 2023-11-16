@@ -316,5 +316,9 @@
     "key": "cmd+r",
     "command": "editor.action.rename",
     "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "cmd+g cmd+c",
+    "command": "workbench.panel.chat.view.copilot.focus"
   }
 ]
