@@ -38,7 +38,7 @@
     "when": "!terminalFocus"
   },
   {
-    "key": "f3",
+    "key": "shift+f3",
     "command": "workbench.action.toggleMaximizedPanel",
     "when": "terminalFocus"
   },
@@ -379,6 +379,14 @@
     "command": "workbench.action.terminal.sendSequence",
     "args": {
       "text": "\u0014l\n"
+    },
+    "when": "terminalFocus"
+  },
+  {
+    "key": "f3",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+      "text": "\u0010b\n"
     },
     "when": "terminalFocus"
   }
