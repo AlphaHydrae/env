@@ -12,6 +12,7 @@ alias vimt="vimtree"
 alias vimtree="vim -c NERDTree"
 alias vlc="open -n /Applications/VLC.app"
 alias z="zellij"
+alias zc="zellij --layout compact"
 alias zf="zellij run --floating --"
 alias zr="zellij run --"
 
