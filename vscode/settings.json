@@ -8,7 +8,7 @@
     "editor.formatOnSave": true,
     "editor.formatOnType": false,
     "editor.trimAutoWhitespace": true,
-    "editor.wordBasedSuggestions": true,
+    "editor.wordBasedSuggestions": "matchingDocuments",
     "files.insertFinalNewline": true
   },
   "[elm]": {
@@ -66,7 +66,7 @@
   "debug.console.fontSize": 15,
   "debug.toolBarLocation": "docked",
   "editor.codeActionsOnSave": {
-    "source.fixAll": true
+    "source.fixAll": "explicit"
   },
   "editor.cursorStyle": "line",
   "editor.detectIndentation": false,

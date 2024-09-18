@@ -62,7 +62,16 @@
   },
   {
     "key": "f7",
-    "command": "explorer.newFile"
+    "command": "explorer.newFile",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "f7",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+      "text": "\u0014n"
+    },
+    "when": "terminalFocus"
   },
   {
     "key": "cmd+n",
@@ -340,5 +349,37 @@
     "key": "ctrl+alt+cmd+8",
     "command": "-workbench.action.debug.prevConsole",
     "when": "inDebugRepl"
+  },
+  {
+    "key": "f4",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+      "text": "\u0010x"
+    },
+    "when": "terminalFocus"
+  },
+  {
+    "key": "shift+f4",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+      "text": "\u0011"
+    },
+    "when": "terminalFocus"
+  },
+  {
+    "key": "f5",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+      "text": "\u0014h\n"
+    },
+    "when": "terminalFocus"
+  },
+  {
+    "key": "f6",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+      "text": "\u0014l\n"
+    },
+    "when": "terminalFocus"
   }
 ]
