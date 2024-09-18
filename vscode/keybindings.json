@@ -320,5 +320,25 @@
   {
     "key": "cmd+g cmd+c",
     "command": "workbench.panel.chat.view.copilot.focus"
+  },
+  {
+    "key": "f3",
+    "command": "workbench.action.debug.nextConsole",
+    "when": "inDebugRepl"
+  },
+  {
+    "key": "ctrl+alt+cmd+9",
+    "command": "-workbench.action.debug.nextConsole",
+    "when": "inDebugRepl"
+  },
+  {
+    "key": "shift+f3",
+    "command": "workbench.action.debug.prevConsole",
+    "when": "inDebugRepl"
+  },
+  {
+    "key": "ctrl+alt+cmd+8",
+    "command": "-workbench.action.debug.prevConsole",
+    "when": "inDebugRepl"
   }
 ]

@@ -71,7 +71,7 @@
   "editor.cursorStyle": "line",
   "editor.detectIndentation": false,
   "editor.foldingImportsByDefault": false,
-  "editor.fontSize": 16,
+  "editor.fontSize": 18,
   "editor.fontFamily": "BitStream Vera Sans Mono, Menlo, Monaco, 'Courier New', monospace",
   "editor.inlayHints.enabled": "onUnlessPressed",
   "editor.insertSpaces": true,
@@ -183,10 +183,17 @@
     "Vagrantfile": "ruby",
     ".env.sample": "dotenv"
   },
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
   "gitlens.currentLine.enabled": false,
   "java.configuration.updateBuildConfiguration": "automatic",
   "java.completion.favoriteStaticMembers": [
     "ch.sqrs.core.test.matchers.identifiable.ContainsIdentifiableMatcher.*",
+    "ch.sqrs.gestimmo.core.utils.OptionalUtils.*",
     "com.jayway.jsonpath.matchers.JsonPathMatchers.*",
     "com.spotify.hamcrest.optional.OptionalMatchers.*",
     "javax.persistence.*",
@@ -204,6 +211,7 @@
     "org.mockito.AdditionalMatchers.*",
     "org.mockito.ArgumentMatchers.*",
     "org.mockito.hamcrest.MockitoHamcrest.*",
+    "org.springframework.data.jpa.domain.Specification.*",
     "org.springframework.test.web.client.match.MockRestRequestMatchers.*",
     "org.springframework.test.web.client.response.MockRestResponseCreators.*",
     "org.springframework.test.web.servlet.ResultMatcher.*",
@@ -223,10 +231,19 @@
   "redhat.telemetry.enabled": false,
   "rust-client.rustupPath": "~/.asdf/shims/rustup",
   "sonarlint.rules": {
+    "go:S1192": {
+      "level": "off"
+    },
     "java:S107": {
       "parameters": {
         "max": 10
       }
+    },
+    "java:S119": {
+      "level": "off"
+    },
+    "java:S1075": {
+      "level": "off"
     },
     "java:S110": {
       "parameters": {
@@ -250,9 +267,6 @@
     "typescript:S5860": {
       "level": "off"
     },
-    "Web:BoldAndItalicTagsCheck": {
-      "level": "off"
-    },
     "typescript:S125": {
       "level": "off"
     },
@@ -260,6 +274,9 @@
       "level": "off"
     },
     "typescript:S3776": {
+      "level": "off"
+    },
+    "Web:BoldAndItalicTagsCheck": {
       "level": "off"
     },
     "Web:S5256": {
@@ -329,7 +346,7 @@
   "workbench.colorTheme": "dark-plus-syntax",
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
-  "workbench.editor.showTabs": true,
+  "workbench.editor.showTabs": "multiple",
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
   },
