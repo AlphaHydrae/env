@@ -1,7 +1,7 @@
 // https://zellij.dev/documentation/configuration
 keybinds {
-    pane {
-        bind "a" { FocusPreviousPane; }
-        bind "b" { FocusNextPane; }
-    }
+  pane {
+    bind "a" { FocusPreviousPane; }
+    bind "b" { FocusNextPane; }
+  }
 }
