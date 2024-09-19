@@ -280,6 +280,9 @@
     "java:S5976": {
       "level": "off"
     },
+    "java:S6813": {
+      "level": "off"
+    },
     "javascript:S3317": {
       "level": "off"
     },
