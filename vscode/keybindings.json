@@ -198,11 +198,13 @@
   },
   {
     "key": "shift+f2",
-    "command": "workbench.action.moveEditorToRightGroup"
+    "command": "workbench.action.moveEditorToRightGroup",
+    "when": "!terminalFocus"
   },
   {
     "key": "shift+f1",
-    "command": "workbench.action.moveEditorToBelowGroup"
+    "command": "workbench.action.moveEditorToBelowGroup",
+    "when": "!terminalFocus"
   },
   {
     "key": "f3",
@@ -387,6 +389,22 @@
     "command": "workbench.action.terminal.sendSequence",
     "args": {
       "text": "\u0010b\n"
+    },
+    "when": "terminalFocus"
+  },
+  {
+    "key": "shift+f1",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+      "text": "\u0010r"
+    },
+    "when": "terminalFocus"
+  },
+  {
+    "key": "shift+f2",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+      "text": "\u0010d"
     },
     "when": "terminalFocus"
   }
