@@ -24,6 +24,14 @@ from private_config_dir do
   symlink dot_files.except('.secrets', '.gitenv.private.rb')
   copy('.secrets').once
 
+  from '.config/fenix' do
+    symlink('config.yml').to('.config/fenix')
+  end
+
+  from '.config/infrastructure' do
+    symlink('config.yml').to('.config/infrastructure')
+  end
+
   from '.config/rclone' do
     symlink('rclone.conf').to('.config/rclone')
   end
