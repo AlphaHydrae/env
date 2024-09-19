@@ -8,7 +8,7 @@
     "editor.formatOnSave": true,
     "editor.formatOnType": false,
     "editor.trimAutoWhitespace": true,
-    "editor.wordBasedSuggestions": true,
+    "editor.wordBasedSuggestions": "matchingDocuments",
     "files.insertFinalNewline": true
   },
   "[elm]": {
@@ -77,8 +77,9 @@
   ],
   "debug.console.fontSize": 15,
   "debug.toolBarLocation": "docked",
+  "editor.accessibilitySupport": "off",
   "editor.codeActionsOnSave": {
-    "source.fixAll": true
+    "source.fixAll": "explicit"
   },
   "editor.cursorStyle": "line",
   "editor.detectIndentation": false,
@@ -195,6 +196,7 @@
     "Vagrantfile": "ruby",
     ".env.sample": "dotenv"
   },
+  "git.openRepositoryInParentFolders": "never",
   "github.copilot.enable": {
     "*": true,
     "plaintext": false,
@@ -240,6 +242,7 @@
   "javascript.preferences.quoteStyle": "single",
   "Lua.telemetry.enable": false,
   "prettier.requireConfig": true,
+  "prisma.showPrismaDataPlatformNotification": false,
   "redhat.telemetry.enabled": false,
   "rust-client.rustupPath": "~/.asdf/shims/rustup",
   "sonarlint.rules": {
