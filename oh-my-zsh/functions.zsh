@@ -2,7 +2,7 @@
 # ======
 
 function zide() {
-  test -f .zellij.kdl && zellij --layout .zellij.kdl || 2>&1 echo "No Zellij configuration found (${PWD}/.zellij.kdl)"
+  test -f .zellij.kdl && zellij --layout .zellij.kdl || zellij
 }
 
 # Utilities
