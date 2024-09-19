@@ -2,8 +2,7 @@ defscrollback 10000
 
 startup_message off
 hardstatus on
-hardstatus alwayslastline
-hardstatus string '%{= kG}[%{G}%H%{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c%{g}]'
+hardstatus alwayslastline "%{b kw}%H %{r}%1` %{w}| %{g}%c %{w}| %{y}%d.%m.%Y %{w}| %{g}%l %{w}| %{-b kw}%u %-Lw%{= rW}%50> %n%f %t %{-}%+Lw%<"
 
 bindkey "^[[15~" prev # f5
 bindkey "^[[17~" next # f6
