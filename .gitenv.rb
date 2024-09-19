@@ -17,16 +17,6 @@ if File.directory? vscode_dir
   end
 end
 
-# ZSH
-zsh_old_homebrew_path = '/usr/local/Cellar/zsh'
-zsh_homebrew_path = '/opt/homebrew/Cellar/zsh'
-zsh_homebrew_path = zsh_old_homebrew_path if File.directory? zsh_old_homebrew_path
-if File.directory? zsh_homebrew_path
-  zsh_version = Dir.entries(zsh_homebrew_path).select{ |e| e.match(/\A\d+\.\d+(?:\.\d+)?(?:_\d+)?\Z/) }.sort.last
-  raise 'Could not detect ZSH version' unless zsh_version
-  copy('prompt_adam2_setup', overwrite: true).to File.join(zsh_homebrew_path, zsh_version, 'share', 'zsh', 'functions')
-end
-
 # Private configuration
 private_config_dir = ENV['PRIVATE_CONFIG_DIR']
 raise 'Environment variable $PRIVATE_CONFIG_DIR is required' unless private_config_dir
