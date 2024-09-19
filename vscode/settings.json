@@ -333,6 +333,7 @@
   "terminal.integrated.gpuAcceleration": "on",
   "terminal.integrated.inheritEnv": false,
   "terminal.integrated.persistentSessionScrollback": 10000,
+  "terminal.integrated.scrollback": 10000,
   "todo-tree.general.tags": [
     "BUG",
     "HACK",
