@@ -197,6 +197,7 @@
     ".env.sample": "dotenv"
   },
   "git.openRepositoryInParentFolders": "never",
+  "github.copilot.editor.enableAutoCompletions": true,
   "github.copilot.enable": {
     "*": true,
     "plaintext": false,
