@@ -8,6 +8,10 @@ from '.httpie' do
   copy('config.json').to('~/.httpie').once
 end
 
+from '.config/zellij' do
+  symlink('config.kdl').to('.config/zellij')
+end
+
 # Visual Studio Code
 vscode_dir = File.expand_path(File.join('~', 'Library', 'Application Support', 'Code', 'User'))
 if File.directory? vscode_dir
