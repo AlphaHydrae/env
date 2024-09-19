@@ -1,4 +1,6 @@
 // https://zellij.dev/documentation/configuration
+pane_frames false
+
 keybinds {
   pane {
     bind "a" { FocusPreviousPane; }
