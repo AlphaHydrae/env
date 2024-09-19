@@ -36,6 +36,10 @@ from private_config_dir do
     symlink('rclone.conf').to('.config/rclone')
   end
 
+  from '.config/update-asdf-tools' do
+    symlink('update-asdf-tools.conf').to('.config/update-asdf-tools')
+  end
+
   from '.m2' do
     symlink('settings.xml').to('.m2')
   end
