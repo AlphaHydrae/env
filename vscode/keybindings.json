@@ -415,5 +415,13 @@
       "text": "z\n"
     },
     "when": "terminalFocus"
+  },
+  {
+    "key": "f8",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+      "text": "\u0013"
+    },
+    "when": "terminalFocus"
   }
 ]
