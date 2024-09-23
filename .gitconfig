@@ -85,8 +85,8 @@
   excludesfile = ~/.gitignore
   editor = /usr/local/bin/vim
 [include]
-  path = .gitprivate
   path = .gitlocal
+  path = .gitprivate
 [init]
   defaultBranch = main
 [push]
