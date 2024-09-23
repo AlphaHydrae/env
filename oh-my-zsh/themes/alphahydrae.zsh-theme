@@ -32,6 +32,26 @@ exec_time_precmd_hook() {
 
 
 
+# Async
+# =====
+
+function _backup_status_async {
+  [[ "$PROMPT_BACKUP_AGE" == "0" ]] && echo -n "-2"
+
+  local duplicity_backup_archives_dir="$PROMPT_BACKUP_DATA_DIR"
+  [ -z "$duplicity_backup_archives_dir" ] && echo -n "-1"
+
+  local latest_timestamp="$(gfind "$duplicity_backup_archives_dir" -type f -printf '%T@ %p\n' | cut -d . -f 1 | sort -bnr | head -n 1)"
+  local current_timestamp="$(date +%s)"
+  local diff_seconds=$(( current_timestamp - latest_timestamp ))
+  local diff_days=$(( diff_seconds / 86400 ))
+  echo -n "$diff_days"
+}
+
+_omz_register_handler _backup_status_async
+
+
+
 # Segment drawing
 # ===============
 # A few utility functions to make it easy and re-usable to draw segmented prompts.
@@ -101,6 +121,27 @@ prompt_end_left() {
 # =================
 # Each component will draw itself, and hide itself if no information needs to
 # be shown.
+
+# Last machine backup date
+prompt_backup() {
+  local backup_age_in_days="$_OMZ_ASYNC_OUTPUT[_backup_status_async]"
+  [ -z "$backup_age_in_days" ] && return
+
+  local light_gray=245
+  local backup_icon="💾"
+
+  if [[ "$backup_age_in_days" -eq -2 ]]; then
+    prompt_segment $light_gray $CURRENT_FG "$backup_icon"
+  elif [[ "$backup_age_in_days" -eq -1 ]]; then
+    prompt_segment red $CURRENT_FG "$backup_icon"
+  elif [[ "$backup_age_in_days" -lt 2 ]]; then
+    prompt_segment green $CURRENT_FG "$backup_icon"
+  elif [[ "$backup_age_in_days" -lt 3 ]]; then
+    prompt_segment yellow $CURRENT_FG "${backup_icon} ${backup_age_in_days}d"
+  else
+    prompt_segment red $CURRENT_FG "${backup_icon} ${backup_age_in_days}d"
+  fi
+}
 
 # Context: [ssh] user@hostname (who am I and where am I)
 prompt_context() {
@@ -258,6 +299,7 @@ build_right_prompt() {
   CURRENT_BG='NONE'
   CURRENT_PROMPT='right'
   prompt_duration_of_last_command
+  prompt_backup
   prompt_time
 }
 
