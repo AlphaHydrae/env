@@ -48,7 +48,62 @@ function _backup_status_async {
   echo -n "$diff_days"
 }
 
+function _git_status_async() {
+  (( $+commands[git] )) || return
+  if [[ "$(git config --get oh-my-zsh.hide-status 2>/dev/null)" = 1 ]]; then
+    return
+  fi
+  local PL_BRANCH_CHAR
+  () {
+    local LC_ALL="" LC_CTYPE="en_US.UTF-8"
+    PL_BRANCH_CHAR=$'\ue0a0' # 
+  }
+  local ref dirty mode remote_changes repo_path
+
+  if [[ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ]]; then
+    repo_path=$(git rev-parse --git-dir 2>/dev/null)
+    dirty=$(parse_git_dirty)
+    ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git rev-parse --short HEAD 2> /dev/null)"
+    remote_changes=$(parse_git_remote_changes "${ref/refs\/heads\/}")
+
+    if [[ -e "${repo_path}/BISECT_LOG" ]]; then
+      mode=" <bisect>"
+    elif [[ -e "${repo_path}/MERGE_HEAD" ]]; then
+      mode=" <merge>"
+    elif [[ -e "${repo_path}/rebase-merge/interactive" ]]; then
+      mode=" <rebase -i>"
+    elif [[ -e "${repo_path}/rebase" || -e "${repo_path}/rebase-apply" || -e "${repo_path}/rebase-merge" || -e "${repo_path}/../.dotest" ]]; then
+      mode=" <rebase>"
+    elif [[ -e "${repo_path}/index.lock" ]]; then
+      mode=" <locked>"
+    fi
+
+    local bg="green"
+    local fg="$CURRENT_FG"
+    if [[ -n "$mode" ]]; then
+      bg="magenta"
+    elif [[ -n "$dirty" ]]; then
+      bg="yellow"
+      fg="black"
+    fi
+
+    setopt promptsubst
+    autoload -Uz vcs_info
+
+    zstyle ':vcs_info:*' enable git
+    zstyle ':vcs_info:*' get-revision true
+    zstyle ':vcs_info:*' check-for-changes true
+    zstyle ':vcs_info:*' stagedstr '±'
+    zstyle ':vcs_info:*' unstagedstr '∅'
+    zstyle ':vcs_info:*' formats ' %u%c'
+    zstyle ':vcs_info:*' actionformats ' %u%c'
+    vcs_info
+    echo -n "$bg $fg ${ref/refs\/heads\//$PL_BRANCH_CHAR }${vcs_info_msg_0_%% }${remote_changes}${mode}"
+  fi
+}
+
 _omz_register_handler _backup_status_async
+_omz_register_handler _git_status_async
 
 
 
@@ -186,56 +241,12 @@ prompt_duration_of_last_command() {
 
 # Git: branch/detached head, dirty status, changes compared to the remote
 prompt_git() {
-  (( $+commands[git] )) || return
-  if [[ "$(git config --get oh-my-zsh.hide-status 2>/dev/null)" = 1 ]]; then
-    return
-  fi
-  local PL_BRANCH_CHAR
-  () {
-    local LC_ALL="" LC_CTYPE="en_US.UTF-8"
-    PL_BRANCH_CHAR=$'\ue0a0' # 
-  }
-  local ref dirty mode remote_changes repo_path
+  local git_status="$_OMZ_ASYNC_OUTPUT[_git_status_async]"
+  [ -z "$git_status" ] && return
 
-  if [[ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ]]; then
-    repo_path=$(git rev-parse --git-dir 2>/dev/null)
-    dirty=$(parse_git_dirty)
-    ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git rev-parse --short HEAD 2> /dev/null)"
-    remote_changes=$(parse_git_remote_changes "${ref/refs\/heads\/}")
-
-    if [[ -e "${repo_path}/BISECT_LOG" ]]; then
-      mode=" <bisect>"
-    elif [[ -e "${repo_path}/MERGE_HEAD" ]]; then
-      mode=" <merge>"
-    elif [[ -e "${repo_path}/rebase-merge/interactive" ]]; then
-      mode=" <rebase -i>"
-    elif [[ -e "${repo_path}/rebase" || -e "${repo_path}/rebase-apply" || -e "${repo_path}/rebase-merge" || -e "${repo_path}/../.dotest" ]]; then
-      mode=" <rebase>"
-    elif [[ -e "${repo_path}/index.lock" ]]; then
-      mode=" <locked>"
-    fi
-
-    if [[ -n "$mode" ]]; then
-      prompt_segment magenta $CURRENT_FG
-    elif [[ -n "$dirty" ]]; then
-      prompt_segment yellow black
-    else
-      prompt_segment green $CURRENT_FG
-    fi
-
-    setopt promptsubst
-    autoload -Uz vcs_info
-
-    zstyle ':vcs_info:*' enable git
-    zstyle ':vcs_info:*' get-revision true
-    zstyle ':vcs_info:*' check-for-changes true
-    zstyle ':vcs_info:*' stagedstr '±'
-    zstyle ':vcs_info:*' unstagedstr '∅'
-    zstyle ':vcs_info:*' formats ' %u%c'
-    zstyle ':vcs_info:*' actionformats ' %u%c'
-    vcs_info
-    echo -n "${ref/refs\/heads\//$PL_BRANCH_CHAR }${vcs_info_msg_0_%% }${remote_changes}${mode}"
-  fi
+  local parts=(${(@s: :)git_status})
+  prompt_segment ${parts[1]} ${parts[2]}
+  echo -n "${parts[@]:2}"
 }
 
 # Git changes compared to the current branch's remote (if configured).
