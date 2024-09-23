@@ -35,6 +35,12 @@ exec_time_precmd_hook() {
 # Async
 # =====
 
+# Are there background jobs?
+function _background_jobs_async() {
+  [[ $(jobs -l | wc -l) -gt 0 ]] && echo -n "black default %{%F{cyan}%}⚙"
+}
+
+# Machine backup age
 function _backup_status_async {
   [[ "$PROMPT_BACKUP_AGE" == "0" ]] && echo -n "-2"
 
@@ -48,6 +54,7 @@ function _backup_status_async {
   echo -n "$diff_days"
 }
 
+# Git: branch/detached head, dirty status, changes compared to the remote
 function _git_status_async() {
   (( $+commands[git] )) || return
   if [[ "$(git config --get oh-my-zsh.hide-status 2>/dev/null)" = 1 ]]; then
@@ -102,8 +109,61 @@ function _git_status_async() {
   fi
 }
 
+# Git changes compared to the current branch's remote (if configured).
+function parse_git_remote_changes() {
+  local branch="$1"
+  prompt_git_ahead=0
+  prompt_git_behind=0
+
+  local merge=$(git config branch.$branch.merge 2>/dev/null)
+  local remote=$(git config branch.$branch.remote 2>/dev/null)
+
+  if [[ -n "$merge" ]] && [[ -n "$remote" ]]; then
+    local ref=${merge/heads/remotes/$remote}
+    local changes=${$(git rev-list --left-right $ref...HEAD 2>/dev/null | tr '\n' '-')//[^<>]/}
+    prompt_git_ahead=${#${changes//</}}
+    prompt_git_behind=${#${changes//>/}}
+  fi
+
+  local result=""
+  [ $prompt_git_behind -gt 0 ] && result="${result} ↓${prompt_git_behind}"
+  [ $prompt_git_ahead -gt 0 ] && result="${result} ↑${prompt_git_ahead}"
+  print "$result"
+}
+
+# The machine environment (e.g. staging, production) as defined in a file.
+function _host_environment_async() {
+  local host_environment_file
+  if [ -n "$HOST_ENVIRONMENT_FILE" ]; then
+    host_environment_file="$HOST_ENVIRONMENT_FILE"
+  elif [ -f "$HOME/.host-environment" ]; then
+    host_environment_file="${HOME}/.host-environment"
+  elif [ -f "/etc/.host-environment" ]; then
+    host_environment_file="/etc/.host-environment"
+  fi
+
+  [ ! -f "$host_environment_file" ] && return
+
+  local host_environment="$(cat "$host_environment_file" | sed 's/[^A-Z0-9a-z\_\-]*//')"
+  [ -z "$host_environment" ] && return
+
+  local bg=white
+  local fg=black
+  local normalized_host_environment="$(echo -n "$host_environment" | tr '[:upper:]' '[:lower:]')"
+  [[ "$normalized_host_environment" == st* ]] && bg=yellow
+  [[ "$normalized_host_environment" == pr* ]] && bg=red && fg=white && host_environment="%{%B%}$(echo "$host_environment" | tr '[:lower:]' '[:upper:]' | sed -Er 's/^PR$|^PROD$/PRODUCTION/')%{%b%}"
+  echo -n "$bg" "$fg" "$host_environment"
+}
+
+function _time_async() {
+  echo -n "$(date '+%X')"
+}
+
+_omz_register_handler _background_jobs_async
 _omz_register_handler _backup_status_async
 _omz_register_handler _git_status_async
+_omz_register_handler _host_environment_async
+_omz_register_handler _time_async
 
 
 
@@ -170,6 +230,19 @@ prompt_end_left() {
   CURRENT_BG=''
 }
 
+# Draw a segment from async data (if available). The segment data is composed of
+# the background color, the foreground color, and the segment content.
+prompt_async_segment() {
+  local async="$1"
+
+  local segment_data="$_OMZ_ASYNC_OUTPUT[$async]"
+  [ -z "$segment_data" ] && return
+
+  local parts=(${(@s: :)segment_data})
+  prompt_segment ${parts[1]} ${parts[2]}
+  echo -n "${parts[@]:2}"
+}
+
 
 
 # Prompt components
@@ -177,7 +250,7 @@ prompt_end_left() {
 # Each component will draw itself, and hide itself if no information needs to
 # be shown.
 
-# Last machine backup date
+# Machine backup age
 prompt_backup() {
   local backup_age_in_days="$_OMZ_ASYNC_OUTPUT[_backup_status_async]"
   [ -z "$backup_age_in_days" ] && return
@@ -209,22 +282,7 @@ prompt_context() {
 
 # Host environment: dev/staging/production environment
 prompt_host_environment() {
-
-  local host_environment_file=""
-  [ -n "$HOST_ENVIRONMENT_FILE" ] && host_environment_file="$HOST_ENVIRONMENT_FILE"
-  [ -f "$HOME/.host-environment" ] && host_environment_file="${HOME}/.host-environment"
-  [ -f /etc/.host-environment ] && host_environment_file="/etc/.host-environment"
-  [ ! -f "$host_environment_file" ] && return
-
-  local host_environment="$(cat "$host_environment_file" | sed 's/[^A-Z0-9a-z\_\-]*//')"
-  [ -z "$host_environment" ] && return
-
-  local bg=white
-  local fg=black
-  local normalized_host_environment="$(echo -n "$host_environment" | tr '[:upper:]' '[:lower:]')"
-  [[ "$normalized_host_environment" == st* ]] && bg=yellow
-  [[ "$normalized_host_environment" == pr* ]] && bg=red && fg=white && host_environment="%{%B%}$(echo "$host_environment" | tr '[:lower:]' '[:upper:]' | sed -Er 's/^PR$|^PROD$/PRODUCTION/')%{%b%}"
-  prompt_segment "$bg" "$fg" "$host_environment"
+  prompt_async_segment _host_environment_async
 }
 
 # Current working directory
@@ -241,54 +299,33 @@ prompt_duration_of_last_command() {
 
 # Git: branch/detached head, dirty status, changes compared to the remote
 prompt_git() {
-  local git_status="$_OMZ_ASYNC_OUTPUT[_git_status_async]"
-  [ -z "$git_status" ] && return
-
-  local parts=(${(@s: :)git_status})
-  prompt_segment ${parts[1]} ${parts[2]}
-  echo -n "${parts[@]:2}"
-}
-
-# Git changes compared to the current branch's remote (if configured).
-parse_git_remote_changes() {
-  local branch="$1"
-  prompt_git_ahead=0
-  prompt_git_behind=0
-
-  local merge=$(git config branch.$branch.merge 2>/dev/null)
-  local remote=$(git config branch.$branch.remote 2>/dev/null)
-
-  if [[ -n "$merge" ]] && [[ -n "$remote" ]]; then
-    local ref=${merge/heads/remotes/$remote}
-    local changes=${$(git rev-list --left-right $ref...HEAD 2>/dev/null | tr '\n' '-')//[^<>]/}
-    prompt_git_ahead=${#${changes//</}}
-    prompt_git_behind=${#${changes//>/}}
-  fi
-
-  local result=""
-  [ $prompt_git_behind -gt 0 ] && result="${result} ↓${prompt_git_behind}"
-  [ $prompt_git_ahead -gt 0 ] && result="${result} ↑${prompt_git_ahead}"
-  print "$result"
+  prompt_async_segment _git_status_async
 }
 
 # Status:
 # * Was there an error?
 # * Am I root?
-# * Are there background jobs?
 prompt_status() {
   local -a symbols
 
   [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}✘ $RETVAL"
   [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}⚡"
-  [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}⚙"
 
   [[ -n "$symbols" ]] && prompt_segment black default "$symbols"
 }
 
+# Are there background jobs?
+prompt_background_jobs() {
+  prompt_async_segment _background_jobs_async
+}
+
 # Current time with seconds
 prompt_time() {
+  local time="$_OMZ_ASYNC_OUTPUT[_time_async]"
+  [ -z "$time" ] && return
+
   local dark_gray=240
-  prompt_segment $dark_gray $CURRENT_FG "$(date '+%X')"
+  prompt_segment $dark_gray $CURRENT_FG "$time"
 }
 
 
@@ -299,6 +336,7 @@ prompt_time() {
 build_prompt() {
   RETVAL=$?
   prompt_status
+  prompt_background_jobs
   prompt_context
   prompt_host_environment
   prompt_dir
