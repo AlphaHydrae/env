@@ -38,16 +38,12 @@ COMPLETION_WAITING_DOTS="true"
 # Plugins to load. Standard plugins can be found in "$ZSH/plugins/". Custom
 # plugins may be added to "$ZSH_CUSTOM/plugins/".
 plugins=(
-  aws                  # completions for `aws` - https://aws.amazon.com/cli/
   bundler              # completions for `bundler` - https://bundler.io
-  composer             # completions for `composer` - https://getcomposer.org
   direnv               # enables direnv - https://direnv.net
   docker               # completions for `docker` - https://www.docker.com
   docker-compose       # completions for `docker-compose` - https://docs.docker.com/compose/
-  gem                  # completions for `gem` - https://rubygems.org
   git-extras           # completions for https://github.com/tj/git-extras
   golang               # completions for `go` - https://golang.org
-  heroku               # completions for `heroku` - https://devcenter.heroku.com/articles/heroku-cli
   httpie               # completions for `http` - https://httpie.io
   mix                  # completions for `mix` - https://elixir-lang.org/getting-started/mix-otp/introduction-to-mix.html
   mvn                  # completions for `mvn` - https://maven.apache.org
@@ -57,7 +53,6 @@ plugins=(
   rebar                # completions for `rebar3` - https://rebar3.org
   redis-cli            # completions for `redis-cli` - https://redis.io
   rust                 # completions for `rustc` - https://www.rust-lang.org
-  vagrant              # completions for `vagrant` - https://www.vagrantup.com
   zsh-autosuggestions  # Fish-like autosuggestions - https://github.com/zsh-users/zsh-autosuggestions#readme
 )
 
