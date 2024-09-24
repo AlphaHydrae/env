@@ -38,6 +38,7 @@ COMPLETION_WAITING_DOTS="true"
 # Plugins to load. Standard plugins can be found in "$ZSH/plugins/". Custom
 # plugins may be added to "$ZSH_CUSTOM/plugins/".
 plugins=(
+  ansible              # completions for `ansible` - https://www.ansible.com
   bundler              # completions for `bundler` - https://bundler.io
   direnv               # enables direnv - https://direnv.net
   docker               # completions for `docker` - https://www.docker.com
