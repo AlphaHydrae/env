@@ -6,4 +6,8 @@ keybinds {
     bind "a" { FocusPreviousPane; }
     bind "b" { FocusNextPane; }
   }
+  tab {
+    bind "u" { MoveTab "Left"; }
+    bind "i" { MoveTab "Right"; }
+  }
 }
