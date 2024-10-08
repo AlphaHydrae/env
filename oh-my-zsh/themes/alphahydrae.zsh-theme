@@ -44,10 +44,10 @@ function _background_jobs_async() {
 function _backup_status_async {
   [[ "$PROMPT_BACKUP_AGE" == "0" ]] && echo -n "-2"
 
-  local duplicity_backup_archives_dir="$PROMPT_BACKUP_DATA_DIR"
-  [ -z "$duplicity_backup_archives_dir" ] && echo -n "-1"
+  local backup_data_dir="$PROMPT_BACKUP_DATA_DIR"
+  [ -z "$backup_data_dir" ] && echo -n "-1"
 
-  local latest_timestamp="$(gfind "$duplicity_backup_archives_dir" -type f -printf '%T@ %p\n' | cut -d . -f 1 | sort -bnr | head -n 1)"
+  local latest_timestamp="$(gfind "$backup_data_dir" -type f -printf '%T@ %p\n' | cut -d . -f 1 | sort -bnr | head -n 1)"
   local current_timestamp="$(date +%s)"
   local diff_seconds=$(( current_timestamp - latest_timestamp ))
   local diff_days=$(( diff_seconds / 86400 ))
