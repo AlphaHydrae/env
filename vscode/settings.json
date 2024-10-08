@@ -324,6 +324,7 @@
     }
   },
   "statusbarerror.wholeLine.show": true,
+  "svelte.enable-ts-plugin": true,
   "tableformatter.common.centerAlignedHeader": false,
   "tailwindCSS.includeLanguages": {
     "phoenix-heex": "html"
