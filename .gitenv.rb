@@ -8,6 +8,7 @@ from '.httpie' do
   copy('config.json').to('~/.httpie').once
 end
 
+# Zellij
 from '.config/zellij' do
   symlink('config.kdl').to('.config/zellij')
 end
