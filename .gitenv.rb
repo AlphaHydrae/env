@@ -53,6 +53,11 @@ from private_config_dir do
     symlink('config').to('.ssh')
     symlink('config.sync.d').to('.ssh')
   end
+
+  ngrok_dir = File.expand_path(File.join('~', 'Library', 'Application Support', 'ngrok'))
+  if File.directory? ngrok_dir
+    symlink('ngrok.yml').to(ngrok_dir)
+  end
 end
 
 # Further private configuration
