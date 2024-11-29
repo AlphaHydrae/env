@@ -304,9 +304,6 @@
     "Web:S5256": {
       "level": "off"
     },
-    "java:S6813": {
-      "level": "off"
-    },
     "typescript:S4782": {
       "level": "off"
     },
@@ -320,6 +317,9 @@
       "level": "off"
     },
     "typescript:S1874": {
+      "level": "off"
+    },
+    "Web:MouseEventWithoutKeyboardEquivalentCheck": {
       "level": "off"
     }
   },
