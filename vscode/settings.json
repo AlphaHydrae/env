@@ -251,6 +251,7 @@
   "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
   "javascript.inlayHints.variableTypes.enabled": true,
   "javascript.preferences.quoteStyle": "single",
+  "jest.runMode": "on-demand",
   "Lua.telemetry.enable": false,
   "prettier.requireConfig": true,
   "prisma.showPrismaDataPlatformNotification": false,
