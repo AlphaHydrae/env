@@ -126,10 +126,6 @@
     "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
   },
   {
-    "key": "shift+cmd+t",
-    "command": "workbench.action.terminal.toggleTerminal"
-  },
-  {
     "key": "ctrl+shift+[Equal]",
     "command": "-workbench.action.terminal.toggleTerminal"
   },
@@ -423,5 +419,57 @@
       "text": "\u0013"
     },
     "when": "terminalFocus"
+  },
+  {
+    "key": "shift+cmd+c",
+    "command": "-workbench.action.terminal.openNativeConsole",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "shift+cmd+c",
+    "command": "coverage-gutters.toggleCoverage"
+  },
+  {
+    "key": "shift+cmd+5",
+    "command": "-coverage-gutters.toggleCoverage"
+  },
+  {
+    "key": "shift+cmd+t a",
+    "command": "testing.coverageAll"
+  },
+  {
+    "key": "shift+cmd+[Comma] shift+cmd+a",
+    "command": "-testing.coverageAll"
+  },
+  {
+    "key": "shift+cmd+t",
+    "command": "-workbench.action.reopenClosedEditor"
+  },
+  {
+    "key": "shift+cmd+t",
+    "command": "-extension.erleunit",
+    "when": "editorLangId == 'erlang'"
+  },
+  {
+    "key": "shift+cmd+t f",
+    "command": "testing.coverageCurrentFile",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+cmd+[Comma] shift+cmd+f",
+    "command": "-testing.coverageCurrentFile",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+cmd+t i",
+    "command": "testing.toggleInlineCoverage"
+  },
+  {
+    "key": "shift+cmd+[Comma] shift+cmd+i",
+    "command": "-testing.toggleInlineCoverage"
+  },
+  {
+    "key": "shift+cmd+t t",
+    "command": "workbench.view.extension.test"
   }
 ]
