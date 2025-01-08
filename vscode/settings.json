@@ -365,6 +365,7 @@
   "vim.camelCaseMotion.enable": true,
   "vim.leader": ",",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "vue.server.hybridMode": true,
   "window.openFoldersInNewWindow": "on",
   "workbench.colorCustomizations": {
     "editorRuler.foreground": "#333333",
