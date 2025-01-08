@@ -210,6 +210,7 @@
   "gitlens.currentLine.enabled": false,
   "java.configuration.updateBuildConfiguration": "automatic",
   "java.completion.favoriteStaticMembers": [
+    "ch.sqrs.core.errors.BusinessException.*",
     "ch.sqrs.core.test.matchers.identifiable.ContainsIdentifiableMatcher.*",
     "ch.sqrs.gestimmo.core.utils.OptionalUtils.*",
     "ch.sqrs.gestimmo.core.utils.Some.*",
