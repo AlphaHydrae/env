@@ -277,6 +277,9 @@
         "max": 8
       }
     },
+    "java:S125": {
+      "level": "off"
+    },
     "java:S2699": {
       "parameters": {
         "customAssertionMethods": "andExpectAll"
@@ -309,6 +312,12 @@
     "Web:S5256": {
       "level": "off"
     },
+    "typescript:S1854": {
+      "level": "off"
+    },
+    "typescript:S4275": {
+      "level": "off"
+    },
     "typescript:S4782": {
       "level": "off"
     },
@@ -325,6 +334,9 @@
       "level": "off"
     },
     "Web:MouseEventWithoutKeyboardEquivalentCheck": {
+      "level": "off"
+    },
+    "Web:S6842": {
       "level": "off"
     }
   },
