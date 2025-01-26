@@ -50,7 +50,7 @@ function _backup_status_async {
   local find_command="gfind"
   command -v "$find_command" &>/dev/null || find_command="find"
 
-  local latest_timestamp="$(gfind "$backup_data_dir" -type f -printf '%T@ %p\n' | cut -d . -f 1 | sort -bnr | head -n 1)"
+  local latest_timestamp="$("$find_command" "$backup_data_dir" -type f -printf '%T@ %p\n' | cut -d . -f 1 | sort -bnr | head -n 1)"
   local current_timestamp="$(date +%s)"
   local diff_seconds=$(( current_timestamp - latest_timestamp ))
   local diff_days=$(( diff_seconds / 86400 ))
