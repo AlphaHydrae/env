@@ -47,6 +47,9 @@ function _backup_status_async {
   local backup_data_dir="$PROMPT_BACKUP_DATA_DIR"
   [ -z "$backup_data_dir" ] && echo -n "-1"
 
+  local find_command="gfind"
+  command -v "$find_command" &>/dev/null || find_command="find"
+
   local latest_timestamp="$(gfind "$backup_data_dir" -type f -printf '%T@ %p\n' | cut -d . -f 1 | sort -bnr | head -n 1)"
   local current_timestamp="$(date +%s)"
   local diff_seconds=$(( current_timestamp - latest_timestamp ))
