@@ -280,6 +280,9 @@
     "java:S125": {
       "level": "off"
     },
+    "java:S4144": {
+      "level": "off"
+    },
     "java:S2699": {
       "parameters": {
         "customAssertionMethods": "andExpectAll"
@@ -315,7 +318,13 @@
     "typescript:S1854": {
       "level": "off"
     },
+    "typescript:S2301": {
+      "level": "off"
+    },
     "typescript:S4275": {
+      "level": "off"
+    },
+    "typescript:S4323": {
       "level": "off"
     },
     "typescript:S4782": {
