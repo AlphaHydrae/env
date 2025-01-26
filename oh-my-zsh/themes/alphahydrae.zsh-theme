@@ -42,10 +42,16 @@ function _background_jobs_async() {
 
 # Machine backup age
 function _backup_status_async {
-  [[ "$PROMPT_BACKUP_AGE" == "0" ]] && echo -n "-2"
+  if [[ "$PROMPT_BACKUP_AGE" == "0" ]]; then
+    echo -n "-2"
+    return
+  fi
 
   local backup_data_dir="$PROMPT_BACKUP_DATA_DIR"
-  [ -z "$backup_data_dir" ] && echo -n "-1"
+  if [ -z "$backup_data_dir" ]; then
+    echo -n "-1"
+    return
+  fi
 
   local find_command="gfind"
   command -v "$find_command" &>/dev/null || find_command="find"
