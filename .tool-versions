@@ -1,12 +1,12 @@
 ruby 3.4.1
-deno 2.1.7
+deno 2.1.9
 erlang 27.2.1
 elixir 1.18.2-otp-27
 elm 0.19.1
 golang 1.23.5
 nodejs 22.13.1
 python 3.13.1
-rust 1.84.0
+rust 1.84.1
 java openjdk-23.0.2
 bats 1.11.1
 haskell 9.12.1
