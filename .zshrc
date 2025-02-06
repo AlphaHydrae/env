@@ -40,7 +40,6 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
   ansible              # completions for `ansible` - https://www.ansible.com
   bundler              # completions for `bundler` - https://bundler.io
-  direnv               # enables direnv - https://direnv.net
   docker               # completions for `docker` - https://www.docker.com
   docker-compose       # completions for `docker-compose` - https://docs.docker.com/compose/
   git-extras           # completions for https://github.com/tj/git-extras
@@ -144,6 +143,10 @@ fi
 # fzf - https://github.com/junegunn/fzf
 # =====================================
 [ -f ~/.fzf.zsh ] && . ~/.fzf.zsh
+
+# direnv - https://direnv.net
+# ===========================
+eval "$(direnv hook zsh)"
 
 # Further customization
 # =====================
