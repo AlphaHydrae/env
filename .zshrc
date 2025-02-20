@@ -136,6 +136,8 @@ elif [ -s "${HOMEBREW_PREFIX}/opt/asdf/asdf.sh" ]; then
   . "${HOMEBREW_PREFIX}/opt/asdf/asdf.sh"
 elif [ -s ~/.asdf/asdf.sh ]; then
   . ~/.asdf/asdf.sh
+elif [ -d "${ASDF_DATA_DIR:-$HOME/.asdf}/shims" ]; then
+  export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 fi
 
 [ -f ~/.asdf/plugins/java/set-java-home.zsh ] && . ~/.asdf/plugins/java/set-java-home.zsh # Java plugin
