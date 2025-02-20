@@ -262,9 +262,7 @@
       "level": "off"
     },
     "java:S107": {
-      "parameters": {
-        "max": 10
-      }
+      "level": "off"
     },
     "java:S119": {
       "level": "off"
