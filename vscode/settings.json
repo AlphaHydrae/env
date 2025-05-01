@@ -200,6 +200,7 @@
     ".env.sample": "dotenv"
   },
   "git.openRepositoryInParentFolders": "never",
+  "github.copilot.chat.codesearch.enabled": true,
   "github.copilot.editor.enableAutoCompletions": true,
   "github.copilot.enable": {
     "*": true,
