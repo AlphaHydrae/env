@@ -278,6 +278,9 @@
     "java:S125": {
       "level": "off"
     },
+    "java:S2160": {
+      "level": "off"
+    },
     "java:S4144": {
       "level": "off"
     },
@@ -313,7 +316,13 @@
     "Web:S5256": {
       "level": "off"
     },
+    "typescript:S1135": {
+      "level": "off"
+    },
     "typescript:S1854": {
+      "level": "off"
+    },
+    "typescript:S1874": {
       "level": "off"
     },
     "typescript:S2301": {
@@ -328,6 +337,9 @@
     "typescript:S4782": {
       "level": "off"
     },
+    "typescript:S6582": {
+      "level": "off"
+    },
     "typescript:S6564": {
       "level": "off"
     },
@@ -337,7 +349,7 @@
     "typescript:S6479": {
       "level": "off"
     },
-    "typescript:S1874": {
+    "typescript:S6772": {
       "level": "off"
     },
     "Web:MouseEventWithoutKeyboardEquivalentCheck": {
