@@ -375,6 +375,7 @@
   "terminal.integrated.inheritEnv": false,
   "terminal.integrated.persistentSessionScrollback": 10000,
   "terminal.integrated.scrollback": 10000,
+  "terminal.integrated.suggest.enabled": false,
   "todo-tree.general.tags": [
     "BUG",
     "HACK",
