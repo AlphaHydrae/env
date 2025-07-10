@@ -481,5 +481,13 @@
     "key": "shift+cmd+space",
     "command": "-editor.action.triggerParameterHints",
     "when": "editorHasSignatureHelpProvider && editorTextFocus"
+  },
+  {
+    "key": "cmd+s r",
+    "command": "workbench.panel.testResults.view.focus"
+  },
+  {
+    "key": "cmd+g p",
+    "command": "workbench.action.chat.run.prompt"
   }
 ]
