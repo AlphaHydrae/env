@@ -351,6 +351,9 @@
     "typescript:S6647": {
       "level": "off"
     },
+    "typescript:S6477": {
+      "level": "off"
+    },
     "typescript:S6479": {
       "level": "off"
     },
