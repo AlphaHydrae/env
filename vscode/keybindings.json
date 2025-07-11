@@ -489,5 +489,15 @@
   {
     "key": "cmd+g p",
     "command": "workbench.action.chat.run.prompt"
+  },
+  {
+    "key": "cmd+g a",
+    "command": "workbench.action.chat.openAgent",
+    "when": "config.chat.agent.enabled && !chatSetupHidden"
+  },
+  {
+    "key": "shift+cmd+i",
+    "command": "-workbench.action.chat.openAgent",
+    "when": "config.chat.agent.enabled && !chatSetupHidden"
   }
 ]
