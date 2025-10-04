@@ -1,19 +1,13 @@
 // https://zed.dev/docs/key-bindings
 [
   {
-    "context": "Workspace",
     "bindings": {
-      // "shift shift": "file_finder::Toggle"
-    }
-  },
-  {
-    "context": "Editor && vim_mode == insert",
-    "bindings": {
-      // "j k": "vim::NormalBefore"
-    }
-  },
-  {
-    "bindings": {
+      "cmd-g a": "agent::ToggleFocus",
+      "cmd-g c": "agent::ToggleFocus",
+      "alt-f": "zed::ToggleFullScreen",
+      "alt-w": "workspace::ActivateNextWindow",
+      "alt-shift-w": "workspace::ActivatePreviousWindow",
+      "cmd-;": "zed::OpenSettings",
       "f1": "terminal_panel::Toggle",
       "f2": "editor::ToggleFocus"
     }
@@ -21,9 +15,52 @@
   {
     "context": "Editor",
     "bindings": {
+      "alt-q": "editor::Rewrap",
+      "cmd-e": "editor::GoToDiagnostic",
+      "cmd-shift-e": "editor::GoToPreviousDiagnostic",
+      "cmd-r": "editor::Rename",
+      "cmd-/": "editor::ToggleComments",
+      "shift-f1": "pane::SplitAndMoveDown",
+      "shift-f2": "pane::SplitAndMoveRight",
+      "f2": "project_panel::ToggleFocus",
       "f3": "pane::ActivateNextItem",
       "shift-f3": "pane::ActivatePreviousItem",
-      "f4": "pane::CloseActiveItem"
+      "f4": "pane::CloseActiveItem",
+      "f5": "workspace::ActivatePreviousPane",
+      "f6": "workspace::ActivateNextPane"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "cmd-f1": ["workspace::SendKeystrokes", "z \n"],
+      "shift-f1": ["workspace::SendKeystrokes", "ctrl-p r"],
+      "shift-f2": ["workspace::SendKeystrokes", "ctrl-p d"],
+      "f3": ["workspace::SendKeystrokes", "ctrl-p b \n"],
+      "f4": ["workspace::SendKeystrokes", "ctrl-p x \n"],
+      "shift-f4": ["workspace::SendKeystrokes", "ctrl-q"],
+      "f5": ["workspace::SendKeystrokes", "ctrl-t left \n"],
+      "f6": ["workspace::SendKeystrokes", "ctrl-t right \n"],
+      "f7": ["workspace::SendKeystrokes", "ctrl-p n"],
+      "f8": ["workspace::SendKeystrokes", "ctrl-s"],
+      "cmd-shift-left": "pane::ActivatePreviousItem",
+      "cmd-shift-right": "pane::ActivateNextItem",
+      "shift-f3": "workspace::ToggleZoom"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-r": "project_panel::Rename",
+      "cmd-shift-n": "project_panel::NewDirectory"
+    }
+  },
+  {
+    "context": "VimControl && !menu && vim_mode != operator",
+    "bindings": {
+      ", w": "vim::NextSubwordStart",
+      ", b": "vim::PreviousSubwordStart",
+      ", e": "vim::NextSubwordEnd"
     }
   }
 ]

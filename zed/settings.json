@@ -13,6 +13,18 @@
   },
   "buffer_font_size": 18.0,
   "cursor_shape": "bar",
+  "diagnostics": {
+    "inline": {
+      "enabled": true,
+      "max_severity": null
+    }
+  },
+  "edit_predictions": {
+    "mode": "eager"
+  },
+  "features": {
+    "edit_prediction_provider": "copilot"
+  },
   "file_types": {
     "ruby": ["Vagrantfile"],
     "dotenv": [".env.sample"]
@@ -35,6 +47,9 @@
     "enabled": true
   },
   "languages": {
+    "CSS": {
+      "language_servers": ["tailwindcss-language-server"]
+    },
     "Elixir": {
       "format_on_save": {
         "external": {
@@ -52,6 +67,9 @@
     "enable_preview_from_file_finder": false
   },
   "scroll_beyond_last_line": "off",
+  "scrollbar": {
+    "diagnostics": "all"
+  },
   "show_whitespaces": "boundary",
   "soft_wrap": "none",
   "tab_bar": {
@@ -64,7 +82,7 @@
   },
   "terminal": {
     "font_size": 15.0,
-    "font_family": "MesloLGS NF"
+    "font_family": "Meslo LG M DZ for Powerline"
   },
   "theme": {
     "mode": "system",
