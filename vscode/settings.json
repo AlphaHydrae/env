@@ -222,6 +222,7 @@
     "ch.sqrs.core.errors.BusinessException.*",
     "ch.sqrs.core.test.matchers.identifiable.ContainsIdentifiableMatcher.*",
     "ch.sqrs.gestimmo.core.utils.OptionalUtils.*",
+    "ch.sqrs.gestimmo.core.utils.StreamUtils.*",
     "ch.sqrs.gestimmo.core.utils.Some.*",
     "com.jayway.jsonpath.matchers.JsonPathMatchers.*",
     "com.spotify.hamcrest.optional.OptionalMatchers.*",
