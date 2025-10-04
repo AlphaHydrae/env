@@ -112,6 +112,7 @@
   "editor.fontSize": 18,
   "editor.fontFamily": "BitStream Vera Sans Mono, Menlo, Monaco, 'Courier New', monospace",
   "editor.inlayHints.enabled": "onUnlessPressed",
+  "editor.inlineSuggest.minShowDelay": 500,
   "editor.insertSpaces": true,
   "editor.lineNumbers": "on",
   "editor.quickSuggestions": {
