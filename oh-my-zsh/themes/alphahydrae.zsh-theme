@@ -42,7 +42,10 @@ function _background_jobs_async() {
 
 # Machine backup age
 function _backup_status_async {
-  if [[ "$PROMPT_BACKUP_AGE" == "0" ]]; then
+  if [[ "$PROMPT_BACKUP_AGE" == "off" ]]; then
+    echo -n ""
+    return
+  elif [[ "$PROMPT_BACKUP_AGE" == "0" ]]; then
     echo -n "-2"
     return
   fi
