@@ -98,6 +98,7 @@
       "backgroundColor": "transparent"
     }
   ],
+  "chat.tools.terminal.enableAutoApprove": false,
   "debug.console.fontSize": 15,
   "debug.toolBarLocation": "docked",
   "docker.extension.enableComposeLanguageServer": false,
