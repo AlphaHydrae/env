@@ -271,6 +271,9 @@
   "redhat.telemetry.enabled": false,
   "rust-client.rustupPath": "~/.asdf/shims/rustup",
   "sonarlint.rules": {
+    "css:S4662": {
+      "level": "off"
+    },
     "go:S1192": {
       "level": "off"
     },
