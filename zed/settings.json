@@ -1,0 +1,77 @@
+// https://zed.dev/docs/configuring-zed
+{
+  "agent": {
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-4.1"
+    },
+    "model_parameters": []
+  },
+  "base_keymap": "VSCode",
+  "buffer_font_features": {
+    "calt": 0
+  },
+  "buffer_font_size": 18.0,
+  "cursor_shape": "bar",
+  "file_types": {
+    "ruby": ["Vagrantfile"],
+    "dotenv": [".env.sample"]
+  },
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
+  },
+  "gutter": {
+    "line_numbers": true
+  },
+  "hard_tabs": false,
+  "icon_theme": {
+    "mode": "system",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
+  "inlay_hints": {
+    "enabled": true
+  },
+  "languages": {
+    "Elixir": {
+      "format_on_save": {
+        "external": {
+          "command": "mix",
+          "arguments": ["format", "--stdin-filename", "{buffer_path}", "-"]
+        }
+      }
+    }
+  },
+  "minimap": {
+    "show": "auto"
+  },
+  "preview_tabs": {
+    "enabled": false,
+    "enable_preview_from_file_finder": false
+  },
+  "scroll_beyond_last_line": "off",
+  "show_whitespaces": "boundary",
+  "soft_wrap": "none",
+  "tab_bar": {
+    "show": true
+  },
+  "tab_size": 2,
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "terminal": {
+    "font_size": 15.0,
+    "font_family": "MesloLGS NF"
+  },
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Ayu Dark"
+  },
+  "ui_font_size": 16,
+  "vim_mode": true,
+  "wrap_guides": [80]
+}

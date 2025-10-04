@@ -1,0 +1,29 @@
+// https://zed.dev/docs/key-bindings
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      // "j k": "vim::NormalBefore"
+    }
+  },
+  {
+    "bindings": {
+      "f1": "terminal_panel::Toggle",
+      "f2": "editor::ToggleFocus"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "f3": "pane::ActivateNextItem",
+      "shift-f3": "pane::ActivatePreviousItem",
+      "f4": "pane::CloseActiveItem"
+    }
+  }
+]
