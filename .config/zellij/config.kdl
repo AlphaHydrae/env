@@ -1,5 +1,6 @@
 // https://zellij.dev/documentation/configuration
 pane_frames false
+copy_command "pbcopy"
 
 keybinds {
   pane {
