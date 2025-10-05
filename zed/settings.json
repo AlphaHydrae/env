@@ -60,6 +60,16 @@
       }
     }
   },
+  "lsp": {
+    "tailwindcss-language-server": {
+      "settings": {
+        "classFunctions": ["cva", "cx"],
+        "experimental": {
+          "classRegex": ["[cls|className]\\s\\:\\=\\s\"([^\"]*)"]
+        }
+      }
+    }
+  },
   "minimap": {
     "show": "auto"
   },
