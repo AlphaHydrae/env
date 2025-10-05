@@ -29,6 +29,7 @@
     "ruby": ["Vagrantfile"],
     "dotenv": [".env.sample"]
   },
+  "format_on_save": "on",
   "git": {
     "inline_blame": {
       "enabled": false
