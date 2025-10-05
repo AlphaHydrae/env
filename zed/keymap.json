@@ -27,7 +27,9 @@
       "shift-f3": "pane::ActivatePreviousItem",
       "f4": "pane::CloseActiveItem",
       "f5": "workspace::ActivatePreviousPane",
-      "f6": "workspace::ActivateNextPane"
+      "f6": "workspace::ActivateNextPane",
+      "cmd-shift-left": "pane::SwapItemLeft",
+      "cmd-shift-right": "pane::SwapItemRight"
     }
   },
   {
