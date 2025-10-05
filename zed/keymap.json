@@ -64,5 +64,11 @@
       ", b": "vim::PreviousSubwordStart",
       ", e": "vim::NextSubwordEnd"
     }
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      "shift-s": "vim::PushAddSurrounds"
+    }
   }
 ]
