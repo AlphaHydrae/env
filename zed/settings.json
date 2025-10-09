@@ -7,6 +7,10 @@
     },
     "model_parameters": []
   },
+  "auto_install_extensions": {
+    "html": true,
+    "tokyo-night": true
+  },
   "auto_signature_help": true,
   "base_keymap": "VSCode",
   "buffer_font_features": {
