@@ -9,7 +9,7 @@ from '.httpie' do
 end
 
 # Zed
-from '.config/zed' do
+from 'zed' do
   symlink('keymap.json').to('.config/zed')
   symlink('settings.json').to('.config/zed')
 end
