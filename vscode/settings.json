@@ -297,6 +297,9 @@
     "java:S119": {
       "level": "off"
     },
+    "java:S135": {
+      "level": "off"
+    },
     "java:S1075": {
       "level": "off"
     },
