@@ -8,6 +8,12 @@ from '.httpie' do
   copy('config.json').to('~/.httpie').once
 end
 
+# Zed
+from '.config/zed' do
+  symlink('keymap.json').to('.config/zed')
+  symlink('settings.json').to('.config/zed')
+end
+
 # Zellij
 from '.config/zellij' do
   symlink('config.kdl').to('.config/zellij')
