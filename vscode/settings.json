@@ -388,6 +388,9 @@
     "typescript:S6772": {
       "level": "off"
     },
+    "typescript:S7729": {
+      "level": "off"
+    },
     "Web:MouseEventWithoutKeyboardEquivalentCheck": {
       "level": "off"
     },
