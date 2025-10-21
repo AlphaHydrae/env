@@ -279,6 +279,7 @@
   "javascript.preferences.quoteStyle": "single",
   "jest.runMode": "on-demand",
   "Lua.telemetry.enable": false,
+  "makefile.configureOnOpen": false,
   "prettier.requireConfig": true,
   "prisma.showPrismaDataPlatformNotification": false,
   "redhat.telemetry.enabled": false,
