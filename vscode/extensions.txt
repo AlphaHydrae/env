@@ -4,6 +4,7 @@ bradlc.vscode-tailwindcss
 csstools.postcss
 dbaeumer.vscode-eslint
 denoland.vscode-deno
+dnut.rewrap-revived
 dotjoshjohnson.xml
 ducfilan.pug-formatter
 dunstontc.dark-plus-syntax
@@ -60,7 +61,6 @@ shuworks.vscode-table-formatter
 sianglim.slim
 sjhuangx.vscode-scheme
 sonarsource.sonarlint-vscode
-stkb.rewrap
 sumneko.lua
 svelte.svelte-vscode
 syler.sass-indented
