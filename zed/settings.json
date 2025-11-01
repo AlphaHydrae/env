@@ -58,7 +58,8 @@
       "language_servers": ["tailwindcss-language-server"]
     },
     "Elixir": {
-      "format_on_save": {
+      "format_on_save": "on",
+      "formatter": {
         "external": {
           "command": "mix",
           "arguments": ["format", "--stdin-filename", "{buffer_path}", "-"]
