@@ -215,7 +215,6 @@
   },
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "editor.wordWrap": "off",
-  "elixir.credo.strictMode": true,
   "explorer.confirmDelete": true,
   "explorer.confirmDragAndDrop": false,
   "extensions.ignoreRecommendations": false,
@@ -225,7 +224,6 @@
   },
   "git.openRepositoryInParentFolders": "never",
   "github.copilot.chat.codesearch.enabled": true,
-  "github.copilot.editor.enableAutoCompletions": true,
   "github.copilot.enable": {
     "*": true,
     "plaintext": false,
@@ -277,13 +275,9 @@
   "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
   "javascript.inlayHints.variableTypes.enabled": true,
   "javascript.preferences.quoteStyle": "single",
-  "jest.runMode": "on-demand",
-  "Lua.telemetry.enable": false,
   "makefile.configureOnOpen": false,
   "prettier.requireConfig": true,
-  "prisma.showPrismaDataPlatformNotification": false,
   "redhat.telemetry.enabled": false,
-  "rust-client.rustupPath": "~/.asdf/shims/rustup",
   "sonarlint.rules": {
     "css:S4662": {
       "level": "off"
@@ -435,8 +429,6 @@
   "typescript.suggest.completeFunctionCalls": true,
   "vim.camelCaseMotion.enable": true,
   "vim.leader": ",",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "vue.server.hybridMode": true,
   "window.openFoldersInNewWindow": "on",
   "workbench.colorCustomizations": {
     "editorRuler.foreground": "#333333",
