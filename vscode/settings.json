@@ -230,6 +230,7 @@
     "markdown": true,
     "scminput": false
   },
+  "github.copilot.nextEditSuggestions.enabled": true,
   "gitlens.currentLine.enabled": false,
   "java.configuration.updateBuildConfiguration": "automatic",
   "java.completion.favoriteStaticMembers": [
