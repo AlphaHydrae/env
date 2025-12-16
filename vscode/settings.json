@@ -397,6 +397,9 @@
     "Web:MouseEventWithoutKeyboardEquivalentCheck": {
       "level": "off"
     },
+    "Web:S6840": {
+      "level": "off"
+    },
     "Web:S6842": {
       "level": "off"
     }
