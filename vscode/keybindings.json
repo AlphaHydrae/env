@@ -492,8 +492,13 @@
   },
   {
     "key": "cmd+g a",
-    "command": "workbench.action.chat.openAgent",
-    "when": "config.chat.agent.enabled && !chatSetupHidden"
+    "command": "workbench.action.chat.openagent",
+    "when": "!chatSetupDisabled && !chatSetupHidden"
+  },
+  {
+    "key": "cmd+g k",
+    "command": "workbench.action.chat.openask",
+    "when": "!chatSetupDisabled && !chatSetupHidden"
   },
   {
     "key": "shift+cmd+i",
