@@ -361,6 +361,9 @@
     "typescript:S4323": {
       "level": "off"
     },
+    "typescript:S4623": {
+      "level": "off"
+    },
     "typescript:S4782": {
       "level": "off"
     },
@@ -383,6 +386,12 @@
       "level": "off"
     },
     "typescript:S7729": {
+      "level": "off"
+    },
+    "typescript:S7764": {
+      "level": "off"
+    },
+    "typescript:S7785": {
       "level": "off"
     },
     "Web:MouseEventWithoutKeyboardEquivalentCheck": {
