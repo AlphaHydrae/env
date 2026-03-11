@@ -476,7 +476,8 @@
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.editor.showTabs": "multiple",
   "workbench.editorAssociations": {
-    "*.ipynb": "jupyter-notebook"
+    "*.ipynb": "jupyter-notebook",
+    "git-rebase-todo": "default"
   },
   "workbench.startupEditor": "newUntitledFile",
   "workbench.tree.indent": 12
