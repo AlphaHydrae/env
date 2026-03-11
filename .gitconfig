@@ -80,6 +80,9 @@
   #    mu
   mu = "!f() { upstream=\"$(git rev-parse --abbrev-ref --symbolic-full-name @{u})\"; if [ $? -ne 0 ]; then return 2; fi; git merge \"$upstream\"; }; f"
 
+  # diff with current upstream branch
+  du = "!f() { git rev-parse --abbrev-ref --symbolic-full-name @{u} >/dev/null 2>&1 || { echo \"No upstream configured for this branch.\"; exit 1; }; git diff @{u}..HEAD; }; f"
+
   # rebase current branch for squashing, based on common ancestor with origin/main (or specified branch)
   rbs = "!f() { base=\"${1:-origin/main}\"; git rebase -i \"$(git merge-base HEAD \"$base\")\"; }; f"
 [core]
