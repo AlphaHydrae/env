@@ -501,6 +501,11 @@
     "when": "!chatSetupDisabled && !chatSetupHidden"
   },
   {
+    "key": "cmd+g p",
+    "command": "workbench.action.chat.openPlan",
+    "when": "!chatSetupDisabled && !chatSetupHidden"
+  },
+  {
     "key": "shift+cmd+i",
     "command": "-workbench.action.chat.openAgent",
     "when": "config.chat.agent.enabled && !chatSetupHidden"
