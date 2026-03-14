@@ -99,6 +99,9 @@
     }
   ],
   "chat.tools.terminal.enableAutoApprove": false,
+  "chat.tools.terminal.terminalProfile.osx": {
+    "path": "bash"
+  },
   "debug.console.fontSize": 15,
   "debug.toolBarLocation": "docked",
   "docker.extension.enableComposeLanguageServer": false,
