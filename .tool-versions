@@ -4,7 +4,6 @@ elixir 1.19.5-otp-28
 elm 0.19.1
 erlang 28.4.1
 golang 1.26.1
-haskell 9.12.2
 java openjdk-25.0.2
 lua 5.4.7
 nodejs 24.14.0

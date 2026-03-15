@@ -99,6 +99,9 @@
     }
   ],
   "chat.tools.terminal.enableAutoApprove": false,
+  "chat.tools.terminal.terminalProfile.osx": {
+    "path": "bash"
+  },
   "debug.console.fontSize": 15,
   "debug.toolBarLocation": "docked",
   "docker.extension.enableComposeLanguageServer": false,
@@ -412,6 +415,9 @@
     },
     "Web:S6842": {
       "level": "off"
+    },
+    "java:S8445": {
+      "level": "off"
     }
   },
   "statusbarerror.wholeLine.show": true,
@@ -482,7 +488,8 @@
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.editor.showTabs": "multiple",
   "workbench.editorAssociations": {
-    "*.ipynb": "jupyter-notebook"
+    "*.ipynb": "jupyter-notebook",
+    "git-rebase-todo": "default"
   },
   "workbench.startupEditor": "newUntitledFile",
   "workbench.tree.indent": 12

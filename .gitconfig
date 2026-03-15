@@ -24,13 +24,11 @@
   f = fetch
   fp = fetch --prune
   fa = fetch --all --prune
-  dev = checkout develop
-  develop = checkout develop
   main = checkout main
-  mas = checkout master
-  master = checkout master
   papt = !"git push && git push --tags"
   ptm = !"if git rev-parse --verify main &>/dev/null; then git push --tags origin main; elif git rev-parse --verify master &>/dev/null; then git push --tags origin master; else >&2 echo No main/master branch found && exit 1; fi"
+  rb = rebase
+  rbi = rebase -i
   rsh1 = reset --soft HEAD~1
 
   chp = cherry-pick
@@ -65,8 +63,8 @@
   # stage new, modified and removed files
   wip = !"git add -A; git ls-files --deleted -z | xargs -0 git rm"
 
-  # prune local branches that have been merged (excluding master and the current branch)
-  pl = !"git branch --merged|grep -v "\\*"|grep -v master|xargs -n 1 git branch -d"
+  # prune local branches that have been merged (excluding main/master and the current branch)
+  pl = !"git branch --merged|grep -v "\\*"|grep -v main|grep -v master|xargs -n 1 git branch -d"
 
   # set upstream to origin/<branch> or <remote>/<branch>
   #    sup <branch>
@@ -81,6 +79,12 @@
   # merge current branch upstream
   #    mu
   mu = "!f() { upstream=\"$(git rev-parse --abbrev-ref --symbolic-full-name @{u})\"; if [ $? -ne 0 ]; then return 2; fi; git merge \"$upstream\"; }; f"
+
+  # diff with current upstream branch
+  du = "!f() { git rev-parse --abbrev-ref --symbolic-full-name @{u} >/dev/null 2>&1 || { echo \"No upstream configured for this branch.\"; exit 1; }; git diff @{u}..HEAD; }; f"
+
+  # rebase current branch for squashing, based on common ancestor with origin/main (or specified branch)
+  rbs = "!f() { base=\"${1:-origin/main}\"; git rebase -i \"$(git merge-base HEAD \"$base\")\"; }; f"
 [core]
   excludesfile = ~/.gitignore
   editor = /usr/local/bin/vim
