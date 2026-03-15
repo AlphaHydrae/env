@@ -323,6 +323,12 @@
     "java:S6813": {
       "level": "off"
     },
+    "java:S6856": {
+      "level": "off"
+    },
+    "java:S8445": {
+      "level": "off"
+    },
     "javascript:S3317": {
       "level": "off"
     },
@@ -384,6 +390,9 @@
       "level": "off"
     },
     "typescript:S6772": {
+      "level": "off"
+    },
+    "typescript:S7649": {
       "level": "off"
     },
     "typescript:S7729": {
