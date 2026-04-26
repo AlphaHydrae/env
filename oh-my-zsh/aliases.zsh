@@ -11,10 +11,7 @@ alias vi="vim"
 alias vimt="vimtree"
 alias vimtree="vim -c NERDTree"
 alias vlc="open -n /Applications/VLC.app"
-alias z="zide"
-alias zc="zellij --layout compact"
-alias zf="zellij run --floating --"
-alias zr="zellij run --"
+alias x="tmuxinator"
 
 # https://hub.github.com
 hash hub 2>/dev/null && alias git="hub"
