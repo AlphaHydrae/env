@@ -102,6 +102,7 @@
   "chat.tools.terminal.terminalProfile.osx": {
     "path": "bash"
   },
+  "chat.viewSessions.orientation": "stacked",
   "debug.console.fontSize": 15,
   "debug.toolBarLocation": "docked",
   "docker.extension.enableComposeLanguageServer": false,
