@@ -69,7 +69,15 @@
     "key": "f7",
     "command": "workbench.action.terminal.sendSequence",
     "args": {
-      "text": "\u0014n"
+      "text": "\u0002c"
+    },
+    "when": "terminalFocus"
+  },
+  {
+    "key": "shift-f7",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+      "text": "\u0002,"
     },
     "when": "terminalFocus"
   },
@@ -349,10 +357,26 @@
     "when": "inDebugRepl"
   },
   {
+    "key": "alt+f1",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+      "text": "\u0002s"
+    },
+    "when": "terminalFocus"
+  },
+  {
+    "key": "f2",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+      "text": "\u0002z"
+    },
+    "when": "terminalFocus"
+  },
+  {
     "key": "f4",
     "command": "workbench.action.terminal.sendSequence",
     "args": {
-      "text": "\u0010x"
+      "text": "\u0002x"
     },
     "when": "terminalFocus"
   },
@@ -360,7 +384,15 @@
     "key": "shift+f4",
     "command": "workbench.action.terminal.sendSequence",
     "args": {
-      "text": "\u0011"
+      "text": "\u0002X"
+    },
+    "when": "terminalFocus"
+  },
+  {
+    "key": "alt+f4",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+      "text": "\u0002W"
     },
     "when": "terminalFocus"
   },
@@ -368,7 +400,7 @@
     "key": "f5",
     "command": "workbench.action.terminal.sendSequence",
     "args": {
-      "text": "\u0014h\n"
+      "text": "\u0002p"
     },
     "when": "terminalFocus"
   },
@@ -376,7 +408,7 @@
     "key": "f6",
     "command": "workbench.action.terminal.sendSequence",
     "args": {
-      "text": "\u0014l\n"
+      "text": "\u0002n"
     },
     "when": "terminalFocus"
   },
@@ -384,7 +416,7 @@
     "key": "f3",
     "command": "workbench.action.terminal.sendSequence",
     "args": {
-      "text": "\u0010b\n"
+      "text": "\u0002o"
     },
     "when": "terminalFocus"
   },
@@ -392,7 +424,7 @@
     "key": "shift+f1",
     "command": "workbench.action.terminal.sendSequence",
     "args": {
-      "text": "\u0010r"
+      "text": "\u0002%"
     },
     "when": "terminalFocus"
   },
@@ -400,7 +432,7 @@
     "key": "shift+f2",
     "command": "workbench.action.terminal.sendSequence",
     "args": {
-      "text": "\u0010d"
+      "text": "\u0002\""
     },
     "when": "terminalFocus"
   },
@@ -408,7 +440,7 @@
     "key": "cmd+f1",
     "command": "workbench.action.terminal.sendSequence",
     "args": {
-      "text": "z\n"
+      "text": "x\n"
     },
     "when": "terminalFocus"
   },
@@ -416,7 +448,7 @@
     "key": "f8",
     "command": "workbench.action.terminal.sendSequence",
     "args": {
-      "text": "\u0013"
+      "text": "\u0002["
     },
     "when": "terminalFocus"
   },
