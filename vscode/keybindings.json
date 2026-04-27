@@ -368,15 +368,7 @@
     "key": "alt+f2",
     "command": "workbench.action.terminal.sendSequence",
     "args": {
-      "text": "\u0002P"
-    },
-    "when": "terminalFocus"
-  },
-  {
-    "key": "alt+f3",
-    "command": "workbench.action.terminal.sendSequence",
-    "args": {
-      "text": "\u0002T"
+      "text": "\u0002z"
     },
     "when": "terminalFocus"
   },
