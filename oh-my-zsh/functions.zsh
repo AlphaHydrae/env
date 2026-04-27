@@ -1,3 +1,10 @@
+# tmux
+# ====
+
+function xide() {
+  test -f .tmuxinator.yml && tmuxinator || tmux
+}
+
 # Zellij
 # ======
 
