@@ -365,10 +365,18 @@
     "when": "terminalFocus"
   },
   {
-    "key": "f2",
+    "key": "alt+f2",
     "command": "workbench.action.terminal.sendSequence",
     "args": {
-      "text": "\u0002z"
+      "text": "\u0002P"
+    },
+    "when": "terminalFocus"
+  },
+  {
+    "key": "alt+f3",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+      "text": "\u0002T"
     },
     "when": "terminalFocus"
   },
