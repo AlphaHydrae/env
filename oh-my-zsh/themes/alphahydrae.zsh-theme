@@ -11,7 +11,10 @@
 # sure you have a recent version: the code points that Powerline uses changed
 # in 2012, and older versions will display incorrectly, in confusing ways.
 
+THEME_DIR="${0:h}"
 
+# Shared backup status script
+source "$THEME_DIR/../../bin/backup-status.sh"
 
 # Hooks
 # =====
@@ -40,30 +43,9 @@ function _background_jobs_async() {
   [[ $(jobs -l | wc -l) -gt 0 ]] && echo -n "black default %{%F{cyan}%}⚙"
 }
 
-# Machine backup age
+# Machine backup age (delegates to shared script)
 function _backup_status_async {
-  if [[ "$PROMPT_BACKUP_AGE" == "off" ]]; then
-    echo -n ""
-    return
-  elif [[ "$PROMPT_BACKUP_AGE" == "0" ]]; then
-    echo -n "-2"
-    return
-  fi
-
-  local backup_data_dir="$PROMPT_BACKUP_DATA_DIR"
-  if [ -z "$backup_data_dir" ]; then
-    echo -n "-1"
-    return
-  fi
-
-  local find_command="gfind"
-  command -v "$find_command" &>/dev/null || find_command="find"
-
-  local latest_timestamp="$("$find_command" "$backup_data_dir" -type f -printf '%T@ %p\n' | cut -d . -f 1 | sort -bnr | head -n 1)"
-  local current_timestamp="$(date +%s)"
-  local diff_seconds=$(( current_timestamp - latest_timestamp ))
-  local diff_days=$(( diff_seconds / 86400 ))
-  echo -n "$diff_days"
+  backup_status
 }
 
 # Git: branch/detached head, dirty status, changes compared to the remote
