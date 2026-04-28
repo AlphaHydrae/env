@@ -315,6 +315,8 @@ prompt_background_jobs() {
 
 # Current time with seconds
 prompt_time() {
+  [[ -n "$TMUX" ]] && return
+
   local time="$_OMZ_ASYNC_OUTPUT[_time_async]"
   [ -z "$time" ] && return
 

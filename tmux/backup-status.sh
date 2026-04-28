@@ -28,9 +28,10 @@ backup_icon='💾'
 
 output_segment() {
   local color="$1" label="$2"
-  printf '#[fg=%s,bg=%s]%s#[fg=%s,bg=%s] %s ' \
+  printf '#[fg=%s,bg=%s]%s#[fg=%s,bg=%s] %s #[fg=%s,bg=%s]%s' \
     "$STATUS_BG" "$color" "$rarrow" \
-    "$STATUS_BG" "$color" "$label"
+    "$STATUS_BG" "$color" "$label" \
+    "$color" "color240" "$rarrow"
 }
 
 # Portable mtime of a file (macOS stat vs GNU stat)
