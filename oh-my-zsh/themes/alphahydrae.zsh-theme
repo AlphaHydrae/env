@@ -15,6 +15,8 @@ THEME_DIR="${0:h}"
 
 # Shared backup status script
 source "$THEME_DIR/../../bin/backup-status.sh"
+source "$THEME_DIR/../../bin/host-environment.sh"
+source "$THEME_DIR/../../bin/prompt-context.sh"
 
 # Hooks
 # =====
@@ -127,26 +129,23 @@ function parse_git_remote_changes() {
 
 # The machine environment (e.g. staging, production) as defined in a file.
 function _host_environment_async() {
-  local host_environment_file
-  if [ -n "$HOST_ENVIRONMENT_FILE" ]; then
-    host_environment_file="$HOST_ENVIRONMENT_FILE"
-  elif [ -f "$HOME/.host-environment" ]; then
-    host_environment_file="${HOME}/.host-environment"
-  elif [ -f "/etc/.host-environment" ]; then
-    host_environment_file="/etc/.host-environment"
+  [[ -n "$TMUX" ]] && return
+
+  local info bg fg label
+  info="$(host_environment_info)"
+  [ -z "$info" ] && return
+
+  IFS='|' read -r bg fg label <<EOF
+$info
+EOF
+
+  [ -z "$bg" ] || [ -z "$fg" ] || [ -z "$label" ] && return
+
+  if [[ "$bg" == red ]]; then
+    label="%{%B%}${label}%{%b%}"
   fi
 
-  [ ! -f "$host_environment_file" ] && return
-
-  local host_environment="$(cat "$host_environment_file" | sed 's/[^A-Z0-9a-z\_\-]*//')"
-  [ -z "$host_environment" ] && return
-
-  local bg=white
-  local fg=black
-  local normalized_host_environment="$(echo -n "$host_environment" | tr '[:upper:]' '[:lower:]')"
-  [[ "$normalized_host_environment" == st* ]] && bg=yellow
-  [[ "$normalized_host_environment" == pr* ]] && bg=red && fg=white && host_environment="%{%B%}$(echo "$host_environment" | tr '[:lower:]' '[:upper:]' | sed -Er 's/^PR$|^PROD$/PRODUCTION/')%{%b%}"
-  echo -n "$bg" "$fg" "$host_environment"
+  echo -n "$bg" "$fg" "$label"
 }
 
 function _time_async() {
@@ -267,6 +266,8 @@ prompt_backup() {
 
 # Context: [ssh] user@hostname (who am I and where am I)
 prompt_context() {
+  [[ -n "$TMUX" ]] && return
+
   # Hide if the current user matches the configured default user.
   if [[ "$USERNAME" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
     [ -n "$SSH_CLIENT" ] && prompt_segment green black "SSH"
