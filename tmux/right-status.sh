@@ -11,6 +11,15 @@ rarrow=''
 backup_icon='💾'
 backup_cache_file="${TMPDIR:-/tmp}/tmux-right-status-backup-$EUID"
 backup_cache_ttl=300
+mode="${1:-active}"
+role="${2:-outer}"
+
+if [[ "$mode" == passive-* ]]; then
+  status_bg='#303030'
+  time_bg='colour241'
+  passive_cpu_bg='colour240'
+  passive_mem_bg='colour241'
+fi
 
 file_mtime() {
   stat -f %m "$1" 2>/dev/null || stat -c %Y "$1" 2>/dev/null
@@ -82,6 +91,9 @@ $(backup_label_and_color)
 EOF
 
 if [ -n "$backup_color" ] && [ -n "$backup_label" ]; then
+  if [[ "$mode" == passive-* ]]; then
+    backup_color='colour240'
+  fi
   right_status+="$(segment_sep "$previous_bg" "$backup_color")"
   right_status+="$(segment_body "$backup_color" " $backup_label ")"
   previous_bg="$backup_color"
@@ -92,13 +104,22 @@ cpu_pct=${cpu_pct:-00}
 cpu_color=${cpu_color:-colour33}
 mem_pct=${mem_pct:-00}
 mem_color=${mem_color:-colour33}
+
+if [[ "$mode" == passive-* ]]; then
+  cpu_color="$passive_cpu_bg"
+  mem_color="$passive_mem_bg"
+fi
+
 time_text="$(date +%H:%M:%S)"
 
 right_status+="$(segment_sep "$previous_bg" "$cpu_color")"
 right_status+="$(segment_body "$cpu_color" " C${cpu_pct}")"
 right_status+="$(segment_divider "$cpu_color" "$mem_color")"
 right_status+="$(segment_body "$mem_color" "M${mem_pct} ")"
-right_status+="$(segment_sep "$mem_color" "$time_bg")"
-right_status+="$(segment_body "$time_bg" " ${time_text} ")"
+
+if [[ "$role" != "inner" ]]; then
+  right_status+="$(segment_sep "$mem_color" "$time_bg")"
+  right_status+="$(segment_body "$time_bg" " ${time_text} ")"
+fi
 
 printf '%s' "$right_status"

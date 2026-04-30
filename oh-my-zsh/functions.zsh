@@ -5,6 +5,23 @@ function xide() {
   test -f .tmuxinator.yml && tmuxinator || tmux
 }
 
+# SSH and immediately attach/create a remote tmux session in the current path.
+function sshx() {
+  if (( $# < 1 )); then
+    echo "Usage: sshx <ssh-target> [ssh-args...]" >&2
+    return 1
+  fi
+
+  local target="$1"
+  shift
+
+  if [ -n "$TMUX" ]; then
+    ssh -t "$target" "$@" 'TMUX_NESTED_HINT=1 tmux new-session -A -s main'
+  else
+    ssh -t "$target" "$@" 'tmux new-session -A -s main'
+  fi
+}
+
 # Zellij
 # ======
 
