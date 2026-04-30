@@ -22,14 +22,21 @@ host_environment_info() {
 
   [ ! -f "$host_environment_file" ] && return
 
+  # Read a single label from the first line and normalize surrounding whitespace.
   local label
-  label="$(sed 's/[^A-Z0-9a-z_-]*//' "$host_environment_file")"
+  label="$(head -n 1 "$host_environment_file" | tr -d '\r' | sed -E 's/^[[:space:]]+|[[:space:]]+$//g')"
   [ -z "$label" ] && return
+
+  # Keep the format strict so consumers can safely parse one symbolic token.
+  if ! printf '%s' "$label" | grep -Eq '^[A-Za-z0-9_-]+$'; then
+    return
+  fi
 
   local bg=white fg=black
   local normalized
   normalized="$(echo "$label" | tr '[:upper:]' '[:lower:]')"
 
+  # Prefix matching allows values like PROD, PRODUCTION, prod-eu, stg, etc.
   if [ "${normalized#pr}" != "$normalized" ]; then
     bg=red
     fg=white

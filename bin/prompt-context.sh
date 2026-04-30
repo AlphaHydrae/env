@@ -27,10 +27,12 @@ prompt_context_info() {
     ssh_flag=1
   fi
 
+  # Context is hidden for the default local user unless running over SSH.
   if [ "$current_user" = "$default_user" ] && [ "$ssh_flag" -eq 0 ]; then
     return
   fi
 
+  # Keep host short to avoid noisy prompt/status segments.
   if [ -n "$HOSTNAME" ]; then
     host="${HOSTNAME%%.*}"
   else

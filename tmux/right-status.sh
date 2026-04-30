@@ -1,21 +1,48 @@
 #!/usr/bin/env bash
 
+# Right status renderer for tmux.
+#
+# Displayed features (left-to-right):
+# - Backup freshness indicator (when configured).
+# - CPU usage.
+# - Memory usage.
+# - Clock (hidden for inner nested sessions to reduce duplication).
+#
+# Passive modes intentionally mute metric colors so nested focus remains clear.
+
 BACKUP_STATUS_LIB="$(dirname "$0")/../bin/backup-status.sh"
 CPU_MEM_STATUS_SCRIPT="$(dirname "$0")/cpu-mem-status.sh"
+STATUS_LIB="$(dirname "$0")/lib/status-lib.sh"
 
 source "$BACKUP_STATUS_LIB"
+source "$STATUS_LIB"
 
-status_bg='#262626'
+status_bg="$(tmux_mode_status_bg "${1:-active}")"
 time_bg='colour240'
-rarrow=''
 backup_icon='💾'
-backup_cache_file="${TMPDIR:-/tmp}/tmux-right-status-backup-$EUID"
 backup_cache_ttl=300
 mode="${1:-active}"
 role="${2:-outer}"
 
+tmux_backup_cache_key() {
+  # Different tmux servers/sockets should not share one cache file.
+  local socket_path
+  socket_path="$(tmux display-message -p '#{socket_path}' 2>/dev/null)"
+  if [ -z "$socket_path" ]; then
+    printf '%s' "$EUID"
+    return
+  fi
+
+  if command -v shasum >/dev/null 2>&1; then
+    printf '%s' "$socket_path" | shasum -a 1 | awk '{print $1}'
+  else
+    printf '%s' "$socket_path" | awk '{gsub(/[^A-Za-z0-9]/, "_"); print}'
+  fi
+}
+
+backup_cache_file="${TMPDIR:-/tmp}/tmux-right-status-backup-$(tmux_backup_cache_key)"
+
 if [[ "$mode" == passive-* ]]; then
-  status_bg='#303030'
   time_bg='colour241'
   passive_cpu_bg='colour240'
   passive_mem_bg='colour241'
@@ -28,6 +55,7 @@ file_mtime() {
 backup_label_and_color() {
   local backup_age
 
+  # Cache backup state to avoid expensive disk scans on each status refresh tick.
   if [ -f "$backup_cache_file" ]; then
     local cache_age
     cache_age=$(( $(date +%s) - $(file_mtime "$backup_cache_file") ))
@@ -62,27 +90,6 @@ backup_label_and_color() {
   esac
 }
 
-segment_sep() {
-  local left_bg="$1"
-  local right_bg="$2"
-
-  printf '#[fg=%s,bg=%s]%s' "$left_bg" "$right_bg" "$rarrow"
-}
-
-segment_divider() {
-  local left_bg="$1"
-  local right_bg="$2"
-
-  printf '#[fg=%s,bg=%s]▐' "$right_bg" "$left_bg"
-}
-
-segment_body() {
-  local bg="$1"
-  local text="$2"
-
-  printf '#[fg=black,bg=%s]%s' "$bg" "$text"
-}
-
 right_status=''
 previous_bg="$status_bg"
 
@@ -94,8 +101,8 @@ if [ -n "$backup_color" ] && [ -n "$backup_label" ]; then
   if [[ "$mode" == passive-* ]]; then
     backup_color='colour240'
   fi
-  right_status+="$(segment_sep "$previous_bg" "$backup_color")"
-  right_status+="$(segment_body "$backup_color" " $backup_label ")"
+  right_status+="$(status_segment_sep "$previous_bg" "$backup_color")"
+  right_status+="$(status_segment_body_black_fg "$backup_color" " $backup_label ")"
   previous_bg="$backup_color"
 fi
 
@@ -106,20 +113,21 @@ mem_pct=${mem_pct:-00}
 mem_color=${mem_color:-colour33}
 
 if [[ "$mode" == passive-* ]]; then
+  # Passive mode keeps these neutral regardless of instantaneous metric spikes.
   cpu_color="$passive_cpu_bg"
   mem_color="$passive_mem_bg"
 fi
 
 time_text="$(date +%H:%M:%S)"
 
-right_status+="$(segment_sep "$previous_bg" "$cpu_color")"
-right_status+="$(segment_body "$cpu_color" " C${cpu_pct}")"
-right_status+="$(segment_divider "$cpu_color" "$mem_color")"
-right_status+="$(segment_body "$mem_color" "M${mem_pct} ")"
+right_status+="$(status_segment_sep "$previous_bg" "$cpu_color")"
+right_status+="$(status_segment_body_black_fg "$cpu_color" " C${cpu_pct}")"
+right_status+="$(status_segment_divider "$cpu_color" "$mem_color")"
+right_status+="$(status_segment_body_black_fg "$mem_color" "M${mem_pct} ")"
 
 if [[ "$role" != "inner" ]]; then
-  right_status+="$(segment_sep "$mem_color" "$time_bg")"
-  right_status+="$(segment_body "$time_bg" " ${time_text} ")"
+  right_status+="$(status_segment_sep "$mem_color" "$time_bg")"
+  right_status+="$(status_segment_body_black_fg "$time_bg" " ${time_text} ")"
 fi
 
 printf '%s' "$right_status"

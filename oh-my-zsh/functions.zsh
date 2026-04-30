@@ -1,3 +1,5 @@
+# Custom shell functions.
+
 # tmux
 # ====
 
@@ -15,6 +17,7 @@ function sshx() {
   local target="$1"
   shift
 
+  # Explicitly pass nested hint so the remote tmux can switch to passive-inner.
   if [ -n "$TMUX" ]; then
     ssh -t "$target" "$@" 'TMUX_NESTED_HINT=1 tmux new-session -A -s main'
   else
@@ -39,8 +42,6 @@ summon () {
     history 0
   fi
 }
-
-alias smn="summon"
 
 psef () {
   if (( $# >= 1 )); then
@@ -116,6 +117,8 @@ function random-alphanumeric() {
 
 function random-number() {
   local max="$1"
+
+  # Keep a deterministic range contract when a max value is provided.
   if test -n "$max"; then
     shuf -i "0-${max}" -n 1 | tr -d '\n'
   else

@@ -1,3 +1,8 @@
+# Shared ZSH environment initialization:
+#
+# - Keep shell environment variables and runtime hints consistent across sessions.
+# - Provide nested-tmux SSH hints consumed by tmux auto-detection scripts.
+
 ensure_tmux_term() {
 	if [[ -n "$TMUX" ]]; then
 		export TERM="tmux-256color"
@@ -12,6 +17,7 @@ if (( ${precmd_functions[(I)ensure_tmux_term]} == 0 )); then
 	precmd_functions+=(ensure_tmux_term)
 fi
 
+# Propagate explicit nested hint for remote shells reached from tmux terminals.
 # Mark remote SSH shells that originate from a tmux terminal so remote tmux
 # can reliably auto-switch to passive-inner without broad TERM heuristics.
 if [[ -n "$SSH_CONNECTION" || -n "$SSH_TTY" ]]; then

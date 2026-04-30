@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 
+# Auto-detect nested usage and initialize outer/inner mode automatically.
+#
+# Features:
+# - Evaluates client terminal identity plus SSH/TMUX_NESTED_HINT heuristics.
+# - Applies passive-inner when launched from nested tmux contexts.
+# - Restores active-outer when sessions are local/non-nested.
+# - Optionally logs detailed decisions when @nested_debug is enabled.
+
 set_mode_script="$(dirname "$0")/set-nested-mode.sh"
 debug_log="${TMPDIR:-/tmp}/tmux-nested-debug.log"
 debug_enabled="$(tmux show-options -gv @nested_debug 2>/dev/null || echo 0)"
@@ -56,6 +64,7 @@ fi
 # Treat SSH + tmux-like TERM as nested when enabled.
 if [[ "$is_nested" -eq 0 ]]; then
   if [[ "$source_hint" == "startup" ]]; then
+    # On startup, client_termname can be ambiguous; TERM+SSH is a useful fallback.
     case "$term_env" in
       tmux*|screen*)
         if [[ -n "$ssh_hint" && "$auto_over_ssh" == "1" ]]; then

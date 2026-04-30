@@ -4,8 +4,6 @@
 # Based on agnoster's Theme - https://gist.github.com/3712874
 # A Powerline-inspired theme for ZSH
 #
-# # README
-#
 # In order for this theme to render correctly, you will need a
 # [Powerline-patched font](https://github.com/Lokaltog/powerline-fonts). Make
 # sure you have a recent version: the code points that Powerline uses changed

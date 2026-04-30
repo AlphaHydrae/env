@@ -5,8 +5,6 @@
 #   <cpu_pct> <cpu_color> <mem_pct> <mem_color>
 #
 # Percentages are always two digits (00-99; 100 is capped to 99).
-# CPU thresholds: 26, 51, 71, 86 (blue, purple, yellow, orange, red).
-# MEM thresholds: 80, 90, 94, 96 (blue, purple, yellow, orange, red).
 
 color_for_cpu_pct() {
     local p=$1

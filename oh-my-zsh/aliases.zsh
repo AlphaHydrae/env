@@ -1,3 +1,5 @@
+# User aliases for everyday commands.
+
 alias less="less -R"
 alias mvn-sql="mvn -Dspring.jpa.show-sql=true -Dspring.jpa.properties.hibernate.format_sql=true -Dlogging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE test"
 alias ogc="open -a Google\ Chrome"
