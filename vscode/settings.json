@@ -489,6 +489,7 @@
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.editor.showTabs": "multiple",
+  "workbench.editor.useModal": "off",
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook",
     "git-rebase-todo": "default"
