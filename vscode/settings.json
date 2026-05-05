@@ -103,6 +103,7 @@
     "path": "bash"
   },
   "chat.viewSessions.orientation": "stacked",
+  "claudeCode.preferredLocation": "sidebar",
   "debug.console.fontSize": 15,
   "debug.toolBarLocation": "docked",
   "docker.extension.enableComposeLanguageServer": false,
