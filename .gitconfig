@@ -36,6 +36,9 @@
   rbi5 = rebase -i --onto HEAD~5 HEAD~5
   rsh1 = reset --soft HEAD~1
 
+  mb = merge-base
+  mbh = merge-base HEAD
+
   chp = cherry-pick
   chpn = cherry-pick -n
 
