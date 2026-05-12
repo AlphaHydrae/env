@@ -431,6 +431,11 @@
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.confirmOnExit": "hasChildProcesses",
   "terminal.integrated.confirmOnKill": "always",
+  "terminal.integrated.env.osx": {
+    "TMUX": null,
+    "TMUX_PANE": null,
+    "TERM": "xterm-256color"
+  },
   "terminal.integrated.fontFamily": "MesloLGS NF",
   "terminal.integrated.fontSize": 15,
   "terminal.integrated.gpuAcceleration": "on",
