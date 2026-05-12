@@ -66,7 +66,7 @@ plugins=(
 # ==================
 
 # Use 256 colors.
-if [[ -n "$TMUX" ]]; then
+if [[ -n "$TMUX" && -n "$TMUX_PANE" ]]; then
   export TERM="tmux-256color"
 else
   export TERM="xterm-256color"

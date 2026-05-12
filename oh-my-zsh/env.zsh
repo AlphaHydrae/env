@@ -4,7 +4,7 @@
 # - Provide nested-tmux SSH hints consumed by tmux auto-detection scripts.
 
 ensure_tmux_term() {
-	if [[ -n "$TMUX" ]]; then
+	if [[ -n "$TMUX" && -n "$TMUX_PANE" ]]; then
 		export TERM="tmux-256color"
 	fi
 }
