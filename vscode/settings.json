@@ -98,6 +98,7 @@
       "backgroundColor": "transparent"
     }
   ],
+  "chat.tools.compressOutput.enabled": true,
   "chat.tools.terminal.enableAutoApprove": false,
   "chat.tools.terminal.terminalProfile.osx": {
     "path": "bash"
