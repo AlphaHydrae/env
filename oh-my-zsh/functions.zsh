@@ -25,6 +25,11 @@ function sshx() {
   fi
 }
 
+# Reload Tmux configuration file.
+function tmux-reload() {
+  tmux source-file ~/.tmux.conf
+}
+
 # Zellij
 # ======
 
