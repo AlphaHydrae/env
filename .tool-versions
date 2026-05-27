@@ -2,7 +2,7 @@ bats 1.13.0
 deno 2.8.0
 elixir 1.19.5-otp-28
 elm 0.19.1
-erlang 29.0
+erlang 29.0.1
 golang 1.26.3
 haskell 9.14.1
 java openjdk-26.0.1
