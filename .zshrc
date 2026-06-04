@@ -100,6 +100,10 @@ export HOMEBREW_PREFIX="$(command -v brew &>/dev/null && brew --prefix || echo -
 # Disable Homebrew analytics.
 export HOMEBREW_NO_ANALYTICS=1
 
+# Local
+# =====
+[ -d ~/.local/bin ] && export PATH="~/.local/bin:$PATH"
+
 # Composer - https://getcomposer.org
 # ==================================
 [ -d "$HOME/.composer" ] && export PATH="$HOME/.composer/vendor/bin:$PATH"
