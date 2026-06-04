@@ -248,6 +248,7 @@
     "com.jayway.jsonpath.matchers.JsonPathMatchers.*",
     "com.spotify.hamcrest.optional.OptionalMatchers.*",
     "java.util.Collections.*",
+    "java.util.Comparator.*",
     "java.util.function.Predicate.*",
     "java.util.Objects.*",
     "java.util.stream.Collectors.*",
