@@ -420,7 +420,7 @@
     "Web:S6842": {
       "level": "off"
     },
-    "java:S8445": {
+    "typescript:S7749": {
       "level": "off"
     }
   },
