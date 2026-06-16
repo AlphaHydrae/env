@@ -106,8 +106,13 @@
   },
   {
     "key": "f2",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "!editorFocus && !explorerFocus && !terminalFocus"
+  },
+  {
+    "key": "f2",
     "command": "workbench.view.explorer",
-    "when": "!explorerFocus && !terminalFocus"
+    "when": "editorFocus"
   },
   {
     "key": "alt+cmd+g l",
