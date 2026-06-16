@@ -541,8 +541,7 @@
   },
   {
     "key": "cmd+g a",
-    "command": "workbench.action.chat.openagent",
-    "when": "!chatSetupDisabled && !chatSetupHidden"
+    "command": "claude-vscode.sidebar.open"
   },
   {
     "key": "cmd+g k",
