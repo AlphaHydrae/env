@@ -72,23 +72,65 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 bool rgb_matrix_indicators_user(void) {
     uint8_t brightness = rgb_matrix_get_val();
 
-    // Helper to scale color by brightness
+    // Scale a 0-255 channel by the current RGB brightness, so Fn+W / Fn+S
+    // (brightness up/down) still control the overall intensity.
     #define SCALE(val) ((uint8_t)(((uint16_t)(val) * brightness) / 255))
 
-    uint8_t current_layer = get_highest_layer(layer_state);
-    switch (current_layer) {
+    // How dim the "fall-through" wash is on the Fn layer (higher = dimmer).
+    #define FN_DIM_SHIFT 3
+
+    const uint8_t layer = get_highest_layer(layer_state);
+
+    switch (layer) {
         case MAC_BASE:
-            rgb_matrix_set_color_all(SCALE(0), SCALE(64), SCALE(128));  // RGB red
+        case WIN_BASE: {
+            // Solid per-mode base color.
+            const uint8_t br = (layer == MAC_BASE) ? 0  : 64;  // mac: blue / win: purple
+            const uint8_t bg = (layer == MAC_BASE) ? 64 : 0;
+            const uint8_t bb = (layer == MAC_BASE) ? 128 : 64;
+            rgb_matrix_set_color_all(SCALE(br), SCALE(bg), SCALE(bb));
+
+            // While Caps Lock is on, highlight the letter keys it affects.
+            if (host_keyboard_led_state().caps_lock) {
+                for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
+                    for (uint8_t col = 0; col < MATRIX_COLS; col++) {
+                        const uint8_t led = g_led_config.matrix_co[row][col];
+                        if (led == NO_LED) continue;
+                        const uint16_t kc = keymap_key_to_keycode(layer, (keypos_t){.row = row, .col = col});
+                        if (kc >= KC_A && kc <= KC_Z) {
+                            rgb_matrix_set_color(led, SCALE(255), SCALE(255), SCALE(255));  // white
+                        }
+                    }
+                }
+            }
             break;
-        case WIN_BASE:
-            rgb_matrix_set_color_all(SCALE(64), SCALE(0), SCALE(64));  // RGB green
-            break;
+        }
+
         case MAC_FN:
-            rgb_matrix_set_color_all(SCALE(0x8b), SCALE(0x00), SCALE(0x00));  // RGB blue
+        case WIN_FN: {
+            // Dim wash of the base color underneath this Fn layer...
+            const uint8_t br = (layer == MAC_FN) ? 0  : 64;
+            const uint8_t bg = (layer == MAC_FN) ? 64 : 0;
+            const uint8_t bb = (layer == MAC_FN) ? 128 : 64;
+            rgb_matrix_set_color_all(SCALE(br) >> FN_DIM_SHIFT,
+                                     SCALE(bg) >> FN_DIM_SHIFT,
+                                     SCALE(bb) >> FN_DIM_SHIFT);
+
+            // ...then light, in red, only the keys that actually do something
+            // here (i.e. that don't fall through to the layer below).
+            for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
+                for (uint8_t col = 0; col < MATRIX_COLS; col++) {
+                    const uint8_t led = g_led_config.matrix_co[row][col];
+                    if (led == NO_LED) continue;
+                    const uint16_t kc = keymap_key_to_keycode(layer, (keypos_t){.row = row, .col = col});
+                    if (kc > KC_TRNS) {  // KC_NO (0) and KC_TRNS (1) = fall-through
+                        rgb_matrix_set_color(led, SCALE(255), 0, 0);  // red
+                    }
+                }
+            }
             break;
-        case WIN_FN:
-            rgb_matrix_set_color_all(SCALE(0x8b), SCALE(0x00), SCALE(0x00));  // RGB yellow
-            break;
+        }
+
         default:
             break;
     }
