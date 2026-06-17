@@ -102,12 +102,22 @@
   {
     "key": "f2",
     "command": "workbench.action.focusActiveEditorGroup",
-    "when": "terminalFocus"
+    "when": "terminalFocus && editorIsOpen"
+  },
+  {
+    "key": "f2",
+    "command": "workbench.view.explorer",
+    "when": "terminalFocus && !editorIsOpen"
   },
   {
     "key": "f2",
     "command": "workbench.action.focusActiveEditorGroup",
-    "when": "!editorFocus && !explorerFocus && !terminalFocus"
+    "when": "!editorFocus && !explorerFocus && !terminalFocus && editorIsOpen"
+  },
+  {
+    "key": "f2",
+    "command": "workbench.view.explorer",
+    "when": "!editorFocus && !explorerFocus && !terminalFocus && !editorIsOpen"
   },
   {
     "key": "f2",

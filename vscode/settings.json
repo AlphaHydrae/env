@@ -434,6 +434,9 @@
     "phoenix-heex": "html"
   },
   "telemetry.telemetryLevel": "off",
+  "terminal.integrated.commandsToSkipShell": [
+    "workbench.view.explorer"
+  ],
   "terminal.integrated.confirmOnExit": "hasChildProcesses",
   "terminal.integrated.confirmOnKill": "always",
   "terminal.integrated.env.osx": {
