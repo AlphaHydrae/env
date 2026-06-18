@@ -293,6 +293,9 @@
     "go:S1192": {
       "level": "off"
     },
+    "java:S100": {
+      "level": "off"
+    },
     "java:S107": {
       "level": "off"
     },
@@ -323,6 +326,9 @@
       "parameters": {
         "customAssertionMethods": "andExpectAll"
       }
+    },
+    "java:S5693": {
+      "level": "off"
     },
     "java:S5976": {
       "level": "off"
@@ -405,6 +411,9 @@
     "typescript:S7729": {
       "level": "off"
     },
+    "typescript:S7749": {
+      "level": "off"
+    },
     "typescript:S7764": {
       "level": "off"
     },
@@ -418,12 +427,6 @@
       "level": "off"
     },
     "Web:S6842": {
-      "level": "off"
-    },
-    "typescript:S7749": {
-      "level": "off"
-    },
-    "java:S5693": {
       "level": "off"
     }
   },
