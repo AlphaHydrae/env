@@ -1,13 +1,13 @@
 bats 1.13.0
-deno 2.8.3
-elixir 1.20.1-otp-29
+deno 2.9.0
+elixir 1.20.2-otp-29
 elm 0.19.1
 erlang 29.0.2
 golang 1.26.4
 haskell 9.14.1
 java openjdk-26.0.1
 lua 5.4.7
-nodejs 26.3.0
+nodejs 26.4.0
 php 8.5.7
 python 3.14.6
 ruby 4.0.5
