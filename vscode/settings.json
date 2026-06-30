@@ -232,7 +232,7 @@
   "github.copilot.chat.codesearch.enabled": true,
   "github.copilot.enable": {
     "*": true,
-    "plaintext": false,
+    "plaintext": true,
     "markdown": true,
     "scminput": false
   },
