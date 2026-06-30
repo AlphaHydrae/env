@@ -363,6 +363,9 @@
     "Web:S5256": {
       "level": "off"
     },
+    "typescript:S1128": {
+      "level": "off"
+    },
     "typescript:S1135": {
       "level": "off"
     },
