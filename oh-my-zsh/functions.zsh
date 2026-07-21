@@ -112,12 +112,21 @@ function random-uuid() {
 }
 
 function random-alphanumeric() {
-  LENGTH=$1
-  if [ -z $LENGTH ]; then
-    LENGTH=50
-  fi
+  local length=${1:-50}
+  local result=""
 
-  echo -n "$(env LC_CTYPE=C LC_ALL=C tr -dc 'a-zA-Z0-9' < /dev/urandom | fold -w $LENGTH | head -n 1)"
+  # Prefer openssl's CSPRNG (portable, well-vetted); fall back to /dev/urandom.
+  # tr keeps only [a-zA-Z0-9], discarding ~76% of bytes, so loop until we have
+  # enough characters rather than trusting a single read to be long enough.
+  while [ ${#result} -lt $length ]; do
+    if command -v openssl > /dev/null 2>&1; then
+      result+=$(openssl rand -base64 $((length * 3)) | LC_CTYPE=C LC_ALL=C tr -dc 'a-zA-Z0-9')
+    else
+      result+=$(LC_CTYPE=C LC_ALL=C tr -dc 'a-zA-Z0-9' < /dev/urandom | head -c $((length * 3)))
+    fi
+  done
+
+  echo -n "${result:0:$length}"
 }
 
 function random-number() {
@@ -132,12 +141,22 @@ function random-number() {
 }
 
 function random-password() {
-  LENGTH=$1
-  if [ -z $LENGTH ]; then
-    LENGTH=50
-  fi
+  local length=${1:-50}
+  local charset='A-Za-z0-9!#$%&()*+,-./:;<=>?@[\]^_`{|}~'
+  local result=""
 
-  echo -n "$(env LC_CTYPE=C LC_ALL=C tr -dc 'A-Za-z0-9!#$%&()*+,-./:;<=>?@[\]^_`{|}~' </dev/urandom | head -c $LENGTH)"
+  # Prefer openssl's CSPRNG (portable, well-vetted); fall back to /dev/urandom.
+  # tr keeps only the allowed charset, discarding most bytes, so loop until we
+  # have enough characters rather than trusting a single read to be long enough.
+  while [ ${#result} -lt $length ]; do
+    if command -v openssl > /dev/null 2>&1; then
+      result+=$(openssl rand $((length * 4)) | LC_CTYPE=C LC_ALL=C tr -dc "$charset")
+    else
+      result+=$(LC_CTYPE=C LC_ALL=C tr -dc "$charset" < /dev/urandom | head -c $((length * 4)))
+    fi
+  done
+
+  echo -n "${result:0:$length}"
 }
 
 function random-port() {
