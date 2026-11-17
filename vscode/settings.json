@@ -286,6 +286,7 @@
   "makefile.configureOnOpen": false,
   "prettier.requireConfig": true,
   "redhat.telemetry.enabled": false,
+  "remote.SSH.enableAgentForwarding": false,
   "sonarlint.rules": {
     "css:S4662": {
       "level": "off"
