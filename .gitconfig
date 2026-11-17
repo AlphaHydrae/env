@@ -95,7 +95,7 @@
   rbs = "!f() { base=\"${1:-origin/main}\"; git rebase -i \"$(git merge-base HEAD \"$base\")\"; }; f"
 [core]
   excludesfile = ~/.gitignore
-  editor = /usr/local/bin/vim
+  editor = vim
 [include]
   path = .gitlocal
   path = .gitprivate
